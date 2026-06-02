@@ -19,8 +19,14 @@ html,body{margin:0;height:100%;font-family:'Outfit',system-ui,sans-serif;color:v
 header.hd{padding:16px 18px 12px;background:linear-gradient(150deg,var(--ocean),var(--ocean-deep));color:#fdfaf3}
 header.hd h1{font-family:'Fraunces',serif;font-weight:600;font-size:22px;margin:0 0 2px}
 header.hd .sub{font-size:12px;opacity:.8;font-weight:300}
-header.hd .me{font-size:11px;opacity:.65;margin-top:6px}
+header.hd .me{font-size:11px;opacity:.85;margin-top:6px;display:flex;align-items:center;gap:5px;flex-wrap:wrap}
 header.hd .me b{font-weight:600}
+header.hd .me code{background:rgba(255,255,255,.12);padding:1px 5px;border-radius:4px;font-family:inherit;font-size:10.5px}
+.meinput{background:transparent;border:none;border-bottom:1px dashed rgba(255,255,255,.45);
+  color:#fdfaf3;font-family:inherit;font-size:11px;font-weight:600;
+  padding:0 3px 1px;width:auto;min-width:40px;max-width:140px;outline:none}
+.meinput:focus{border-bottom-color:#fdfaf3;background:rgba(255,255,255,.06);border-radius:3px}
+.meinput::placeholder{color:rgba(255,255,255,.5);font-weight:400;font-style:italic}
 .counts{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
 .chip{font-size:11px;padding:4px 9px;border-radius:20px;background:rgba(255,255,255,.14);color:#fdfaf3}
 .chip b{font-weight:600}
@@ -149,7 +155,9 @@ select{padding:7px 8px;cursor:auto}
    ============================================================ */
 
 const C = window.SC_CONFIG || {};
-const ME = (C.me && String(C.me).trim()) || "Me";
+const NK = 'sc_rental_me_v1';
+let ME = "Me";
+try { ME = localStorage.getItem(NK) || (C.me && String(C.me).trim()) || "Me"; } catch(e){}
 const BOARD = (new URLSearchParams(location.search).get("board") || C.defaultBoard || "").trim();
 const SYNC = !!(C.supabaseUrl && C.supabaseAnon && BOARD);
 
@@ -634,7 +642,20 @@ function orphanCard(id){
 /* ---------- header ---------- */
 function renderMeLine(){
   const el=document.getElementById('meLine');
-  el.innerHTML = `you are <b>${esc(ME)}</b>` + (BOARD?` · board <code style="opacity:.85">${esc(BOARD.slice(0,8))}…</code>${SYNC?' (synced)':' (local)'}`:'');
+  const boardChip = BOARD?` · board <code>${esc(BOARD.slice(0,8))}…</code>${SYNC?' (synced)':' (local)'}`:'';
+  el.innerHTML = `you are <input class="meinput" id="meInput" maxlength="32" placeholder="your name" value="${esc(ME)}" />${boardChip}`;
+  const inp = document.getElementById('meInput');
+  function commit(){
+    const v = (inp.value||'').trim() || 'Me';
+    if(v===ME) return;
+    ME = v;
+    try{ localStorage.setItem(NK, v); }catch(e){}
+    // refresh every popup so the "add a comment as X…" placeholder picks up the new name
+    LISTINGS.forEach(l=>{ if(markers[l.id]) markers[l.id].setPopupContent(popupHtml(l)); });
+    render();
+  }
+  inp.onblur = commit;
+  inp.onkeydown = e=>{ if(e.key==='Enter'){ e.preventDefault(); inp.blur(); } };
 }
 
 /* ---------- boot ---------- */
