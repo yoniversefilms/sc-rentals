@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Santa Cruz House Hunt — Rental Map</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ocean:#0d4f5c;--ocean-deep:#08323b;--sand:#f5efe3;--paper:#fbf8f2;--coral:#e2674b;
+  --ink:#1f2a2d;--muted:#5e6e72;--line:#e3d9c7;--shadow:0 8px 30px rgba(8,50,59,.12)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;height:100%;font-family:'Outfit',system-ui,sans-serif;color:var(--ink);background:var(--paper)}
+#app{display:flex;height:100%;overflow:hidden}
+#side{width:380px;max-width:88vw;display:flex;flex-direction:column;background:var(--paper);border-right:1px solid var(--line);z-index:1000;box-shadow:var(--shadow)}
+header.hd{padding:18px 20px 12px;background:linear-gradient(150deg,var(--ocean),var(--ocean-deep));color:#fdfaf3}
+header.hd h1{font-family:'Fraunces',serif;font-weight:600;font-size:22px;margin:0 0 2px}
+header.hd .sub{font-size:12px;opacity:.8;font-weight:300}
+.counts{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.chip{font-size:11px;padding:4px 9px;border-radius:20px;background:rgba(255,255,255,.14);color:#fdfaf3}
+.chip b{font-weight:600}
+.filters{padding:12px 16px;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:9px;background:var(--sand)}
+.frow{display:flex;gap:8px}
+select,.favbtn{font-family:inherit;font-size:13px;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink);flex:1}
+.favbtn{cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;font-weight:500;transition:.15s}
+.favbtn.on{background:var(--coral);color:#fff;border-color:var(--coral)}
+.list{overflow-y:auto;flex:1;padding:8px 10px 30px}
+.card{border:1px solid var(--line);border-radius:13px;padding:11px 12px;margin-bottom:9px;background:#fff;cursor:pointer;position:relative;transition:.15s;overflow:hidden}
+.card:hover{border-color:var(--ocean);transform:translateY(-1px);box-shadow:0 4px 14px rgba(8,50,59,.1)}
+.card .strip{position:absolute;left:0;top:0;bottom:0;width:4px}
+.card h3{margin:0 0 3px;font-size:14px;font-weight:600;padding-right:26px;line-height:1.25}
+.card .meta{font-size:12px;color:var(--muted);display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.rent{font-family:'Fraunces',serif;font-weight:600;color:var(--ocean);font-size:15px}
+.badge{font-size:10px;font-weight:600;padding:2px 7px;border-radius:6px;color:#fff;text-transform:uppercase;letter-spacing:.3px}
+.heart{position:absolute;top:9px;right:9px;width:26px;height:26px;border:none;background:none;cursor:pointer;font-size:18px;line-height:1;color:#cdbfa8;transition:.15s;padding:0}
+.heart.on{color:var(--coral);transform:scale(1.12)}
+.pmline{font-size:11px;color:var(--muted);margin-top:5px}
+.approx{font-size:10px;color:#e0a020;font-weight:500}
+#map{flex:1;height:100%;background:#dde6e0}
+.legend{background:var(--paper);padding:9px 12px;border-radius:11px;box-shadow:var(--shadow);font-size:11.5px;line-height:1.9;border:1px solid var(--line)}
+.legend .dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:middle}
+.lp h3{font-family:'Fraunces',serif;margin:0 0 4px;font-size:15px;font-weight:600;line-height:1.2}
+.lp .lm{font-size:12px;color:var(--muted);margin-bottom:6px}
+.lp .lr{font-family:'Fraunces',serif;color:var(--ocean);font-weight:600;font-size:16px}
+.lp .acts{display:flex;gap:6px;margin-top:8px}
+.lp a.btn,.lp button.pf{flex:1;text-align:center;text-decoration:none;font-size:12px;font-weight:500;padding:7px 4px;border-radius:8px;border:1px solid var(--line);color:var(--ocean);background:#fff;cursor:pointer;font-family:inherit}
+.lp a.btn.solid{background:var(--ocean);color:#fff;border-color:var(--ocean)}
+.lp button.pf.on{background:var(--coral);color:#fff;border-color:var(--coral)}
+.lp .desc{font-size:11.5px;color:var(--muted);margin-top:6px;line-height:1.4}
+#toggle{display:none;position:absolute;top:12px;left:12px;z-index:1100;background:var(--ocean);color:#fff;border:none;border-radius:10px;padding:10px 14px;font-family:inherit;font-weight:600;font-size:13px;box-shadow:var(--shadow);cursor:pointer}
+.marker-pin{width:22px;height:22px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.3)}
+.marker-pin.fav{box-shadow:0 0 0 3px var(--coral),0 2px 6px rgba(0,0,0,.3)}
+.marker-pin.approx{opacity:.55;border-style:dashed}
+#loading{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;background:var(--paper);z-index:2000;font-family:'Fraunces',serif;color:var(--ocean);font-size:18px}
+.spin{width:30px;height:30px;border:3px solid var(--line);border-top-color:var(--ocean);border-radius:50%;animation:s 1s linear infinite}
+@keyframes s{to{transform:rotate(360deg)}}
+@media(max-width:760px){
+  #side{position:absolute;left:0;top:0;bottom:0;transform:translateX(-100%);transition:transform .28s;width:86vw}
+  #side.open{transform:translateX(0)}
+  #toggle{display:block}
+}
+</style>
+</head>
+<body>
+<div id="loading"><div class="spin"></div>Loading listings…</div>
+<div id="app">
+  <button id="toggle">☰ Listings</button>
+  <aside id="side">
+    <header class="hd">
+      <h1>Santa Cruz House Hunt</h1>
+      <div class="sub" id="updated">Live rentals from direct PM sites</div>
+      <div class="counts" id="counts"></div>
+    </header>
+    <div class="filters">
+      <div class="frow"><select id="fCity"></select><select id="fType"></select></div>
+      <button class="favbtn" id="fFav">♡ Favorites only</button>
+    </div>
+    <div class="list" id="list"></div>
+  </aside>
+  <div id="map"></div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+const TYPE_COLOR={'House':'#2f9e6f','Duplex':'#16a7a0','Townhome':'#16a7a0','Condo':'#3b7dd8','Apartment':'#7b8a8f','Verify type':'#e0a020','Studio':'#7b8a8f'};
+let LISTINGS=[];
+/* favorites keyed by STABLE id (survives daily data refresh) */
+let favs=new Set(), storageOK=true;
+const FK='sc_rental_favs_v2';
+try{const t=localStorage.getItem(FK); if(t) favs=new Set(JSON.parse(t));}catch(e){storageOK=false;}
+function saveFavs(){ if(storageOK){try{localStorage.setItem(FK,JSON.stringify([...favs]));}catch(e){}} }
+function toggleFav(id){ if(favs.has(id))favs.delete(id); else favs.add(id); saveFavs(); render(); refreshMarker(id); }
+
+const map=L.map('map',{zoomControl:true}).setView([36.985,-121.97],12);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'&copy; OpenStreetMap',maxZoom:19}).addTo(map);
+const markers={};
+
+function pinIcon(l){
+  const c=TYPE_COLOR[l.type]||'#7b8a8f';
+  const cls='marker-pin'+(favs.has(l.id)?' fav':'')+(l.approx?' approx':'');
+  return L.divIcon({className:'',html:`<div class="${cls}" style="background:${c}"></div>`,iconSize:[22,22],iconAnchor:[11,22],popupAnchor:[0,-20]});
+}
+function esc(s){return (s==null?'':String(s)).replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));}
+function popupHtml(l){
+  const c=TYPE_COLOR[l.type]||'#7b8a8f';
+  const mapUrl='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(l.addr);
+  return `<div class="lp"><h3>${esc(l.addr)}</h3>
+   <div class="lm"><span class="badge" style="background:${c}">${esc(l.type)}</span> &nbsp;${l.beds??'?'} bd · ${l.baths??'?'} ba${l.sqft?' · '+esc(l.sqft)+' sqft':''}</div>
+   <div class="lr">${esc(l.rent)}</div>
+   <div class="lm">${esc(l.pm)}${l.phone?' · '+esc(l.phone):''}${l.avail?' · avail '+esc(l.avail):''}</div>
+   ${l.approx?'<div class="approx">⚠ pin approximate</div>':''}
+   ${l.summary?`<div class="desc">${esc(l.summary)}</div>`:''}
+   <div class="acts">
+     <a class="btn solid" href="${esc(l.url)}" target="_blank" rel="noopener">View listing</a>
+     <a class="btn" href="${mapUrl}" target="_blank" rel="noopener">Directions</a>
+     <button class="pf ${favs.has(l.id)?'on':''}" onclick="toggleFav('${l.id}')">${favs.has(l.id)?'★ Saved':'♡ Save'}</button>
+   </div></div>`;
+}
+function refreshMarker(id){const l=LISTINGS.find(x=>x.id===id);const m=markers[id];if(l&&m){m.setIcon(pinIcon(l));m.setPopupContent(popupHtml(l));}}
+
+const fCity=document.getElementById('fCity'),fType=document.getElementById('fType'),fFav=document.getElementById('fFav');
+let favOnly=false;
+function uniq(k){return [...new Set(LISTINGS.map(l=>l[k]))].sort((a,b)=>a.localeCompare(b));}
+function filtered(){return LISTINGS.filter(l=>(!fCity.value||l.city===fCity.value)&&(!fType.value||l.type===fType.value)&&(!favOnly||favs.has(l.id)));}
+function render(){
+  const items=filtered();
+  const nFav=favs.size, nHouseSC=LISTINGS.filter(l=>l.city==='Santa Cruz'&&l.type==='House').length;
+  document.getElementById('counts').innerHTML=
+    `<span class="chip"><b>${LISTINGS.length}</b> listings</span>`+
+    `<span class="chip"><b>${nHouseSC}</b> SC houses</span>`+
+    `<span class="chip" style="background:rgba(226,103,75,.85)"><b>${nFav}</b> ♥ saved</span>`;
+  const list=document.getElementById('list');
+  list.innerHTML=items.map(l=>{const c=TYPE_COLOR[l.type]||'#7b8a8f';return `<div class="card" data-id="${l.id}">
+      <div class="strip" style="background:${c}"></div>
+      <button class="heart ${favs.has(l.id)?'on':''}" data-fav="${l.id}">${favs.has(l.id)?'★':'♡'}</button>
+      <h3>${esc(l.addr)}</h3>
+      <div class="meta"><span class="badge" style="background:${c}">${esc(l.type)}</span>
+        <span>${l.beds??'?'}bd·${l.baths??'?'}ba</span><span class="rent">${esc(l.rent)}</span></div>
+      <div class="pmline">${esc(l.city)} · ${esc(l.pm)}${l.approx?' · <span class="approx">approx pin</span>':''}</div>
+    </div>`;}).join('')||'<p style="color:var(--muted);font-size:13px;padding:14px">No listings match these filters.</p>';
+  list.querySelectorAll('.card').forEach(card=>{
+    card.onclick=e=>{if(e.target.classList.contains('heart'))return;
+      const l=LISTINGS.find(x=>x.id===card.dataset.id);
+      map.flyTo([l.lat,l.lon],16,{duration:.6});markers[l.id].openPopup();
+      if(window.innerWidth<=760)document.getElementById('side').classList.remove('open');};
+  });
+  list.querySelectorAll('.heart').forEach(h=>h.onclick=e=>{e.stopPropagation();toggleFav(h.dataset.fav);});
+  LISTINGS.forEach(l=>{const show=items.includes(l),m=markers[l.id];if(!m)return;
+    if(show){if(!map.hasLayer(m))m.addTo(map);}else{if(map.hasLayer(m))map.removeLayer(m);}});
+}
+
+const legend=L.control({position:'bottomright'});
+legend.onAdd=function(){const d=L.DomUtil.create('div','legend');
+  d.innerHTML=`<b style="font-family:Fraunces,serif">Type</b><br>
+   <span class="dot" style="background:#2f9e6f"></span>House
+   <span class="dot" style="background:#16a7a0;margin-left:8px"></span>Duplex/Townhome<br>
+   <span class="dot" style="background:#3b7dd8"></span>Condo
+   <span class="dot" style="background:#7b8a8f;margin-left:8px"></span>Apartment<br>
+   <span class="dot" style="background:#e0a020"></span>Verify type
+   <span style="margin-left:8px;color:var(--coral)">●</span> = saved`;return d;};
+
+fFav.onclick=()=>{favOnly=!favOnly;fFav.classList.toggle('on',favOnly);fFav.innerHTML=(favOnly?'★':'♡')+' Favorites only';render();};
+fCity.onchange=fType.onchange=render;
+document.getElementById('toggle').onclick=()=>document.getElementById('side').classList.toggle('open');
+
+/* load data.json (cache-busted so daily updates show) */
+fetch('data.json?t='+Date.now()).then(r=>r.json()).then(data=>{
+  LISTINGS=data.listings||[];
+  if(data.generated) document.getElementById('updated').textContent='Updated '+data.generated+' · '+LISTINGS.length+' listings';
+  fCity.innerHTML='<option value="">All cities</option>'+uniq('city').map(c=>`<option>${c}</option>`).join('');
+  fType.innerHTML='<option value="">All types</option>'+uniq('type').map(t=>`<option>${t}</option>`).join('');
+  LISTINGS.forEach(l=>{markers[l.id]=L.marker([l.lat,l.lon],{icon:pinIcon(l)}).bindPopup(popupHtml(l),{maxWidth:280}).addTo(map);});
+  render();
+  document.getElementById('loading').style.display='none';
+}).catch(e=>{
+  document.getElementById('loading').innerHTML='Could not load data.json<br><span style="font-size:13px;font-family:Outfit;color:var(--muted)">Make sure data.json sits next to this file.</span>';
+});
+</script>
+</body>
+</html>
