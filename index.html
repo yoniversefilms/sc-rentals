@@ -548,6 +548,7 @@ async function fetchRemote(){
     }
     lsWrite(AK,annotations); lsWrite(CK,comments);
     setSyn('● synced ('+(annoRows||[]).length+' rows)','');
+    if(LISTINGS.length){ computeOrphans(); render(); LISTINGS.forEach(l=>refreshMarker(l.id)); }
   }catch(e){
     console.warn('fetchRemote',e);
     setSyn('⚠ sync offline (using local)','err');
@@ -642,7 +643,8 @@ renderMeLine();
 map.addControl(legend);
 
 async function boot(){
-  if(SYNC) await fetchRemote();
+  // Kick off remote fetch in parallel — don't block on Supabase being reachable.
+  if(SYNC) fetchRemote();
   try{
     const r = await fetch('data.json?t='+Date.now());
     const data = await r.json();
