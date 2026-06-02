@@ -7,53 +7,103 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--ocean:#0d4f5c;--ocean-deep:#08323b;--sand:#f5efe3;--paper:#fbf8f2;--coral:#e2674b;
-  --ink:#1f2a2d;--muted:#5e6e72;--line:#e3d9c7;--shadow:0 8px 30px rgba(8,50,59,.12)}
+:root{
+  --ocean:#0d4f5c;--ocean-deep:#08323b;--sand:#f5efe3;--paper:#fbf8f2;--coral:#e2674b;
+  --ink:#1f2a2d;--muted:#5e6e72;--line:#e3d9c7;--shadow:0 8px 30px rgba(8,50,59,.12);
+  --good:#3a9e62;--warn:#e0a020;--bad:#c64a4a;--soft:#f0e9da;
+}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{margin:0;height:100%;font-family:'Outfit',system-ui,sans-serif;color:var(--ink);background:var(--paper)}
 #app{display:flex;height:100%;overflow:hidden}
 #side{width:380px;max-width:88vw;display:flex;flex-direction:column;background:var(--paper);border-right:1px solid var(--line);z-index:1000;box-shadow:var(--shadow)}
-header.hd{padding:18px 20px 12px;background:linear-gradient(150deg,var(--ocean),var(--ocean-deep));color:#fdfaf3}
+header.hd{padding:16px 18px 12px;background:linear-gradient(150deg,var(--ocean),var(--ocean-deep));color:#fdfaf3}
 header.hd h1{font-family:'Fraunces',serif;font-weight:600;font-size:22px;margin:0 0 2px}
 header.hd .sub{font-size:12px;opacity:.8;font-weight:300}
-.counts{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+header.hd .me{font-size:11px;opacity:.65;margin-top:6px}
+header.hd .me b{font-weight:600}
+.counts{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
 .chip{font-size:11px;padding:4px 9px;border-radius:20px;background:rgba(255,255,255,.14);color:#fdfaf3}
 .chip b{font-weight:600}
-.filters{padding:12px 16px;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:9px;background:var(--sand)}
-.frow{display:flex;gap:8px}
-select,.favbtn{font-family:inherit;font-size:13px;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink);flex:1}
-.favbtn{cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;font-weight:500;transition:.15s}
-.favbtn.on{background:var(--coral);color:#fff;border-color:var(--coral)}
+.chip.coral{background:rgba(226,103,75,.85)}
+.chip.bad{background:rgba(198,74,74,.85)}
+.filters{padding:10px 14px;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:7px;background:var(--sand)}
+.frow{display:flex;gap:6px}
+select,.pill{font-family:inherit;font-size:12.5px;padding:7px 9px;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink);flex:1;cursor:pointer;transition:.15s;line-height:1.1}
+select{padding:7px 8px;cursor:auto}
+.pill{display:flex;align-items:center;justify-content:center;gap:4px;font-weight:500;white-space:nowrap}
+.pill .ct{font-size:10.5px;color:var(--muted);font-weight:500}
+.pill.on{background:var(--coral);color:#fff;border-color:var(--coral)}
+.pill.on .ct{color:rgba(255,255,255,.85)}
+.pill.trash.on{background:var(--bad);border-color:var(--bad)}
+.pill.viewed.on{background:var(--ocean);color:#fff;border-color:var(--ocean)}
+.pill.dogs.on{background:var(--good);color:#fff;border-color:var(--good)}
 .list{overflow-y:auto;flex:1;padding:8px 10px 30px}
-.card{border:1px solid var(--line);border-radius:13px;padding:11px 12px;margin-bottom:9px;background:#fff;cursor:pointer;position:relative;transition:.15s;overflow:hidden}
+.card{border:1px solid var(--line);border-radius:13px;padding:10px 11px 8px;margin-bottom:9px;background:#fff;cursor:pointer;position:relative;transition:.15s;overflow:hidden}
 .card:hover{border-color:var(--ocean);transform:translateY(-1px);box-shadow:0 4px 14px rgba(8,50,59,.1)}
+.card.viewed{opacity:.55}
+.card.fav{border-color:var(--coral)}
 .card .strip{position:absolute;left:0;top:0;bottom:0;width:4px}
-.card h3{margin:0 0 3px;font-size:14px;font-weight:600;padding-right:26px;line-height:1.25}
+.card h3{margin:0 0 3px;font-size:14px;font-weight:600;padding-right:60px;line-height:1.25}
 .card .meta{font-size:12px;color:var(--muted);display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 .rent{font-family:'Fraunces',serif;font-weight:600;color:var(--ocean);font-size:15px}
 .badge{font-size:10px;font-weight:600;padding:2px 7px;border-radius:6px;color:#fff;text-transform:uppercase;letter-spacing:.3px}
-.heart{position:absolute;top:9px;right:9px;width:26px;height:26px;border:none;background:none;cursor:pointer;font-size:18px;line-height:1;color:#cdbfa8;transition:.15s;padding:0}
-.heart.on{color:var(--coral);transform:scale(1.12)}
+.badge.flag{background:var(--good);text-transform:none;letter-spacing:0;padding:2px 6px;font-size:10.5px}
+.tools{position:absolute;top:7px;right:7px;display:flex;gap:3px}
+.iconbtn{width:26px;height:26px;border:1px solid transparent;background:none;cursor:pointer;font-size:15px;line-height:1;color:#a89c83;border-radius:8px;padding:0;display:flex;align-items:center;justify-content:center;transition:.12s}
+.iconbtn:hover{background:var(--soft);color:var(--ink)}
+.iconbtn.fav.on{color:var(--coral)}
+.iconbtn.viewed.on{color:var(--ocean);background:var(--soft)}
+.iconbtn.dogs.on{color:var(--good)}
+.iconbtn.dogs.no{color:var(--bad)}
+.iconbtn.trash{color:#bba99c}
+.iconbtn.trash:hover{color:var(--bad);background:#f9e2e2}
+.iconbtn.notes.on{color:var(--ocean)}
 .pmline{font-size:11px;color:var(--muted);margin-top:5px}
-.approx{font-size:10px;color:#e0a020;font-weight:500}
+.approx{font-size:10px;color:var(--warn);font-weight:500}
+.author{font-size:10.5px;color:var(--muted);margin-top:5px;font-style:italic}
+.author b{font-style:normal;color:var(--ink);font-weight:500}
+.notebox{margin-top:7px;background:var(--soft);border-radius:8px;padding:7px 8px}
+.notebox textarea{width:100%;border:1px solid var(--line);border-radius:6px;background:#fff;padding:6px 7px;font-family:inherit;font-size:12px;color:var(--ink);resize:vertical;min-height:50px;outline:none}
+.notebox textarea:focus{border-color:var(--ocean)}
+.notebox .hint{font-size:10.5px;color:var(--muted);margin-top:4px;display:flex;justify-content:space-between}
+.thread{margin-top:7px;display:flex;flex-direction:column;gap:4px}
+.cmt{background:#fff;border:1px solid var(--line);border-radius:8px;padding:5px 8px;font-size:12px;line-height:1.35}
+.cmt b{font-weight:600;color:var(--ocean);font-size:11px;margin-right:5px}
+.cmt .t{font-size:10px;color:var(--muted);margin-left:6px}
+.cmtform{display:flex;gap:5px;margin-top:5px}
+.cmtform input{flex:1;border:1px solid var(--line);border-radius:6px;background:#fff;padding:5px 7px;font-family:inherit;font-size:12px;outline:none}
+.cmtform input:focus{border-color:var(--ocean)}
+.cmtform button{border:none;background:var(--ocean);color:#fff;border-radius:6px;padding:5px 10px;font-family:inherit;font-size:12px;cursor:pointer;font-weight:500}
+.section-hdr{font-family:'Fraunces',serif;font-size:13.5px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin:14px 6px 6px;padding-top:10px;border-top:1px dashed var(--line)}
+.section-hdr:first-child{border-top:0;padding-top:0;margin-top:6px}
+.empty{color:var(--muted);font-size:13px;padding:14px;text-align:center}
+.card.gone{background:#f8f3e8;border-style:dashed}
+.card.gone h3{color:var(--muted)}
 #map{flex:1;height:100%;background:#dde6e0}
-.legend{background:var(--paper);padding:9px 12px;border-radius:11px;box-shadow:var(--shadow);font-size:11.5px;line-height:1.9;border:1px solid var(--line)}
+.legend{background:var(--paper);padding:8px 11px;border-radius:11px;box-shadow:var(--shadow);font-size:11.5px;line-height:1.8;border:1px solid var(--line)}
 .legend .dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:middle}
+.lp{font-family:'Outfit',sans-serif;min-width:240px;max-width:280px}
 .lp h3{font-family:'Fraunces',serif;margin:0 0 4px;font-size:15px;font-weight:600;line-height:1.2}
 .lp .lm{font-size:12px;color:var(--muted);margin-bottom:6px}
 .lp .lr{font-family:'Fraunces',serif;color:var(--ocean);font-weight:600;font-size:16px}
 .lp .acts{display:flex;gap:6px;margin-top:8px}
-.lp a.btn,.lp button.pf{flex:1;text-align:center;text-decoration:none;font-size:12px;font-weight:500;padding:7px 4px;border-radius:8px;border:1px solid var(--line);color:var(--ocean);background:#fff;cursor:pointer;font-family:inherit}
+.lp a.btn{flex:1;text-align:center;text-decoration:none;font-size:12px;font-weight:500;padding:7px 4px;border-radius:8px;border:1px solid var(--line);color:var(--ocean);background:#fff}
 .lp a.btn.solid{background:var(--ocean);color:#fff;border-color:var(--ocean)}
-.lp button.pf.on{background:var(--coral);color:#fff;border-color:var(--coral)}
 .lp .desc{font-size:11.5px;color:var(--muted);margin-top:6px;line-height:1.4}
+.lp .toolrow{display:flex;gap:4px;margin-top:8px;justify-content:space-between}
+.lp .toolrow .iconbtn{width:30px;height:30px;border:1px solid var(--line);background:#fff;font-size:16px}
+.lp .author{margin-top:6px}
 #toggle{display:none;position:absolute;top:12px;left:12px;z-index:1100;background:var(--ocean);color:#fff;border:none;border-radius:10px;padding:10px 14px;font-family:inherit;font-weight:600;font-size:13px;box-shadow:var(--shadow);cursor:pointer}
 .marker-pin{width:22px;height:22px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.3)}
 .marker-pin.fav{box-shadow:0 0 0 3px var(--coral),0 2px 6px rgba(0,0,0,.3)}
 .marker-pin.approx{opacity:.55;border-style:dashed}
+.marker-pin .star{transform:rotate(45deg);color:#fff;font-size:11px;line-height:18px;display:block;text-align:center;font-family:Fraunces,serif}
 #loading{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;background:var(--paper);z-index:2000;font-family:'Fraunces',serif;color:var(--ocean);font-size:18px}
 .spin{width:30px;height:30px;border:3px solid var(--line);border-top-color:var(--ocean);border-radius:50%;animation:s 1s linear infinite}
 @keyframes s{to{transform:rotate(360deg)}}
+.synpill{position:fixed;bottom:10px;left:10px;z-index:1500;background:var(--ocean);color:#fff;font-size:11px;padding:5px 10px;border-radius:20px;opacity:.85;box-shadow:var(--shadow);font-family:inherit}
+.synpill.off{background:var(--muted)}
+.synpill.err{background:var(--bad)}
 @media(max-width:760px){
   #side{position:absolute;left:0;top:0;bottom:0;transform:translateX(-100%);transition:transform .28s;width:86vw}
   #side.open{transform:translateX(0)}
@@ -69,85 +119,352 @@ select,.favbtn{font-family:inherit;font-size:13px;padding:8px 10px;border:1px so
     <header class="hd">
       <h1>Santa Cruz House Hunt</h1>
       <div class="sub" id="updated">Live rentals from direct PM sites</div>
+      <div class="me" id="meLine"></div>
       <div class="counts" id="counts"></div>
     </header>
     <div class="filters">
       <div class="frow"><select id="fCity"></select><select id="fType"></select></div>
-      <button class="favbtn" id="fFav">♡ Favorites only</button>
+      <div class="frow">
+        <button class="pill fav" id="fFav">♡ Favorites</button>
+        <button class="pill dogs" id="fDogs">🐶 Dogs OK</button>
+      </div>
+      <div class="frow">
+        <button class="pill viewed" id="fViewed">✓ Hide viewed</button>
+        <button class="pill trash" id="fTrash">🗑 Trash <span class="ct" id="trashCount"></span></button>
+      </div>
     </div>
     <div class="list" id="list"></div>
   </aside>
   <div id="map"></div>
 </div>
+<div id="syn" class="synpill off" style="display:none"></div>
+<script src="config.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-const TYPE_COLOR={'House':'#2f9e6f','Duplex':'#16a7a0','Townhome':'#16a7a0','Condo':'#3b7dd8','Apartment':'#7b8a8f','Verify type':'#e0a020','Studio':'#7b8a8f'};
-let LISTINGS=[];
-/* favorites keyed by STABLE id (survives daily data refresh) */
-let favs=new Set(), storageOK=true;
-const FK='sc_rental_favs_v2';
-try{const t=localStorage.getItem(FK); if(t) favs=new Set(JSON.parse(t));}catch(e){storageOK=false;}
-function saveFavs(){ if(storageOK){try{localStorage.setItem(FK,JSON.stringify([...favs]));}catch(e){}} }
-function toggleFav(id){ if(favs.has(id))favs.delete(id); else favs.add(id); saveFavs(); render(); refreshMarker(id); }
+/* ============================================================
+   Santa Cruz Rental Map — Phase 1 + Phase 2
+   Single static file. Annotations keyed by stable listing id.
+   Supabase sync is config-gated: off => identical localStorage behavior.
+   ============================================================ */
 
+const C = window.SC_CONFIG || {};
+const ME = (C.me && String(C.me).trim()) || "Me";
+const BOARD = (new URLSearchParams(location.search).get("board") || C.defaultBoard || "").trim();
+const SYNC = !!(C.supabaseUrl && C.supabaseAnon && BOARD);
+
+const TYPE_COLOR={'House':'#2f9e6f','Duplex':'#16a7a0','Townhome':'#16a7a0','Condo':'#3b7dd8',
+  'Apartment':'#7b8a8f','Verify type':'#e0a020','Studio':'#7b8a8f'};
+
+/* ---------- storage ---------- */
+const FK_OLD='sc_rental_favs_v2';
+const AK='sc_rental_annotations_v1';
+const CK='sc_rental_comments_v1';
+const LK='sc_rental_listing_cache_v1';
+let storageOK=true;
+function lsRead(k,fb){try{const v=localStorage.getItem(k);return v?JSON.parse(v):fb;}catch(e){storageOK=false;return fb;}}
+function lsWrite(k,v){if(!storageOK)return;try{localStorage.setItem(k,JSON.stringify(v));}catch(e){storageOK=false;}}
+
+function blankAnno(){return {favorite:false,trashed:false,viewed:false,dogs:null,notes:"",updated:"",updated_by:""};}
+let annotations={};   // id -> blankAnno()
+let comments={};      // id -> [{id,author,body,created_at}]
+let listingCache={};  // id -> { addr, city, type, beds, baths, sqft, rent, pm, url } — survives daily refresh so orphans render with real info
+let LISTINGS=[];      // current data.json listings
+let ORPHANS=[];       // annotations whose ids no longer appear in LISTINGS (delisted-but-saved)
+
+function loadFromLocal(){
+  const raw=lsRead(AK,null);
+  if(raw && typeof raw==='object') annotations=raw;
+  if(!Object.keys(annotations).length){
+    const oldFavs=lsRead(FK_OLD,[]);
+    if(Array.isArray(oldFavs) && oldFavs.length){
+      const now=new Date().toISOString();
+      for(const id of oldFavs){
+        annotations[id]=Object.assign(blankAnno(),{favorite:true,updated:now,updated_by:ME});
+      }
+      lsWrite(AK,annotations);
+    }
+  }
+  const cm=lsRead(CK,{});
+  if(cm && typeof cm==='object') comments=cm;
+  const lc=lsRead(LK,{});
+  if(lc && typeof lc==='object') listingCache=lc;
+}
+
+function cacheLiveListings(){
+  for(const l of LISTINGS){
+    listingCache[l.id]={addr:l.addr,city:l.city,type:l.type,beds:l.beds,baths:l.baths,
+      sqft:l.sqft||'',rent:l.rent,pm:l.pm,url:l.url};
+  }
+  lsWrite(LK,listingCache);
+}
+
+function getAnno(id){return annotations[id]||blankAnno();}
+function hasAnno(id){const a=annotations[id]; if(!a) return false;
+  return a.favorite||a.trashed||a.viewed||a.dogs||(a.notes&&a.notes.length)||(comments[id]&&comments[id].length);}
+
+function setAnno(id,patch){
+  const prev=annotations[id]||blankAnno();
+  const next=Object.assign({},prev,patch,{updated:new Date().toISOString(),updated_by:ME});
+  annotations[id]=next;
+  lsWrite(AK,annotations);
+  if(SYNC) upsertAnnoRemote(id);
+  render(); refreshMarker(id);
+}
+
+function addComment(id,text){
+  const t=(text||"").trim(); if(!t) return;
+  const c={id:(crypto.randomUUID?crypto.randomUUID():Math.random().toString(36).slice(2)),
+           author:ME, body:t, created_at:new Date().toISOString()};
+  (comments[id]=comments[id]||[]).push(c);
+  lsWrite(CK,comments);
+  if(SYNC) insertCommentRemote(id,c);
+  render(); refreshMarker(id);
+}
+
+/* ---------- map ---------- */
 const map=L.map('map',{zoomControl:true}).setView([36.985,-121.97],12);
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'&copy; OpenStreetMap',maxZoom:19}).addTo(map);
 const markers={};
 
-function pinIcon(l){
-  const c=TYPE_COLOR[l.type]||'#7b8a8f';
-  const cls='marker-pin'+(favs.has(l.id)?' fav':'')+(l.approx?' approx':'');
-  return L.divIcon({className:'',html:`<div class="${cls}" style="background:${c}"></div>`,iconSize:[22,22],iconAnchor:[11,22],popupAnchor:[0,-20]});
-}
 function esc(s){return (s==null?'':String(s)).replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));}
+
+function pinIcon(l){
+  const a=getAnno(l.id);
+  const c=TYPE_COLOR[l.type]||'#7b8a8f';
+  const cls='marker-pin'+(a.favorite?' fav':'')+(l.approx?' approx':'');
+  const star=a.favorite?'<span class="star">★</span>':'';
+  return L.divIcon({className:'',html:`<div class="${cls}" style="background:${c}">${star}</div>`,
+    iconSize:[22,22],iconAnchor:[11,22],popupAnchor:[0,-20]});
+}
+
+function dogsLabel(d){return d==='yes'?'🐶':(d==='no'?'🚫':'🐶?');}
+function dogsNext(d){return d==null?'yes':(d==='yes'?'no':null);}
+
 function popupHtml(l){
+  const a=getAnno(l.id);
   const c=TYPE_COLOR[l.type]||'#7b8a8f';
   const mapUrl='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(l.addr);
-  return `<div class="lp"><h3>${esc(l.addr)}</h3>
-   <div class="lm"><span class="badge" style="background:${c}">${esc(l.type)}</span> &nbsp;${l.beds??'?'} bd · ${l.baths??'?'} ba${l.sqft?' · '+esc(l.sqft)+' sqft':''}</div>
-   <div class="lr">${esc(l.rent)}</div>
-   <div class="lm">${esc(l.pm)}${l.phone?' · '+esc(l.phone):''}${l.avail?' · avail '+esc(l.avail):''}</div>
-   ${l.approx?'<div class="approx">⚠ pin approximate</div>':''}
-   ${l.summary?`<div class="desc">${esc(l.summary)}</div>`:''}
-   <div class="acts">
-     <a class="btn solid" href="${esc(l.url)}" target="_blank" rel="noopener">View listing</a>
-     <a class="btn" href="${mapUrl}" target="_blank" rel="noopener">Directions</a>
-     <button class="pf ${favs.has(l.id)?'on':''}" onclick="toggleFav('${l.id}')">${favs.has(l.id)?'★ Saved':'♡ Save'}</button>
-   </div></div>`;
+  const cmts=(comments[l.id]||[]);
+  const cmtsHtml=cmts.length?'<div class="thread">'+cmts.map(c=>
+    `<div class="cmt"><b>${esc(c.author||'?')}</b>${esc(c.body)}<span class="t">${(c.created_at||'').slice(5,16).replace('T',' ')}</span></div>`
+  ).join('')+'</div>':'';
+  const flagBadge=a.dogs==='yes'?'<span class="badge flag">🐶 dogs OK</span>':'';
+  const authorLine=hasAnno(l.id)&&a.updated_by?`<div class="author">last edit by <b>${esc(a.updated_by)}</b></div>`:'';
+  return `<div class="lp" data-pop="${l.id}">
+    <h3>${esc(l.addr)}</h3>
+    <div class="lm"><span class="badge" style="background:${c}">${esc(l.type)}</span>${flagBadge?'&nbsp;'+flagBadge:''} &nbsp;${l.beds??'?'} bd · ${l.baths??'?'} ba${l.sqft?' · '+esc(l.sqft)+' sqft':''}</div>
+    <div class="lr">${esc(l.rent)}</div>
+    <div class="lm">${esc(l.pm)}${l.phone?' · '+esc(l.phone):''}${l.avail?' · avail '+esc(l.avail):''}</div>
+    ${l.approx?'<div class="approx">⚠ pin approximate</div>':''}
+    ${l.summary?`<div class="desc">${esc(l.summary)}</div>`:''}
+    <div class="acts">
+      <a class="btn solid" href="${esc(l.url)}" target="_blank" rel="noopener">View listing</a>
+      <a class="btn" href="${mapUrl}" target="_blank" rel="noopener">Directions</a>
+    </div>
+    <div class="toolrow">
+      <button class="iconbtn fav ${a.favorite?'on':''}" data-act="fav" title="Favorite">${a.favorite?'★':'♡'}</button>
+      <button class="iconbtn viewed ${a.viewed?'on':''}" data-act="viewed" title="Viewed">${a.viewed?'✓':'○'}</button>
+      <button class="iconbtn dogs ${a.dogs==='yes'?'on':''} ${a.dogs==='no'?'no':''}" data-act="dogs" title="Dogs allowed?">${dogsLabel(a.dogs)}</button>
+      <button class="iconbtn notes ${a.notes||cmts.length?'on':''}" data-act="notes" title="Notes">💬</button>
+      <button class="iconbtn trash" data-act="trash" title="${a.trashed?'Restore':'Trash'}">${a.trashed?'↺':'🗑'}</button>
+    </div>
+    <div class="notebox">
+      <textarea data-notes placeholder="Shared notes — saved on blur…">${esc(a.notes)}</textarea>
+      ${cmtsHtml}
+      <div class="cmtform"><input data-cmtbody placeholder="add a comment as ${esc(ME)}…"/><button data-cmtadd>Post</button></div>
+      <div class="hint"><span>${storageOK?'saved locally':'⚠ local storage blocked'}</span><span>${SYNC?'synced to board':''}</span></div>
+    </div>
+    ${authorLine}
+  </div>`;
 }
-function refreshMarker(id){const l=LISTINGS.find(x=>x.id===id);const m=markers[id];if(l&&m){m.setIcon(pinIcon(l));m.setPopupContent(popupHtml(l));}}
 
-const fCity=document.getElementById('fCity'),fType=document.getElementById('fType'),fFav=document.getElementById('fFav');
-let favOnly=false;
-function uniq(k){return [...new Set(LISTINGS.map(l=>l[k]))].sort((a,b)=>a.localeCompare(b));}
-function filtered(){return LISTINGS.filter(l=>(!fCity.value||l.city===fCity.value)&&(!fType.value||l.type===fType.value)&&(!favOnly||favs.has(l.id)));}
-function render(){
-  const items=filtered();
-  const nFav=favs.size, nHouseSC=LISTINGS.filter(l=>l.city==='Santa Cruz'&&l.type==='House').length;
-  document.getElementById('counts').innerHTML=
-    `<span class="chip"><b>${LISTINGS.length}</b> listings</span>`+
-    `<span class="chip"><b>${nHouseSC}</b> SC houses</span>`+
-    `<span class="chip" style="background:rgba(226,103,75,.85)"><b>${nFav}</b> ♥ saved</span>`;
-  const list=document.getElementById('list');
-  list.innerHTML=items.map(l=>{const c=TYPE_COLOR[l.type]||'#7b8a8f';return `<div class="card" data-id="${l.id}">
-      <div class="strip" style="background:${c}"></div>
-      <button class="heart ${favs.has(l.id)?'on':''}" data-fav="${l.id}">${favs.has(l.id)?'★':'♡'}</button>
-      <h3>${esc(l.addr)}</h3>
-      <div class="meta"><span class="badge" style="background:${c}">${esc(l.type)}</span>
-        <span>${l.beds??'?'}bd·${l.baths??'?'}ba</span><span class="rent">${esc(l.rent)}</span></div>
-      <div class="pmline">${esc(l.city)} · ${esc(l.pm)}${l.approx?' · <span class="approx">approx pin</span>':''}</div>
-    </div>`;}).join('')||'<p style="color:var(--muted);font-size:13px;padding:14px">No listings match these filters.</p>';
-  list.querySelectorAll('.card').forEach(card=>{
-    card.onclick=e=>{if(e.target.classList.contains('heart'))return;
-      const l=LISTINGS.find(x=>x.id===card.dataset.id);
-      map.flyTo([l.lat,l.lon],16,{duration:.6});markers[l.id].openPopup();
-      if(window.innerWidth<=760)document.getElementById('side').classList.remove('open');};
+function refreshMarker(id){
+  const l=LISTINGS.find(x=>x.id===id), m=markers[id];
+  if(!l||!m) return;
+  m.setIcon(pinIcon(l));
+  m.setPopupContent(popupHtml(l));
+  wirePopupHandlers(id);
+}
+
+/* hook the buttons & inputs inside a freshly-rendered popup */
+function wirePopupHandlers(id){
+  // Leaflet's popup DOM is in the document, find by data-pop
+  const root=document.querySelector(`.lp[data-pop="${id}"]`);
+  if(!root) return;
+  root.querySelectorAll('[data-act]').forEach(b=>{
+    b.onclick=e=>{e.stopPropagation(); doAct(id,b.dataset.act);};
   });
-  list.querySelectorAll('.heart').forEach(h=>h.onclick=e=>{e.stopPropagation();toggleFav(h.dataset.fav);});
-  LISTINGS.forEach(l=>{const show=items.includes(l),m=markers[l.id];if(!m)return;
-    if(show){if(!map.hasLayer(m))m.addTo(map);}else{if(map.hasLayer(m))map.removeLayer(m);}});
+  const ta=root.querySelector('[data-notes]');
+  if(ta){
+    ta.onblur=()=>{ if(ta.value!==getAnno(id).notes) setAnno(id,{notes:ta.value}); };
+  }
+  const cmtInput=root.querySelector('[data-cmtbody]');
+  const cmtBtn=root.querySelector('[data-cmtadd]');
+  if(cmtBtn){
+    cmtBtn.onclick=()=>{ const v=cmtInput.value; cmtInput.value=''; addComment(id,v); };
+    cmtInput.onkeydown=e=>{ if(e.key==='Enter'){e.preventDefault(); cmtBtn.click();} };
+  }
 }
 
+function doAct(id,act){
+  const a=getAnno(id);
+  if(act==='fav')    setAnno(id,{favorite:!a.favorite});
+  else if(act==='viewed') setAnno(id,{viewed:!a.viewed});
+  else if(act==='dogs')   setAnno(id,{dogs:dogsNext(a.dogs)});
+  else if(act==='trash')  setAnno(id,{trashed:!a.trashed});
+  else if(act==='notes'){
+    // expand/focus the card's textarea when present
+    const card=document.querySelector(`.card[data-id="${id}"] textarea[data-notes]`);
+    if(card){card.focus();card.scrollIntoView({block:'center',behavior:'smooth'});}
+  }
+}
+
+/* ---------- filters & rendering ---------- */
+const elCity=document.getElementById('fCity'), elType=document.getElementById('fType'),
+      elFav=document.getElementById('fFav'),  elDogs=document.getElementById('fDogs'),
+      elViewed=document.getElementById('fViewed'), elTrash=document.getElementById('fTrash');
+let mode={fav:false, dogs:false, hideViewed:false, trash:false};
+
+function uniq(k){return [...new Set(LISTINGS.map(l=>l[k]).filter(Boolean))].sort((a,b)=>a.localeCompare(b));}
+
+function visibleListings(){
+  if(mode.trash) return LISTINGS.filter(l=>getAnno(l.id).trashed);
+  return LISTINGS.filter(l=>{
+    const a=getAnno(l.id);
+    if(a.trashed) return false;
+    if(elCity.value && l.city!==elCity.value) return false;
+    if(elType.value && l.type!==elType.value) return false;
+    if(mode.fav  && !a.favorite) return false;
+    if(mode.dogs && a.dogs!=='yes') return false;
+    if(mode.hideViewed && a.viewed) return false;
+    return true;
+  });
+}
+
+function cardHtml(l,opts){
+  opts=opts||{};
+  const a=getAnno(l.id);
+  const c=TYPE_COLOR[l.type]||'#7b8a8f';
+  const cmts=(comments[l.id]||[]).length;
+  const flagBadge=a.dogs==='yes'?'<span class="badge flag">🐶 dogs OK</span>':'';
+  const classes='card'+(a.viewed?' viewed':'')+(a.favorite?' fav':'')+(opts.gone?' gone':'');
+  const authorLine=hasAnno(l.id)&&a.updated_by?`<div class="author">${a.favorite?'★ saved':a.trashed?'🗑 trashed':'edited'} by <b>${esc(a.updated_by)}</b></div>`:'';
+  const tools=opts.gone?'':`
+    <div class="tools">
+      <button class="iconbtn fav ${a.favorite?'on':''}" data-act="fav" title="Favorite">${a.favorite?'★':'♡'}</button>
+      <button class="iconbtn viewed ${a.viewed?'on':''}" data-act="viewed" title="Viewed">${a.viewed?'✓':'○'}</button>
+      <button class="iconbtn trash" data-act="trash" title="${a.trashed?'Restore':'Trash'}">${a.trashed?'↺':'🗑'}</button>
+    </div>`;
+  const annoRow=opts.gone?'':`
+    <div class="frow" style="margin-top:6px;gap:5px">
+      <button class="pill dogs ${a.dogs==='yes'?'on':''}" data-act="dogs" style="flex:0 0 auto;padding:5px 8px;font-size:11.5px">${dogsLabel(a.dogs)} dogs</button>
+      <button class="pill ${a.notes||cmts?'on':''}" data-act="notes" style="flex:0 0 auto;padding:5px 8px;font-size:11.5px">💬 ${cmts?cmts+' · ':''}notes</button>
+    </div>`;
+  const cmtThread = cmts?'<div class="thread">'+comments[l.id].map(c=>
+        `<div class="cmt"><b>${esc(c.author||'?')}</b>${esc(c.body)}<span class="t">${(c.created_at||'').slice(5,16).replace('T',' ')}</span></div>`
+      ).join('')+'</div>':'';
+  const notebox=opts.gone?
+    ((a.notes||cmts)?`<div class="notebox" style="background:#fff;border:1px solid var(--line)">
+       ${a.notes?`<div style="font-size:12px;white-space:pre-wrap">${esc(a.notes)}</div>`:''}
+       ${cmtThread}
+     </div>`:'')
+    :`
+    <div class="notebox" data-notewrap style="display:${opts.openNotes||a.notes||cmts?'block':'none'}">
+      <textarea data-notes placeholder="Shared notes — saved on blur…">${esc(a.notes)}</textarea>
+      ${cmtThread}
+      <div class="cmtform"><input data-cmtbody placeholder="add a comment as ${esc(ME)}…"/><button data-cmtadd>Post</button></div>
+    </div>`;
+  return `<div class="${classes}" data-id="${l.id}">
+    <div class="strip" style="background:${c}"></div>
+    ${tools}
+    <h3>${esc(l.addr)}</h3>
+    <div class="meta">
+      <span class="badge" style="background:${c}">${esc(l.type)}</span>${flagBadge?' '+flagBadge:''}
+      <span>${l.beds??'?'}bd·${l.baths??'?'}ba</span>
+      <span class="rent">${esc(l.rent)}</span>
+    </div>
+    <div class="pmline">${esc(l.city||'')} · ${esc(l.pm)}${l.approx?' · <span class="approx">approx pin</span>':''}${opts.gone?' · <span class="approx">no longer listed</span>':''}</div>
+    ${annoRow}
+    ${notebox}
+    ${authorLine}
+  </div>`;
+}
+
+function render(){
+  const items=visibleListings();
+  const nFav=Object.values(annotations).filter(a=>a.favorite).length;
+  const nTrash=Object.values(annotations).filter(a=>a.trashed).length;
+  const nHouseSC=LISTINGS.filter(l=>l.city==='Santa Cruz'&&l.type==='House'&&!getAnno(l.id).trashed).length;
+  document.getElementById('counts').innerHTML=
+    `<span class="chip"><b>${items.length}</b> showing</span>`+
+    `<span class="chip"><b>${nHouseSC}</b> SC houses</span>`+
+    (nFav?`<span class="chip coral"><b>${nFav}</b> ♥ saved</span>`:'')+
+    (nTrash?`<span class="chip bad"><b>${nTrash}</b> 🗑</span>`:'');
+  document.getElementById('trashCount').textContent=nTrash?'('+nTrash+')':'';
+
+  let html='';
+  if(mode.trash){
+    html += items.length
+      ? '<div class="section-hdr">Trashed (tap 🗑 to restore)</div>'+items.map(l=>cardHtml(l)).join('')
+      : '<div class="empty">Trash is empty.</div>';
+  } else {
+    html += items.length
+      ? items.map(l=>cardHtml(l)).join('')
+      : '<div class="empty">No listings match these filters.</div>';
+    if(ORPHANS.length){
+      html += '<div class="section-hdr">No longer listed ('+ORPHANS.length+')</div>'
+            + ORPHANS.map(l=>cardHtml(l,{gone:true})).join('');
+    }
+  }
+  const list=document.getElementById('list');
+  list.innerHTML=html;
+
+  // wire cards
+  list.querySelectorAll('.card').forEach(card=>{
+    const id=card.dataset.id;
+    card.onclick=e=>{
+      if(e.target.closest('[data-act], textarea, input, button, a')) return;
+      const l=LISTINGS.find(x=>x.id===id); if(!l||!markers[id]) return;
+      map.flyTo([l.lat,l.lon],16,{duration:.5});
+      markers[id].openPopup();
+      if(window.innerWidth<=760) document.getElementById('side').classList.remove('open');
+    };
+    card.querySelectorAll('[data-act]').forEach(b=>{
+      b.onclick=e=>{e.stopPropagation();
+        if(b.dataset.act==='notes'){
+          const wrap=card.querySelector('[data-notewrap]');
+          if(wrap){
+            wrap.style.display = wrap.style.display==='none' ? 'block' : 'none';
+            const ta=wrap.querySelector('textarea'); if(ta && wrap.style.display==='block') setTimeout(()=>ta.focus(),0);
+          }
+          return;
+        }
+        doAct(id, b.dataset.act);
+      };
+    });
+    const ta=card.querySelector('textarea[data-notes]');
+    if(ta) ta.onblur=()=>{ if(ta.value!==getAnno(id).notes) setAnno(id,{notes:ta.value}); };
+    const cmtInput=card.querySelector('input[data-cmtbody]');
+    const cmtBtn=card.querySelector('button[data-cmtadd]');
+    if(cmtBtn){
+      cmtBtn.onclick=e=>{e.stopPropagation(); const v=cmtInput.value; cmtInput.value=''; addComment(id,v);};
+      cmtInput.onkeydown=e=>{ if(e.key==='Enter'){e.preventDefault(); cmtBtn.click();} };
+      cmtInput.onclick=e=>e.stopPropagation();
+    }
+  });
+
+  // markers visibility — only un-trashed and not orphan
+  const visibleIds=new Set(items.map(l=>l.id));
+  LISTINGS.forEach(l=>{
+    const m=markers[l.id]; if(!m) return;
+    const show = mode.trash ? false : (visibleIds.has(l.id) && !getAnno(l.id).trashed);
+    if(show){ if(!map.hasLayer(m)) m.addTo(map); }
+    else    { if( map.hasLayer(m)) map.removeLayer(m); }
+  });
+}
+
+/* ---------- legend ---------- */
 const legend=L.control({position:'bottomright'});
 legend.onAdd=function(){const d=L.DomUtil.create('div','legend');
   d.innerHTML=`<b style="font-family:Fraunces,serif">Type</b><br>
@@ -156,24 +473,202 @@ legend.onAdd=function(){const d=L.DomUtil.create('div','legend');
    <span class="dot" style="background:#3b7dd8"></span>Condo
    <span class="dot" style="background:#7b8a8f;margin-left:8px"></span>Apartment<br>
    <span class="dot" style="background:#e0a020"></span>Verify type
-   <span style="margin-left:8px;color:var(--coral)">●</span> = saved`;return d;};
+   <span style="margin-left:8px;color:var(--coral)">●</span> = saved
+   <br><span style="color:#999">dashed = approx pin</span>`;return d;};
 
-fFav.onclick=()=>{favOnly=!favOnly;fFav.classList.toggle('on',favOnly);fFav.innerHTML=(favOnly?'★':'♡')+' Favorites only';render();};
-fCity.onchange=fType.onchange=render;
+/* ---------- filter button wiring ---------- */
+function bindToggle(btn,key,onLabel,offLabel,extraCss){
+  btn.onclick=()=>{
+    mode[key]=!mode[key];
+    btn.classList.toggle('on',mode[key]);
+    if(onLabel) btn.firstChild.nodeValue = mode[key] ? onLabel : offLabel;
+    render();
+  };
+}
+elFav.onclick   =()=>{mode.fav=!mode.fav;       elFav.classList.toggle('on',mode.fav);       elFav.innerHTML=(mode.fav?'★':'♡')+' Favorites'; render();};
+elDogs.onclick  =()=>{mode.dogs=!mode.dogs;     elDogs.classList.toggle('on',mode.dogs);     render();};
+elViewed.onclick=()=>{mode.hideViewed=!mode.hideViewed; elViewed.classList.toggle('on',mode.hideViewed); elViewed.innerHTML=(mode.hideViewed?'✓ Viewed hidden':'✓ Hide viewed'); render();};
+elTrash.onclick =()=>{
+  mode.trash=!mode.trash;
+  elTrash.classList.toggle('on',mode.trash);
+  elTrash.innerHTML=(mode.trash?'↩ Exit trash ':'🗑 Trash ')+'<span class="ct" id="trashCount"></span>';
+  render();
+};
+elCity.onchange=elType.onchange=render;
 document.getElementById('toggle').onclick=()=>document.getElementById('side').classList.toggle('open');
 
-/* load data.json (cache-busted so daily updates show) */
-fetch('data.json?t='+Date.now()).then(r=>r.json()).then(data=>{
-  LISTINGS=data.listings||[];
-  if(data.generated) document.getElementById('updated').textContent='Updated '+data.generated+' · '+LISTINGS.length+' listings';
-  fCity.innerHTML='<option value="">All cities</option>'+uniq('city').map(c=>`<option>${c}</option>`).join('');
-  fType.innerHTML='<option value="">All types</option>'+uniq('type').map(t=>`<option>${t}</option>`).join('');
-  LISTINGS.forEach(l=>{markers[l.id]=L.marker([l.lat,l.lon],{icon:pinIcon(l)}).bindPopup(popupHtml(l),{maxWidth:280}).addTo(map);});
-  render();
-  document.getElementById('loading').style.display='none';
-}).catch(e=>{
-  document.getElementById('loading').innerHTML='Could not load data.json<br><span style="font-size:13px;font-family:Outfit;color:var(--muted)">Make sure data.json sits next to this file.</span>';
-});
+/* ---------- Supabase sync ---------- */
+let supa=null;
+function setSyn(text,cls){const el=document.getElementById('syn'); el.style.display=text?'block':'none'; el.textContent=text||''; el.className='synpill '+(cls||'');}
+
+if(SYNC){
+  try{
+    supa=window.supabase.createClient(C.supabaseUrl, C.supabaseAnon, {
+      global:{headers:{'x-board-key':BOARD}},
+      realtime:{params:{eventsPerSecond:5}}
+    });
+    setSyn('● sync: board '+BOARD.slice(0,6)+'…','');
+  }catch(e){
+    console.warn('supabase init failed',e); setSyn('⚠ sync init failed','err');
+  }
+}else if(C.supabaseUrl || C.supabaseAnon || BOARD){
+  setSyn('● local only (no board)','off');
+}
+
+async function fetchRemote(){
+  if(!supa) return;
+  try{
+    const [{data:annoRows,error:e1},{data:cmtRows,error:e2}] = await Promise.all([
+      supa.from('annotations').select('*').eq('board',BOARD),
+      supa.from('comments').select('*').eq('board',BOARD).order('created_at',{ascending:true}),
+    ]);
+    if(e1) throw e1; if(e2) throw e2;
+    // merge annotations (last-write-wins on updated_at)
+    for(const r of (annoRows||[])){
+      const id=r.listing_id, local=annotations[id], localT=local?local.updated:'';
+      const remoteT=r.updated_at||'';
+      if(!local || (remoteT && remoteT > localT)){
+        annotations[id]={
+          favorite:!!r.favorite, trashed:!!r.trashed, viewed:!!r.viewed,
+          dogs:r.dogs||null, notes:r.note||'',
+          updated:r.updated_at||'', updated_by:r.updated_by||''
+        };
+      }
+    }
+    // rebuild comments from remote (append-only — remote is authoritative)
+    const byId={};
+    for(const r of (cmtRows||[])){
+      (byId[r.listing_id]=byId[r.listing_id]||[]).push({id:r.id,author:r.author,body:r.body,created_at:r.created_at});
+    }
+    // merge: keep any local-only comments without an id collision
+    for(const id of Object.keys(byId)){
+      const remoteIds=new Set(byId[id].map(c=>c.id));
+      const localExtras=(comments[id]||[]).filter(c=>!remoteIds.has(c.id));
+      comments[id]=byId[id].concat(localExtras);
+    }
+    lsWrite(AK,annotations); lsWrite(CK,comments);
+    setSyn('● synced ('+(annoRows||[]).length+' rows)','');
+  }catch(e){
+    console.warn('fetchRemote',e);
+    setSyn('⚠ sync offline (using local)','err');
+  }
+}
+
+async function upsertAnnoRemote(id){
+  if(!supa) return;
+  const a=annotations[id]; if(!a) return;
+  try{
+    const {error}=await supa.from('annotations').upsert({
+      listing_id:id, board:BOARD,
+      favorite:!!a.favorite, trashed:!!a.trashed, viewed:!!a.viewed,
+      dogs:a.dogs||null, note:a.notes||'',
+      updated_at:a.updated||new Date().toISOString(),
+      updated_by:a.updated_by||ME
+    },{onConflict:'listing_id,board'});
+    if(error) throw error;
+  }catch(e){console.warn('upsertAnnoRemote',e); setSyn('⚠ sync write failed','err');}
+}
+
+async function insertCommentRemote(id,c){
+  if(!supa) return;
+  try{
+    const {error}=await supa.from('comments').insert({
+      id:c.id, listing_id:id, board:BOARD, author:c.author, body:c.body, created_at:c.created_at
+    });
+    if(error) throw error;
+  }catch(e){console.warn('insertCommentRemote',e); setSyn('⚠ sync write failed','err');}
+}
+
+function applyRemoteAnno(row){
+  if(!row||!row.listing_id||row.board!==BOARD) return;
+  const id=row.listing_id;
+  const local=annotations[id], localT=local?local.updated:'';
+  const remoteT=row.updated_at||'';
+  if(local && remoteT && remoteT<=localT) return;  // ours is newer or same
+  annotations[id]={
+    favorite:!!row.favorite, trashed:!!row.trashed, viewed:!!row.viewed,
+    dogs:row.dogs||null, notes:row.note||'',
+    updated:row.updated_at||'', updated_by:row.updated_by||''
+  };
+  lsWrite(AK,annotations); render(); refreshMarker(id);
+}
+function applyRemoteComment(row){
+  if(!row||!row.listing_id||row.board!==BOARD) return;
+  const id=row.listing_id;
+  const list=(comments[id]=comments[id]||[]);
+  if(list.some(c=>c.id===row.id)) return;
+  list.push({id:row.id, author:row.author, body:row.body, created_at:row.created_at});
+  list.sort((a,b)=>(a.created_at||'').localeCompare(b.created_at||''));
+  lsWrite(CK,comments); render(); refreshMarker(id);
+}
+
+function subscribeRealtime(){
+  if(!supa) return;
+  supa.channel('board:'+BOARD)
+    .on('postgres_changes',{event:'*',schema:'public',table:'annotations',filter:'board=eq.'+BOARD},
+      p=>applyRemoteAnno(p.new || p.old))
+    .on('postgres_changes',{event:'INSERT',schema:'public',table:'comments',filter:'board=eq.'+BOARD},
+      p=>applyRemoteComment(p.new))
+    .subscribe();
+}
+
+/* ---------- orphan detection (annotations whose listing disappeared) ---------- */
+function computeOrphans(){
+  const live=new Set(LISTINGS.map(l=>l.id));
+  ORPHANS = Object.keys(annotations)
+    .filter(id=>!live.has(id) && hasAnno(id))
+    .map(id=>orphanCard(id));
+}
+function orphanCard(id){
+  const c=listingCache[id]||{};
+  return {
+    id, addr:c.addr||'(listing #'+id+')', city:c.city||'', type:c.type||'Verify type',
+    beds:(c.beds==null?null:c.beds), baths:(c.baths==null?null:c.baths),
+    sqft:c.sqft||'', rent:c.rent||'—', avail:'',
+    pm:c.pm||'(no longer in feed)', phone:'', url:c.url||'#',
+    lat:null, lon:null, approx:false, summary:''
+  };
+}
+
+/* ---------- header ---------- */
+function renderMeLine(){
+  const el=document.getElementById('meLine');
+  el.innerHTML = `you are <b>${esc(ME)}</b>` + (BOARD?` · board <code style="opacity:.85">${esc(BOARD.slice(0,8))}…</code>${SYNC?' (synced)':' (local)'}`:'');
+}
+
+/* ---------- boot ---------- */
+loadFromLocal();
+renderMeLine();
+map.addControl(legend);
+
+async function boot(){
+  if(SYNC) await fetchRemote();
+  try{
+    const r = await fetch('data.json?t='+Date.now());
+    const data = await r.json();
+    LISTINGS = data.listings || [];
+    if(data.generated) document.getElementById('updated').textContent =
+      'Updated '+data.generated+' · '+LISTINGS.length+' listings';
+    elCity.innerHTML = '<option value="">All cities</option>' + uniq('city').map(c=>`<option>${esc(c)}</option>`).join('');
+    elType.innerHTML = '<option value="">All types</option>' + uniq('type').map(t=>`<option>${esc(t)}</option>`).join('');
+    cacheLiveListings();
+    LISTINGS.forEach(l=>{
+      if(l.lat==null||l.lon==null) return;
+      const m=L.marker([l.lat,l.lon],{icon:pinIcon(l)}).bindPopup(popupHtml(l),{maxWidth:300});
+      m.on('popupopen',()=>wirePopupHandlers(l.id));
+      markers[l.id]=m.addTo(map);
+    });
+    computeOrphans();
+    render();
+    if(SYNC) subscribeRealtime();
+    document.getElementById('loading').style.display='none';
+  }catch(e){
+    console.error(e);
+    document.getElementById('loading').innerHTML =
+      'Could not load data.json<br><span style="font-size:13px;font-family:Outfit;color:var(--muted)">Make sure data.json sits next to this file.</span>';
+  }
+}
+boot();
 </script>
 </body>
 </html>
