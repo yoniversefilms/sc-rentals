@@ -39,5 +39,12 @@ jobs:
             else
               git commit -m "Daily update: $DATE"
             fi
-            git push
+            # Retry push if remote moved forward while we were scraping
+            for attempt in 1 2 3; do
+              if git push; then
+                echo "pushed on attempt $attempt"; break
+              fi
+              echo "push failed (attempt $attempt) — rebasing and retrying"
+              git pull --rebase --autostash
+            done
           fi
