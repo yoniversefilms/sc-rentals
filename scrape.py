@@ -336,8 +336,8 @@ def main():
               f"Keeping previous data.json (likely a blocked/failed source).", file=sys.stderr)
         return
     json.dump(data, open("data.json", "w"), ensure_ascii=False, indent=1)
-    new_count = sum(1 for l in listings if l.get("first_seen") == today)
-    print(f"Wrote data.json with {len(listings)} listings ({new_count} new today, generated {data['generated']})")
+    truly_new = sum(1 for l in listings if prev_by_id and l["id"] not in prev_by_id)
+    print(f"Wrote data.json with {len(listings)} listings ({truly_new} new since last run, generated {data['generated']})")
 
 if __name__ == "__main__":
     main()
