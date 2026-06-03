@@ -306,6 +306,22 @@ def main():
                                  TYPE_ORDER.get(x["type"] if x["type"] != "Verify type" else "Unknown", 9),
                                  -(x["beds"] or 0)))
 
+    # Stamp first_seen so the front-end can flag "new today" listings.
+    # - Preserve existing first_seen.
+    # - Pre-feature listings (in prev but unstamped) get "" so they're treated as old.
+    # - Listings not in prev get today's UTC date — only when we actually have a prev to compare against.
+    prev = load_json("data.json", {})
+    today = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d")
+    prev_by_id = {l.get("id"): l for l in prev.get("listings", []) if l.get("id")}
+    for l in listings:
+        pl = prev_by_id.get(l["id"])
+        if pl and pl.get("first_seen"):
+            l["first_seen"] = pl["first_seen"]
+        elif pl:
+            l["first_seen"] = ""
+        elif prev_by_id:
+            l["first_seen"] = today
+
     data = {
         "generated": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
         "count": len(listings),
@@ -313,7 +329,6 @@ def main():
     }
     # Safety net: if this run returned far fewer listings than last time (e.g. a source
     # blocked the CI IP), DON'T overwrite good data.json — keep yesterday's and warn.
-    prev = load_json("data.json", {})
     prev_n = prev.get("count", 0)
     json.dump(GEOCACHE, open("geocache.json", "w"), ensure_ascii=False, indent=1)  # cache always saved
     if prev_n and len(listings) < max(8, int(prev_n * 0.5)):
@@ -321,7 +336,8 @@ def main():
               f"Keeping previous data.json (likely a blocked/failed source).", file=sys.stderr)
         return
     json.dump(data, open("data.json", "w"), ensure_ascii=False, indent=1)
-    print(f"Wrote data.json with {len(listings)} listings ({data['generated']})")
+    new_count = sum(1 for l in listings if l.get("first_seen") == today)
+    print(f"Wrote data.json with {len(listings)} listings ({new_count} new today, generated {data['generated']})")
 
 if __name__ == "__main__":
     main()

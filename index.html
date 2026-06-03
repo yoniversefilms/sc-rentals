@@ -43,6 +43,8 @@ select{padding:7px 8px;cursor:auto}
 .pill.trash.on{background:var(--bad);border-color:var(--bad)}
 .pill.viewed.on{background:var(--ocean);color:#fff;border-color:var(--ocean)}
 .pill.dogs.on{background:var(--good);color:#fff;border-color:var(--good)}
+.pill.new.on{background:#f3a712;color:#3a2700;border-color:#f3a712}
+.chip.new{background:#f3a712;color:#3a2700;font-weight:600}
 .list{overflow-y:auto;flex:1;padding:8px 10px 30px}
 .card{border:1px solid var(--line);border-radius:13px;padding:10px 11px 8px;margin-bottom:9px;background:#fff;cursor:pointer;position:relative;transition:.15s;overflow:hidden}
 .card:hover{border-color:var(--ocean);transform:translateY(-1px);box-shadow:0 4px 14px rgba(8,50,59,.1)}
@@ -54,6 +56,7 @@ select{padding:7px 8px;cursor:auto}
 .rent{font-family:'Fraunces',serif;font-weight:600;color:var(--ocean);font-size:15px}
 .badge{font-size:10px;font-weight:600;padding:2px 7px;border-radius:6px;color:#fff;text-transform:uppercase;letter-spacing:.3px}
 .badge.flag{background:var(--good);text-transform:none;letter-spacing:0;padding:2px 6px;font-size:10.5px}
+.badge.new{background:#f3a712;color:#3a2700;text-transform:none;letter-spacing:.2px;padding:2px 6px;font-size:10.5px;font-weight:700}
 .tools{position:absolute;top:7px;right:7px;display:flex;gap:3px}
 .iconbtn{width:26px;height:26px;border:1px solid transparent;background:none;cursor:pointer;font-size:15px;line-height:1;color:#a89c83;border-radius:8px;padding:0;display:flex;align-items:center;justify-content:center;transition:.12s}
 .iconbtn:hover{background:var(--soft);color:var(--ink)}
@@ -100,8 +103,11 @@ select{padding:7px 8px;cursor:auto}
 .lp .toolrow .iconbtn{width:30px;height:30px;border:1px solid var(--line);background:#fff;font-size:16px}
 .lp .author{margin-top:6px}
 #toggle{display:none;position:absolute;top:12px;left:12px;z-index:1100;background:var(--ocean);color:#fff;border:none;border-radius:10px;padding:10px 14px;font-family:inherit;font-weight:600;font-size:13px;box-shadow:var(--shadow);cursor:pointer}
-.marker-pin{width:22px;height:22px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.3)}
+.marker-pin{width:22px;height:22px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.3);position:relative}
 .marker-pin.fav{box-shadow:0 0 0 3px var(--coral),0 2px 6px rgba(0,0,0,.3)}
+.marker-pin.new{box-shadow:0 0 0 3px #f3a712,0 2px 6px rgba(0,0,0,.3)}
+.marker-pin.fav.new{box-shadow:0 0 0 3px var(--coral),0 0 0 5px #f3a712,0 2px 6px rgba(0,0,0,.3)}
+.marker-pin.new::after{content:'✨';position:absolute;top:-9px;right:-9px;font-size:13px;transform:rotate(45deg);text-shadow:0 1px 2px rgba(0,0,0,.4)}
 .marker-pin.approx{opacity:.55;border-style:dashed}
 .marker-pin .star{transform:rotate(45deg);color:#fff;font-size:11px;line-height:18px;display:block;text-align:center;font-family:Fraunces,serif}
 #loading{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;background:var(--paper);z-index:2000;font-family:'Fraunces',serif;color:var(--ocean);font-size:18px}
@@ -133,6 +139,7 @@ select{padding:7px 8px;cursor:auto}
       <div class="frow">
         <button class="pill fav" id="fFav">♡ Favorites</button>
         <button class="pill dogs" id="fDogs">🐶 Dogs OK</button>
+        <button class="pill new" id="fNew">✨ New today</button>
       </div>
       <div class="frow">
         <button class="pill viewed" id="fViewed">✓ Hide viewed</button>
@@ -179,6 +186,9 @@ let comments={};      // id -> [{id,author,body,created_at}]
 let listingCache={};  // id -> { addr, city, type, beds, baths, sqft, rent, pm, url } — survives daily refresh so orphans render with real info
 let LISTINGS=[];      // current data.json listings
 let ORPHANS=[];       // annotations whose ids no longer appear in LISTINGS (delisted-but-saved)
+let TODAY='';         // YYYY-MM-DD derived from data.generated; drives the ✨ NEW badge
+
+function isNew(l){ return !!(l && l.first_seen && TODAY && l.first_seen===TODAY); }
 
 function loadFromLocal(){
   const raw=lsRead(AK,null);
@@ -240,7 +250,7 @@ function esc(s){return (s==null?'':String(s)).replace(/[&<>"]/g,m=>({'&':'&amp;'
 function pinIcon(l){
   const a=getAnno(l.id);
   const c=TYPE_COLOR[l.type]||'#7b8a8f';
-  const cls='marker-pin'+(a.favorite?' fav':'')+(l.approx?' approx':'');
+  const cls='marker-pin'+(a.favorite?' fav':'')+(isNew(l)?' new':'')+(l.approx?' approx':'');
   const star=a.favorite?'<span class="star">★</span>':'';
   return L.divIcon({className:'',html:`<div class="${cls}" style="background:${c}">${star}</div>`,
     iconSize:[22,22],iconAnchor:[11,22],popupAnchor:[0,-20]});
@@ -258,10 +268,11 @@ function popupHtml(l){
     `<div class="cmt"><b>${esc(c.author||'?')}</b>${esc(c.body)}<span class="t">${(c.created_at||'').slice(5,16).replace('T',' ')}</span></div>`
   ).join('')+'</div>':'';
   const flagBadge=a.dogs==='yes'?'<span class="badge flag">🐶 dogs OK</span>':'';
+  const newBadgePop=isNew(l)?'<span class="badge new">✨ NEW</span>':'';
   const authorLine=hasAnno(l.id)&&a.updated_by?`<div class="author">last edit by <b>${esc(a.updated_by)}</b></div>`:'';
   return `<div class="lp" data-pop="${l.id}">
     <h3>${esc(l.addr)}</h3>
-    <div class="lm"><span class="badge" style="background:${c}">${esc(l.type)}</span>${flagBadge?'&nbsp;'+flagBadge:''} &nbsp;${l.beds??'?'} bd · ${l.baths??'?'} ba${l.sqft?' · '+esc(l.sqft)+' sqft':''}</div>
+    <div class="lm"><span class="badge" style="background:${c}">${esc(l.type)}</span>${newBadgePop?'&nbsp;'+newBadgePop:''}${flagBadge?'&nbsp;'+flagBadge:''} &nbsp;${l.beds??'?'} bd · ${l.baths??'?'} ba${l.sqft?' · '+esc(l.sqft)+' sqft':''}</div>
     <div class="lr">${esc(l.rent)}</div>
     <div class="lm">${esc(l.pm)}${l.phone?' · '+esc(l.phone):''}${l.avail?' · avail '+esc(l.avail):''}</div>
     ${l.approx?'<div class="approx">⚠ pin approximate</div>':''}
@@ -332,7 +343,7 @@ function doAct(id,act){
 const elCity=document.getElementById('fCity'), elType=document.getElementById('fType'),
       elFav=document.getElementById('fFav'),  elDogs=document.getElementById('fDogs'),
       elViewed=document.getElementById('fViewed'), elTrash=document.getElementById('fTrash');
-let mode={fav:false, dogs:false, hideViewed:false, trash:false};
+let mode={fav:false, dogs:false, hideViewed:false, trash:false, new:false};
 
 function uniq(k){return [...new Set(LISTINGS.map(l=>l[k]).filter(Boolean))].sort((a,b)=>a.localeCompare(b));}
 
@@ -345,6 +356,7 @@ function visibleListings(){
     if(elType.value && l.type!==elType.value) return false;
     if(mode.fav  && !a.favorite) return false;
     if(mode.dogs && a.dogs!=='yes') return false;
+    if(mode.new  && !isNew(l)) return false;
     if(mode.hideViewed && a.viewed) return false;
     return true;
   });
@@ -356,7 +368,8 @@ function cardHtml(l,opts){
   const c=TYPE_COLOR[l.type]||'#7b8a8f';
   const cmts=(comments[l.id]||[]).length;
   const flagBadge=a.dogs==='yes'?'<span class="badge flag">🐶 dogs OK</span>':'';
-  const classes='card'+(a.viewed?' viewed':'')+(a.favorite?' fav':'')+(opts.gone?' gone':'');
+  const newBadge=isNew(l)?'<span class="badge new">✨ NEW</span>':'';
+  const classes='card'+(a.viewed?' viewed':'')+(a.favorite?' fav':'')+(opts.gone?' gone':'')+(isNew(l)?' isnew':'');
   const authorLine=hasAnno(l.id)&&a.updated_by?`<div class="author">${a.favorite?'★ saved':a.trashed?'🗑 trashed':'edited'} by <b>${esc(a.updated_by)}</b></div>`:'';
   const tools=opts.gone?'':`
     <div class="tools">
@@ -388,7 +401,7 @@ function cardHtml(l,opts){
     ${tools}
     <h3>${esc(l.addr)}</h3>
     <div class="meta">
-      <span class="badge" style="background:${c}">${esc(l.type)}</span>${flagBadge?' '+flagBadge:''}
+      <span class="badge" style="background:${c}">${esc(l.type)}</span>${newBadge?' '+newBadge:''}${flagBadge?' '+flagBadge:''}
       <span>${l.beds??'?'}bd·${l.baths??'?'}ba</span>
       <span class="rent">${esc(l.rent)}</span>
     </div>
@@ -404,8 +417,10 @@ function render(){
   const nFav=Object.values(annotations).filter(a=>a.favorite).length;
   const nTrash=Object.values(annotations).filter(a=>a.trashed).length;
   const nHouseSC=LISTINGS.filter(l=>l.city==='Santa Cruz'&&l.type==='House'&&!getAnno(l.id).trashed).length;
+  const nNew=LISTINGS.filter(l=>isNew(l)&&!getAnno(l.id).trashed).length;
   document.getElementById('counts').innerHTML=
     `<span class="chip"><b>${items.length}</b> showing</span>`+
+    (nNew?`<span class="chip new"><b>${nNew}</b> ✨ new today</span>`:'')+
     `<span class="chip"><b>${nHouseSC}</b> SC houses</span>`+
     (nFav?`<span class="chip coral"><b>${nFav}</b> ♥ saved</span>`:'')+
     (nTrash?`<span class="chip bad"><b>${nTrash}</b> 🗑</span>`:'');
@@ -495,6 +510,8 @@ function bindToggle(btn,key,onLabel,offLabel,extraCss){
 }
 elFav.onclick   =()=>{mode.fav=!mode.fav;       elFav.classList.toggle('on',mode.fav);       elFav.innerHTML=(mode.fav?'★':'♡')+' Favorites'; render();};
 elDogs.onclick  =()=>{mode.dogs=!mode.dogs;     elDogs.classList.toggle('on',mode.dogs);     render();};
+const elNew = document.getElementById('fNew');
+elNew.onclick   =()=>{mode.new=!mode.new;       elNew.classList.toggle('on',mode.new);       render();};
 elViewed.onclick=()=>{mode.hideViewed=!mode.hideViewed; elViewed.classList.toggle('on',mode.hideViewed); elViewed.innerHTML=(mode.hideViewed?'✓ Viewed hidden':'✓ Hide viewed'); render();};
 elTrash.onclick =()=>{
   mode.trash=!mode.trash;
@@ -670,6 +687,8 @@ async function boot(){
     const r = await fetch('data.json?t='+Date.now());
     const data = await r.json();
     LISTINGS = data.listings || [];
+    TODAY = ((data.generated||'').match(/^\d{4}-\d{2}-\d{2}/)||[''])[0]
+            || new Date().toISOString().slice(0,10);
     if(data.generated) document.getElementById('updated').textContent =
       'Updated '+data.generated+' · '+LISTINGS.length+' listings';
     elCity.innerHTML = '<option value="">All cities</option>' + uniq('city').map(c=>`<option>${esc(c)}</option>`).join('');
