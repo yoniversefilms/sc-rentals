@@ -5,19 +5,20 @@
 window.SC_CONFIG = {
   // Your name — shown on edits and comments so you and your partner can tell
   // who favorited / trashed / commented on a listing ("who changed what").
-  me: "Me",
+  // Each device also has an in-page "your name" input that overrides this in
+  // localStorage — so this is just the default for first-time visitors.
+  me: "Yonatan",
 
-  // ---- Sharing via Supabase (optional) ----
-  // Leave supabaseUrl + supabaseAnon BLANK to run localStorage-only (no sharing).
-  // Fill them in (see SUPABASE.md) to sync favorites/trash/flags/comments between
-  // you and your partner.
-  supabaseUrl:  "",          // e.g. "https://abcd1234.supabase.co"
-  supabaseAnon: "",          // anon public key (eyJ...)
+  // ---- Sharing via Supabase ----
+  // The anon key is public by design (protected by RLS + the board key in
+  // the URL). NEVER put a service_role key here.
+  supabaseUrl:  "https://stoyyffvqpjebbmbwmug.supabase.co",
+  supabaseAnon: "",          // anon public key (eyJ...) — paste from Supabase Settings → API Keys → Legacy
 
-  // Which shared board to use. The URL "?board=XXXX" always wins if present.
-  // Set a defaultBoard only if you want the base URL to be shared too;
-  // leave blank to keep the bare URL private/localStorage-only.
-  defaultBoard: "",
+  // The shared board slug — anyone with this URL can read/edit your shared list.
+  // Treat it like a password. Share the full ?board=... URL with your partner.
+  // The URL "?board=XXXX" param always overrides this default if present.
+  defaultBoard: "3296e600-ae5e-46d7-9d95-925329058d4f",
 };
 
 // Resolution order used by the app:
