@@ -12,14 +12,17 @@ from bs4 import BeautifulSoup
 UA = {"User-Agent": "sc-rental-map/1.0 (personal house-search project)"}
 TIMEOUT = 40
 
-def get(url, tries=2):
-    for _ in range(tries):
+def get(url, tries=4):
+    for i in range(tries):
         try:
             r = requests.get(url, headers=UA, timeout=TIMEOUT)
             if r.status_code == 200:
                 return r.text
+            # Throttle on rate-limit / busy responses before retrying
+            if r.status_code in (429, 503):
+                time.sleep(2 + i * 2)
         except Exception:
-            time.sleep(1.5)
+            time.sleep(1.5 + i)
     return ""
 
 # ---------- helpers ----------
@@ -193,6 +196,32 @@ def scrape_scprop():
         time.sleep(0.2)
     return n
 
+def scrape_pmi():
+    base = "https://www.pmisantacruz.com"
+    html = get(base + "/santa-cruz-homes-for-rent")
+    if not html: return 0
+    PH["PMI Santa Cruz"] = phone_from(html)
+    n = 0
+    for href, body in re.findall(
+            r'(?s)<a\s+href="(/santa-cruz-homes-for-rent/\d+/[^"]+)"\s+data-id="\d+"(.+?)</a>', html):
+        def pick(pat, src=body):
+            m = re.search(pat, src)
+            return m.group(1).strip() if m else ""
+        addr  = pick(r'rvw-list__location[^>]*>\s*([^<]+?)\s*</div>')
+        if not addr: continue
+        rent  = pick(r'rvw-list__price[^>]*>\s*([^<]+?)\s*</div>').replace('/mo.', '').replace('/mo', '').strip()
+        ptype = pick(r'rvw-list__prop-type[^>]*>\s*([^<]+?)\s*</div>')
+        avail = pick(r'rvw-list__availability[^>]*>\s*Available:\s*([^<]+?)\s*</div>')
+        beds_m  = re.search(r'Beds:\s*(\d+)', body)
+        baths_m = re.search(r'Baths:\s*([\d.]+)', body)
+        beds = int(beds_m.group(1)) if beds_m else None
+        baths = float(baths_m.group(1)) if baths_m else None
+        add("PMI Santa Cruz", addr, beds, baths, rent, "", avail,
+            f"{ptype}. {addr}".strip(' .'), base + href, f"{ptype} {addr}")
+        n += 1
+        time.sleep(0.2)
+    return n
+
 def scrape_streamline():
     html = get("https://streamline831.com/rental-listings/")
     if not html: return 0
@@ -261,6 +290,7 @@ def main():
     safe(scrape_utopia, "Utopia")
     safe(scrape_scprop, "Santa Cruz Property Co")
     safe(scrape_streamline, "Streamline")
+    safe(scrape_pmi, "PMI Santa Cruz")
     print(f"Raw rows: {len(rows)}")
 
     # filter + classify + enrich
