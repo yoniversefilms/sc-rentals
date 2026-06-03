@@ -130,7 +130,9 @@ def scrape_appfolio(co, sub):
 
 APPFOLIO = [("Bailey PM","baileypm"),("Blue Sky PM","blueskysantacruz"),
             ("Kendall & Potter","kendallpotter"),("Anderson Christie","andersonchristierealestate"),
-            ("C&C PM","ccpmgmt")]
+            ("C&C PM","ccpmgmt"),
+            ("Andren Homes","andrenhomes"),("Scotts Valley PM","scottsvalley"),
+            ("PURE PM SV","purepmcasv")]
 
 def scrape_buildium():
     html = get("https://pacificsun.managebuilding.com/Resident/public/rentals")
@@ -376,7 +378,8 @@ def main():
     short = {"Bailey PM":"Bailey","Blue Sky PM":"BlueSky","Kendall & Potter":"K&P",
              "Anderson Christie":"Anderson","C&C PM":"C&C","Pacific Sun (Buildium)":"PacificSun",
              "Utopia":"Utopia","Santa Cruz Property Co":"SCProp","Streamline":"Streamline",
-             "PMI Santa Cruz":"PMI"}
+             "PMI Santa Cruz":"PMI","Andren Homes":"Andren","Scotts Valley PM":"SVPM",
+             "PURE PM SV":"PURE"}
     parts = [f"{short.get(k,k)} {v}" for k, v in SOURCE_COUNTS.items()]
     summary = ", ".join(parts) + f" (raw {len(rows)}, kept {len(listings)}, +{truly_new} new)"
     with open(".run_summary.txt", "w") as f:
