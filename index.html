@@ -23,17 +23,24 @@ header.hd .merow{display:flex;align-items:center;gap:8px;margin-top:6px;flex-wra
 header.hd .me{font-size:11px;opacity:.85;display:flex;align-items:center;gap:5px;flex-wrap:wrap;flex:1;min-width:0}
 header.hd .me b{font-weight:600}
 header.hd .me code{background:rgba(255,255,255,.12);padding:1px 5px;border-radius:4px;font-family:inherit;font-size:10.5px}
-.notifbtn{background:rgba(255,255,255,.12);color:#fdfaf3;border:none;border-radius:50%;width:28px;height:28px;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;flex-shrink:0;transition:.15s;font-family:inherit}
-.notifbtn:hover{background:rgba(255,255,255,.24)}
-.notifbtn.on{background:rgba(243,167,18,.8);color:#fff}
-.notifbtn.off{background:rgba(198,74,74,.5);color:#fff}
-.toast{position:fixed;bottom:14px;right:14px;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:11px 14px;box-shadow:var(--shadow);max-width:320px;font-size:13px;cursor:pointer;z-index:3000;opacity:0;transform:translateY(20px);transition:opacity .3s, transform .3s;font-family:inherit}
-.toast.show{opacity:1;transform:translateY(0)}
-.toast .t-title{font-weight:600;color:var(--ocean);margin-bottom:3px;font-size:12.5px}
-.toast .t-body{color:var(--ink);line-height:1.4;font-size:12px;white-space:pre-wrap;word-break:break-word}
-@media(max-width:760px){
-  .toast{left:10px;right:10px;bottom:10px;max-width:none}
-}
+.tabs{display:flex;background:var(--sand);border-bottom:1px solid var(--line)}
+.tab{flex:1;padding:10px 8px;background:transparent;border:none;cursor:pointer;font-family:inherit;font-size:13px;font-weight:500;color:var(--muted);border-bottom:2px solid transparent;transition:.15s;display:flex;align-items:center;justify-content:center;gap:5px}
+.tab.on{color:var(--ocean);border-bottom-color:var(--ocean);background:var(--paper)}
+.tab .ct{display:inline-block;background:var(--coral);color:#fff;border-radius:10px;padding:1px 7px;font-size:11px;font-weight:600;line-height:1.3;min-width:18px;text-align:center}
+.notiflist{overflow-y:auto;flex:1;padding:8px 10px 30px;display:none}
+.notif{border:1px solid var(--line);border-radius:11px;background:#fff;padding:10px 12px;margin-bottom:8px;cursor:pointer;transition:.15s;position:relative}
+.notif:hover{border-color:var(--ocean);transform:translateY(-1px);box-shadow:0 4px 14px rgba(8,50,59,.08)}
+.notif.unread{background:#fff8eb;border-color:#f3a712}
+.notif.unread::before{content:'';position:absolute;left:-1px;top:-1px;bottom:-1px;width:3px;background:#f3a712;border-radius:11px 0 0 11px}
+.notif-hdr{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:4px}
+.notif-hdr b{color:var(--ocean);font-size:12.5px;font-weight:600}
+.notif-t{font-size:10.5px;color:var(--muted);white-space:nowrap}
+.notif-body{font-size:13px;line-height:1.4;color:var(--ink);margin-bottom:6px;white-space:pre-wrap;word-break:break-word}
+.notif-on{font-size:11px;color:var(--muted)}
+.notif-on b{color:var(--ink);font-weight:500}
+.notif-tools{margin-top:6px;display:flex;justify-content:flex-end;gap:6px}
+.notif-tools button{background:none;border:1px solid var(--line);border-radius:6px;padding:3px 8px;font-family:inherit;font-size:11px;color:var(--muted);cursor:pointer;transition:.12s}
+.notif-tools button:hover{color:var(--ocean);border-color:var(--ocean)}
 .meinput{background:transparent;border:none;border-bottom:1px dashed rgba(255,255,255,.45);
   color:#fdfaf3;font-family:inherit;font-size:11px;font-weight:600;
   padding:0 3px 1px;width:auto;min-width:40px;max-width:140px;outline:none}
@@ -143,13 +150,14 @@ select{padding:7px 8px;cursor:auto}
     <header class="hd">
       <h1>Santa Cruz House Hunt</h1>
       <div class="sub" id="updated">Live rentals from direct PM sites</div>
-      <div class="merow">
-        <div class="me" id="meLine"></div>
-        <button id="notifBtn" class="notifbtn" title="Enable comment notifications">🔔</button>
-      </div>
+      <div class="me" id="meLine"></div>
       <div class="counts" id="counts"></div>
     </header>
-    <div class="filters">
+    <div class="tabs">
+      <button class="tab on" id="tabList" type="button">Listings</button>
+      <button class="tab" id="tabNotif" type="button">Notifications</button>
+    </div>
+    <div class="filters" id="filtersWrap">
       <div class="frow"><select id="fCity"></select><select id="fType"></select></div>
       <div class="frow">
         <button class="pill fav" id="fFav">♡ Favorites</button>
@@ -162,6 +170,7 @@ select{padding:7px 8px;cursor:auto}
       </div>
     </div>
     <div class="list" id="list"></div>
+    <div class="notiflist" id="notifList"></div>
   </aside>
   <div id="map"></div>
 </div>
@@ -641,92 +650,90 @@ function applyRemoteComment(row){
   list.push({id:row.id, author:row.author, body:row.body, created_at:row.created_at});
   list.sort((a,b)=>(a.created_at||'').localeCompare(b.created_at||''));
   lsWrite(CK,comments); render(); refreshMarker(id);
-  notifyOfRemoteComment(row);
-}
-
-/* ---------- partner-comment notifications ---------- */
-let unreadCount=0, baseTitle='';
-function bumpTitle(){
-  if(document.visibilityState==='visible' && document.hasFocus()) return;
-  unreadCount++;
-  if(!baseTitle) baseTitle = document.title;
-  document.title = `(${unreadCount}) ${baseTitle}`;
-}
-function clearTitle(){
-  if(baseTitle && unreadCount){ document.title = baseTitle; unreadCount = 0; }
-}
-window.addEventListener('focus', clearTitle);
-document.addEventListener('visibilitychange', ()=>{ if(document.visibilityState==='visible') clearTitle(); });
-
-function chime(){
-  try{
-    const A = window.AudioContext || window.webkitAudioContext; if(!A) return;
-    const ctx = new A();
-    const o = ctx.createOscillator(), g = ctx.createGain();
-    o.connect(g); g.connect(ctx.destination);
-    o.type='sine'; o.frequency.value=880;
-    const t0 = ctx.currentTime;
-    g.gain.setValueAtTime(0, t0);
-    g.gain.linearRampToValueAtTime(0.16, t0+0.02);
-    g.gain.exponentialRampToValueAtTime(0.001, t0+0.45);
-    o.start(t0); o.stop(t0+0.5);
-  }catch(e){}
-}
-
-function showToast(addr, author, body, listingId){
-  const t = document.createElement('div');
-  t.className='toast';
-  t.innerHTML = `<div class="t-title">💬 ${esc(author)} on ${esc((addr||'').slice(0,60))}</div><div class="t-body">${esc((body||'').slice(0,180))}</div>`;
-  t.onclick = ()=>{
-    const card = document.querySelector(`.card[data-id="${listingId}"]`);
-    if(card){ card.scrollIntoView({block:'center',behavior:'smooth'}); card.style.outline='2px solid var(--ocean)'; card.style.outlineOffset='2px'; setTimeout(()=>{card.style.outline='';card.style.outlineOffset='';}, 1500); }
-    if(window.innerWidth<=760) document.getElementById('side').classList.add('open');
-    t.classList.remove('show'); setTimeout(()=>t.remove(), 350);
-  };
-  document.body.appendChild(t);
-  requestAnimationFrame(()=>t.classList.add('show'));
-  setTimeout(()=>{ t.classList.remove('show'); setTimeout(()=>t.remove(), 400); }, 6500);
-}
-
-function notifyOfRemoteComment(row){
-  if(!row || !row.author || row.author === ME) return;  // don't notify on my own comments
-  const listing = LISTINGS.find(l=>l.id===row.listing_id) || listingCache[row.listing_id] || {};
-  const addr = listing.addr || row.listing_id;
-  const author = row.author || 'partner';
-  showToast(addr, author, row.body, row.listing_id);
-  bumpTitle();
-  chime();
-  if('Notification' in window && Notification.permission==='granted' &&
-     (document.visibilityState!=='visible' || !document.hasFocus())){
-    try{
-      const n = new Notification(`💬 ${author}`, {body:`${addr}\n${(row.body||'').slice(0,140)}`, tag:row.id});
-      n.onclick = ()=>{ window.focus(); const card = document.querySelector(`.card[data-id="${row.listing_id}"]`); if(card) card.scrollIntoView({block:'center',behavior:'smooth'}); n.close(); };
-    }catch(e){}
+  if(row.author && row.author !== ME){
+    if(currentTab==='notif') renderNotifs();
+    updateTabBadges();
   }
 }
 
-const notifBtn = document.getElementById('notifBtn');
-function updateNotifBtn(){
-  if(!('Notification' in window)){ notifBtn.style.display='none'; return; }
-  const p = Notification.permission;
-  notifBtn.classList.toggle('on',  p==='granted');
-  notifBtn.classList.toggle('off', p==='denied');
-  notifBtn.textContent = p==='denied' ? '🔕' : '🔔';
-  notifBtn.title = p==='granted' ? 'Notifications on (click for status)' :
-                   p==='denied'  ? 'Notifications blocked in browser settings' :
-                                   'Enable comment notifications';
-}
-notifBtn.onclick = ()=>{
-  if(!('Notification' in window)) return;
-  if(Notification.permission==='default'){
-    Notification.requestPermission().then(()=>{ updateNotifBtn(); chime(); });
-  } else if(Notification.permission==='granted'){
-    showToast('Notifications', 'system', 'You will be alerted when your partner posts a comment. Tap to test.', '');
-  } else {
-    showToast('Notifications blocked', 'system', 'Re-enable in your browser site settings (lock icon → Notifications).', '');
+/* ---------- notifications tab ---------- */
+const NSK='sc_rental_notif_last_seen_v1';
+let notifLastSeen = (function(){ try{return localStorage.getItem(NSK)||'';}catch(e){return '';} })();
+let currentTab = 'list';
+
+function partnerComments(){
+  const out=[];
+  for(const id in comments){
+    for(const c of (comments[id]||[])){
+      if(c.author && c.author !== ME) out.push({...c, listing_id:id});
+    }
   }
-};
-updateNotifBtn();
+  out.sort((a,b)=>(b.created_at||'').localeCompare(a.created_at||''));
+  return out;
+}
+
+function unreadPartnerCount(){
+  return partnerComments().filter(c=>(c.created_at||'') > notifLastSeen).length;
+}
+
+function updateTabBadges(){
+  const n = unreadPartnerCount();
+  const el = document.getElementById('tabNotif');
+  el.innerHTML = 'Notifications' + (n? ` <span class="ct">${n}</span>`:'');
+}
+
+function jumpToListing(lid){
+  switchTab('list');
+  const card = document.querySelector(`.card[data-id="${lid}"]`);
+  if(card){
+    card.scrollIntoView({block:'center',behavior:'smooth'});
+    card.style.outline='2px solid var(--ocean)';
+    card.style.outlineOffset='2px';
+    setTimeout(()=>{card.style.outline='';card.style.outlineOffset='';},1500);
+  }
+  const m = markers[lid];
+  if(m){ map.flyTo(m.getLatLng(),16,{duration:.5}); m.openPopup(); }
+}
+
+function renderNotifs(){
+  const items = partnerComments();
+  const list = document.getElementById('notifList');
+  if(!items.length){
+    list.innerHTML = '<div class="empty">No comments from your partner yet.<br><br>When they post one, it shows up here — tap a notification to jump to the listing on the map.</div>';
+    return;
+  }
+  list.innerHTML = items.map(c=>{
+    const cached = listingCache[c.listing_id] || (LISTINGS.find(l=>l.id===c.listing_id)) || {};
+    const addr = cached.addr || c.listing_id;
+    const t = (c.created_at||'').replace('T',' ').slice(0,16);
+    const isUnread = (c.created_at||'') > notifLastSeen;
+    return `<div class="notif ${isUnread?'unread':''}" data-cid="${esc(c.id)}" data-lid="${esc(c.listing_id)}">
+      <div class="notif-hdr"><b>${esc(c.author||'?')}</b><span class="notif-t">${esc(t)}</span></div>
+      <div class="notif-body">${esc(c.body||'')}</div>
+      <div class="notif-on">on <b>${esc(addr)}</b></div>
+    </div>`;
+  }).join('');
+  list.querySelectorAll('.notif').forEach(n=>{
+    n.onclick = ()=>jumpToListing(n.dataset.lid);
+  });
+}
+
+function switchTab(t){
+  currentTab = t;
+  document.getElementById('tabList').classList.toggle('on', t==='list');
+  document.getElementById('tabNotif').classList.toggle('on', t==='notif');
+  document.getElementById('filtersWrap').style.display = (t==='list') ? '' : 'none';
+  document.getElementById('list').style.display = (t==='list') ? '' : 'none';
+  document.getElementById('notifList').style.display = (t==='notif') ? 'block' : 'none';
+  if(t==='notif'){
+    renderNotifs();  // render with OLD notifLastSeen so unread items show orange-bordered
+    notifLastSeen = new Date().toISOString();
+    try{ localStorage.setItem(NSK, notifLastSeen); }catch(e){}
+    updateTabBadges();  // badge clears now that they've been seen
+  }
+}
+document.getElementById('tabList').onclick = ()=>switchTab('list');
+document.getElementById('tabNotif').onclick = ()=>switchTab('notif');
 
 function subscribeRealtime(){
   if(!supa) return;
@@ -802,6 +809,7 @@ async function boot(){
     });
     computeOrphans();
     render();
+    updateTabBadges();
     if(SYNC) subscribeRealtime();
     document.getElementById('loading').style.display='none';
   }catch(e){
