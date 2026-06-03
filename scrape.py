@@ -10,19 +10,17 @@ import requests
 from bs4 import BeautifulSoup
 
 UA = {"User-Agent": "sc-rental-map/1.0 (personal house-search project)"}
-TIMEOUT = 40
+TIMEOUT = 20            # per-request hard cap; small so a single hung URL can't dominate
+PER_SOURCE_BUDGET = 90  # max wall-clock seconds any single scraper can run before we move on
 
-def get(url, tries=4):
-    for i in range(tries):
+def get(url, tries=2):
+    for _ in range(tries):
         try:
             r = requests.get(url, headers=UA, timeout=TIMEOUT)
             if r.status_code == 200:
                 return r.text
-            # Throttle on rate-limit / busy responses before retrying
-            if r.status_code in (429, 503):
-                time.sleep(2 + i * 2)
         except Exception:
-            time.sleep(1.5 + i)
+            time.sleep(1.0)
     return ""
 
 # ---------- helpers ----------
@@ -92,13 +90,25 @@ PH = {}
 SOURCE_COUNTS = {}  # name -> int rows returned by that scraper (or "ERR" string)
 
 def safe(fn, name):
-    try:
-        n = fn()
-        SOURCE_COUNTS[name] = n
-        print(f"  {name}: {n}")
-    except Exception as e:
+    # Hard wall-clock budget per source — a single slow PM site can't block the rest.
+    import threading
+    result = {"n": 0, "err": None}
+    def runner():
+        try: result["n"] = fn()
+        except Exception as e: result["err"] = e
+    t = threading.Thread(target=runner, daemon=True)
+    t.start()
+    t.join(PER_SOURCE_BUDGET)
+    if t.is_alive():
+        SOURCE_COUNTS[name] = "TIMEOUT"
+        print(f"  {name}: TIMEOUT (>{PER_SOURCE_BUDGET}s, moved on; thread will die with process)", file=sys.stderr)
+        return
+    if result["err"] is not None:
         SOURCE_COUNTS[name] = "ERR"
-        print(f"  {name}: ERROR {e}", file=sys.stderr)
+        print(f"  {name}: ERROR {result['err']}", file=sys.stderr)
+    else:
+        SOURCE_COUNTS[name] = result["n"]
+        print(f"  {name}: {result['n']}")
 
 def add(source, address, beds, baths, rent, sqft, avail, summary, url, cls_text):
     rows.append(dict(source=source, address=address.strip(), beds=beds, baths=baths,
