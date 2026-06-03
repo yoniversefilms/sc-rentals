@@ -41,6 +41,19 @@ header.hd .me code{background:rgba(255,255,255,.12);padding:1px 5px;border-radiu
 .notif-tools{margin-top:6px;display:flex;justify-content:flex-end;gap:6px}
 .notif-tools button{background:none;border:1px solid var(--line);border-radius:6px;padding:3px 8px;font-family:inherit;font-size:11px;color:var(--muted);cursor:pointer;transition:.12s}
 .notif-tools button:hover{color:var(--ocean);border-color:var(--ocean)}
+.modal-overlay{position:fixed;inset:0;background:rgba(8,50,59,.55);display:flex;align-items:center;justify-content:center;z-index:5000;padding:20px;animation:m-fade .25s ease}
+@keyframes m-fade{from{opacity:0}to{opacity:1}}
+.modal{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:24px 22px 18px;width:360px;max-width:100%;box-shadow:var(--shadow);font-family:inherit;animation:m-pop .3s cubic-bezier(.2,.9,.4,1.2)}
+@keyframes m-pop{from{transform:scale(.92);opacity:0}to{transform:scale(1);opacity:1}}
+.modal h2{margin:0 0 6px;font-family:'Fraunces',serif;color:var(--ocean);font-size:22px;font-weight:600}
+.modal p{margin:0 0 14px;color:var(--muted);font-size:13px;line-height:1.45}
+.modal input{width:100%;border:1px solid var(--line);border-radius:10px;background:#fff;padding:11px 13px;font-family:inherit;font-size:15.5px;color:var(--ink);outline:none;transition:.15s}
+.modal input:focus{border-color:var(--ocean);box-shadow:0 0 0 3px rgba(13,79,92,.12)}
+.modal-actions{display:flex;gap:10px;margin-top:14px;justify-content:flex-end;align-items:center}
+.modal-actions .hint{flex:1;font-size:11px;color:var(--muted);font-style:italic}
+.modal-actions button{border:1px solid var(--ocean);border-radius:10px;background:var(--ocean);color:#fff;padding:9px 18px;font-family:inherit;font-size:13.5px;font-weight:500;cursor:pointer;transition:.12s}
+.modal-actions button:hover{background:var(--ocean-deep)}
+.modal-actions button:disabled{opacity:.35;cursor:not-allowed}
 .meinput{background:transparent;border:none;border-bottom:1px dashed rgba(255,255,255,.45);
   color:#fdfaf3;font-family:inherit;font-size:11px;font-weight:600;
   padding:0 3px 1px;width:auto;min-width:40px;max-width:140px;outline:none}
@@ -782,8 +795,45 @@ function renderMeLine(){
   inp.onkeydown = e=>{ if(e.key==='Enter'){ e.preventDefault(); inp.blur(); } };
 }
 
+/* ---------- first-visit name prompt ---------- */
+function maybePromptName(){
+  let storedName = '';
+  try{ storedName = localStorage.getItem(NK) || ''; }catch(e){}
+  if(storedName) return;  // returning visitor on this device — skip the prompt
+  const overlay = document.createElement('div');
+  overlay.className = 'modal-overlay';
+  overlay.innerHTML = `
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="welcomeTitle">
+      <h2 id="welcomeTitle">Welcome 👋</h2>
+      <p>What should we call you? Your name shows up on every comment and edit, so your partner knows who said what.</p>
+      <input id="welcomeName" placeholder="your name" maxlength="32" autocomplete="given-name" autocapitalize="words" />
+      <div class="modal-actions">
+        <span class="hint">You can change this later.</span>
+        <button id="welcomeGo" type="button" disabled>Let's go</button>
+      </div>
+    </div>`;
+  document.body.appendChild(overlay);
+  const inp = document.getElementById('welcomeName');
+  const go  = document.getElementById('welcomeGo');
+  setTimeout(()=>inp.focus(), 50);
+  inp.oninput = ()=>{ go.disabled = !inp.value.trim(); };
+  function commit(){
+    const v = inp.value.trim();
+    if(!v) return;
+    ME = v;
+    try{ localStorage.setItem(NK, v); }catch(e){}
+    overlay.remove();
+    renderMeLine();
+    LISTINGS.forEach(l=>{ if(markers[l.id]) markers[l.id].setPopupContent(popupHtml(l)); });
+    render();
+  }
+  go.onclick = commit;
+  inp.onkeydown = e=>{ if(e.key==='Enter' && !go.disabled) commit(); };
+}
+
 /* ---------- boot ---------- */
 loadFromLocal();
+maybePromptName();
 renderMeLine();
 map.addControl(legend);
 
