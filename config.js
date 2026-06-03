@@ -13,7 +13,7 @@ window.SC_CONFIG = {
   // The anon key is public by design (protected by RLS + the board key in
   // the URL). NEVER put a service_role key here.
   supabaseUrl:  "https://stoyyffvqpjebbmbwmug.supabase.co",
-  supabaseAnon: "",          // anon public key (eyJ...) — paste from Supabase Settings → API Keys → Legacy
+  supabaseAnon: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN0b3l5ZmZ2cXBqZWJibWJ3bXVnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA0NDk1NDEsImV4cCI6MjA5NjAyNTU0MX0.pT6Y5vpQa9v9irIaOM2MotwVJEMFO2ceZ72JbOuotu4",
 
   // The shared board slug — anyone with this URL can read/edit your shared list.
   // Treat it like a password. Share the full ?board=... URL with your partner.
