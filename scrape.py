@@ -89,12 +89,15 @@ def classify(text, addr):
 # ---------- scrapers (each isolated; failures don't kill the run) ----------
 rows = []
 PH = {}
+SOURCE_COUNTS = {}  # name -> int rows returned by that scraper (or "ERR" string)
 
 def safe(fn, name):
     try:
         n = fn()
+        SOURCE_COUNTS[name] = n
         print(f"  {name}: {n}")
     except Exception as e:
+        SOURCE_COUNTS[name] = "ERR"
         print(f"  {name}: ERROR {e}", file=sys.stderr)
 
 def add(source, address, beds, baths, rent, sqft, avail, summary, url, cls_text):
@@ -368,6 +371,17 @@ def main():
     json.dump(data, open("data.json", "w"), ensure_ascii=False, indent=1)
     truly_new = sum(1 for l in listings if prev_by_id and l["id"] not in prev_by_id)
     print(f"Wrote data.json with {len(listings)} listings ({truly_new} new since last run, generated {data['generated']})")
+
+    # Per-source summary the workflow uses as the commit message
+    short = {"Bailey PM":"Bailey","Blue Sky PM":"BlueSky","Kendall & Potter":"K&P",
+             "Anderson Christie":"Anderson","C&C PM":"C&C","Pacific Sun (Buildium)":"PacificSun",
+             "Utopia":"Utopia","Santa Cruz Property Co":"SCProp","Streamline":"Streamline",
+             "PMI Santa Cruz":"PMI"}
+    parts = [f"{short.get(k,k)} {v}" for k, v in SOURCE_COUNTS.items()]
+    summary = ", ".join(parts) + f" (raw {len(rows)}, kept {len(listings)}, +{truly_new} new)"
+    with open(".run_summary.txt", "w") as f:
+        f.write(summary)
+    print(f"Summary: {summary}")
 
 if __name__ == "__main__":
     main()

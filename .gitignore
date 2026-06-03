@@ -1,5 +1,6 @@
 .DS_Store
 __pycache__/
+.run_summary.txt
 *.pyc
 .venv/
 venv/

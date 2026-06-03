@@ -32,6 +32,12 @@ jobs:
           if git diff --staged --quiet; then
             echo "No changes today."
           else
-            git commit -m "Daily update: $(date -u +%Y-%m-%d)"
+            SUM=$(cat .run_summary.txt 2>/dev/null || echo "")
+            DATE=$(date -u +%Y-%m-%d)
+            if [ -n "$SUM" ]; then
+              git commit -m "Daily update $DATE: $SUM"
+            else
+              git commit -m "Daily update: $DATE"
+            fi
             git push
           fi
