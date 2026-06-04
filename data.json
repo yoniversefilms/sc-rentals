@@ -1,6 +1,6 @@
 {
- "generated": "2026-06-03 18:26 UTC",
- "count": 49,
+ "generated": "2026-06-04 16:58 UTC",
+ "count": 53,
  "listings": [
   {
    "id": "42a0136a17",
@@ -181,7 +181,7 @@
    "beds": 1,
    "baths": 1.0,
    "sqft": "",
-   "rent": "$2,075",
+   "rent": "$2,200",
    "avail": "06-05-2026",
    "pm": "PMI Santa Cruz",
    "phone": "831-471-7878",
@@ -395,8 +395,8 @@
    "pm": "Bailey PM",
    "phone": "831-685-8588",
    "url": "https://baileypm.appfolio.com/listings/detail/7ce3481f-7b5b-494e-bb05-8ac1a783c7bb",
-   "lat": 36.974891,
-   "lon": -122.02896,
+   "lat": 36.976677,
+   "lon": -122.02943,
    "approx": true,
    "summary": "Live Oak. 1786 Reinelt St, Santa Cruz, CA 95062 Map",
    "first_seen": "2026-06-03"
@@ -419,6 +419,25 @@
    "approx": false,
    "summary": "Completely Remodeled Seabright Stunner 2BR/2BA. 1411 Seabright Avenue - A, Santa Cruz, CA 95062 Map",
    "first_seen": "2026-06-03"
+  },
+  {
+   "id": "7ff9cbe19f",
+   "addr": "1129B Laurel St, Santa Cruz, CA 95060-4271",
+   "city": "Santa Cruz",
+   "type": "Verify type",
+   "beds": 2,
+   "baths": 1.0,
+   "sqft": "",
+   "rent": "Contact for price",
+   "avail": "",
+   "pm": "Anderson Christie",
+   "phone": "",
+   "url": "https://andersonchristierealestate.appfolio.com/listings/detail/7b68d9f6-c311-418e-b5a7-83b1c3b530c6",
+   "lat": 36.971793,
+   "lon": -122.041788,
+   "approx": false,
+   "summary": "RENT $0 BED / BATH 2 bd / 1 ba RENT $0 Bed / Bath 2 bd / 1 ba 1129B Laurel St, Santa Cruz, CA 95060-4271 Map View Details Apply Now. 1129B Laurel St, Santa Cruz, CA 95060-4271 Map",
+   "first_seen": "2026-06-04"
   },
   {
    "id": "b5debecf3c",
@@ -459,23 +478,23 @@
    "first_seen": "2026-06-03"
   },
   {
-   "id": "0b223b9f67",
-   "addr": "140 Bay Street, Santa Cruz, California, 95060",
+   "id": "9f36b069e7",
+   "addr": "727 Frederick Street, Santa Cruz, California, 95062",
    "city": "Santa Cruz",
    "type": "Verify type",
-   "beds": 1,
+   "beds": 2,
    "baths": 1.0,
    "sqft": "",
-   "rent": "$2,450",
+   "rent": "$2,700",
    "avail": "",
    "pm": "Utopia Management",
    "phone": "(831) 580-1111",
-   "url": "https://utopiamanagement.com/rental-list/property-at-140-bay-street",
-   "lat": 36.971095,
-   "lon": -122.032622,
-   "approx": true,
-   "summary": "140 Bay Street, Santa Cruz, California, 95060",
-   "first_seen": "2026-06-03"
+   "url": "https://utopiamanagement.com/rental-list/property-at-727-frederick-street",
+   "lat": 36.98054,
+   "lon": -122.004648,
+   "approx": false,
+   "summary": "727 Frederick Street, Santa Cruz, California, 95062",
+   "first_seen": "2026-06-04"
   },
   {
    "id": "36ce05b570",
@@ -528,8 +547,8 @@
    "pm": "Kendall & Potter",
    "phone": "",
    "url": "https://kendallpotter.appfolio.com/listings/detail/c4e2559f-3e10-4454-99d2-2cb48884bfd2",
-   "lat": 36.975245,
-   "lon": -121.952415,
+   "lat": 36.972642,
+   "lon": -121.952562,
    "approx": true,
    "summary": "Charming Furnished 1 Bedroom Cottage in Depot Hill – 30-Day Minimum. 116 Cliff Ave. #4, Capitola, CA 95010 Map",
    "first_seen": "2026-06-03"
@@ -628,6 +647,44 @@
    "approx": false,
    "summary": "Stunning Fully Furnished 3-Bedroom, 6-Bathroom Home – Minimum 30-Day Stay. 544 Cuesta Dr, Aptos, CA 95003 Map",
    "first_seen": "2026-06-03"
+  },
+  {
+   "id": "1572f8a684",
+   "addr": "506 Seacliff Dr, Aptos, CA 95003",
+   "city": "Aptos",
+   "type": "House",
+   "beds": 2,
+   "baths": 2.0,
+   "sqft": "",
+   "rent": "$5,350",
+   "avail": "",
+   "pm": "Streamline PM",
+   "phone": "831-535-3533",
+   "url": "https://streamline831.com/rental-listings/",
+   "lat": 36.975572,
+   "lon": -121.917646,
+   "approx": false,
+   "summary": "506 Seacliff Dr, Aptos, CA 95003 Price: $5,350/mo Beds: 2 Bedroom Baths: 2 Bathroom Area: 1,577 sqft Lease Type: 12-month lease Address: 506 Seacliff Dr, Aptos, CA 95003 Parking: Attached garage parki",
+   "first_seen": "2026-06-04"
+  },
+  {
+   "id": "0f3549f2ca",
+   "addr": "112 Vineyard Ct, Aptos, CA 95003",
+   "city": "Aptos",
+   "type": "Townhome",
+   "beds": 3,
+   "baths": 3.0,
+   "sqft": "",
+   "rent": "$4,700",
+   "avail": "",
+   "pm": "Streamline PM",
+   "phone": "831-535-3533",
+   "url": "https://streamline831.com/rental-listings/",
+   "lat": 36.952121,
+   "lon": -121.872884,
+   "approx": false,
+   "summary": "112 Vineyard Ct, Aptos, CA 95003 Price: $4,700/mo Beds: 3 Bedroom Baths: 3 Bathrooms Area: 1,800 sqft Lease Type: 1-year lease Address: 112 Vineyard Ct, Aptos, CA 95003 Parking: Attached garage parkin",
+   "first_seen": "2026-06-04"
   },
   {
    "id": "578312ac0d",
@@ -775,8 +832,8 @@
    "pm": "C&C PM",
    "phone": "",
    "url": "https://ccpmgmt.appfolio.com/listings/detail/3af1d18a-2ed0-4b3a-be64-72fa1213c9d0",
-   "lat": 37.054752,
-   "lon": -122.015691,
+   "lat": 37.048122,
+   "lon": -122.012528,
    "approx": true,
    "summary": "Beautiful 3 bedroom 3 bath Home in Scotts Valley!. 374 Hansen Ter, Scotts Valley, CA 95066 Map",
    "first_seen": "2026-06-03"
@@ -813,8 +870,8 @@
    "pm": "Anderson Christie",
    "phone": "",
    "url": "https://andersonchristierealestate.appfolio.com/listings/detail/5bd58921-25bb-4568-ac64-a9e9dc0b37be",
-   "lat": 37.051485,
-   "lon": -122.011212,
+   "lat": 37.053578,
+   "lon": -122.016175,
    "approx": true,
    "summary": "3br / 2.5ba Scotts Valley Gem. 379 Hansen Terrace, Scotts Valley, CA 95066 Map",
    "first_seen": "2026-06-03"
@@ -870,8 +927,8 @@
    "pm": "Bailey PM",
    "phone": "831-685-8588",
    "url": "https://baileypm.appfolio.com/listings/detail/f63910b4-3289-45e8-9e81-ff694d17c039",
-   "lat": 36.910677,
-   "lon": -121.756853,
+   "lat": 36.910394,
+   "lon": -121.760319,
    "approx": true,
    "summary": "Peaceful Country Living. 640 Peaceful Valley, Watsonsville, CA 95076 Map",
    "first_seen": "2026-06-03"
@@ -932,6 +989,25 @@
    "approx": false,
    "summary": "Sunny and Charming Boulder Creek Retreat - Modern Living on a Shared Property. 205 Apple Knoll , Boulder Creek, CA 95006 Map",
    "first_seen": "2026-06-03"
+  },
+  {
+   "id": "2750ccb1c4",
+   "addr": "1155 Fanning Grade, Ben Lomond, CA 95005",
+   "city": "Ben Lomond",
+   "type": "House",
+   "beds": 2,
+   "baths": 1.0,
+   "sqft": "",
+   "rent": "$3,380",
+   "avail": "",
+   "pm": "Streamline PM",
+   "phone": "831-535-3533",
+   "url": "https://streamline831.com/rental-listings/",
+   "lat": 37.088984,
+   "lon": -122.114671,
+   "approx": false,
+   "summary": "1155 Fanning Grade, Ben Lomond, CA 95005 Price: $3,380/mo Beds: 2 Beds Baths: 1 Bathroom Area: 1,000 Lease Type: 1yr lease Address: 1155 Fanning Grade, Ben Lomond, CA 95005 Parking: Off street parking",
+   "first_seen": "2026-06-04"
   }
  ]
 }
