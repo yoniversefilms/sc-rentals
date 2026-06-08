@@ -1,5 +1,5 @@
 {
- "generated": "2026-06-07 15:27 UTC",
+ "generated": "2026-06-08 17:26 UTC",
  "count": 54,
  "listings": [
   {
@@ -376,8 +376,8 @@
    "pm": "Utopia Management",
    "phone": "(831) 580-1111",
    "url": "https://utopiamanagement.com/rental-list/property-at-113-jacobs-lane",
-   "lat": 36.97681,
-   "lon": -122.028859,
+   "lat": 36.971268,
+   "lon": -122.030899,
    "approx": true,
    "summary": "113 Jacobs Lane, Santa Cruz, California, 95062",
    "first_seen": "2026-06-05"
@@ -395,8 +395,8 @@
    "pm": "Bailey PM",
    "phone": "831-685-8588",
    "url": "https://baileypm.appfolio.com/listings/detail/7ce3481f-7b5b-494e-bb05-8ac1a783c7bb",
-   "lat": 36.974839,
-   "lon": -122.027588,
+   "lat": 36.970447,
+   "lon": -122.033899,
    "approx": true,
    "summary": "Live Oak. 1786 Reinelt St, Santa Cruz, CA 95062 Map",
    "first_seen": "2026-06-03"
@@ -414,8 +414,8 @@
    "pm": "Kendall & Potter",
    "phone": "",
    "url": "https://kendallpotter.appfolio.com/listings/detail/2e598132-74fd-44a2-a889-5171d36c497a",
-   "lat": 36.973057,
-   "lon": -122.030097,
+   "lat": 36.970438,
+   "lon": -122.031816,
    "approx": true,
    "summary": "Easy Living - Furnished 2BR-2BA at the Harbor and Twin Lakes Beach. 200 5th Ave, Unit 4, Santa Cruz, CA 95062 Map",
    "first_seen": "2026-06-06"
@@ -566,8 +566,8 @@
    "pm": "Kendall & Potter",
    "phone": "",
    "url": "https://kendallpotter.appfolio.com/listings/detail/c4e2559f-3e10-4454-99d2-2cb48884bfd2",
-   "lat": 36.971811,
-   "lon": -121.953876,
+   "lat": 36.976967,
+   "lon": -121.952689,
    "approx": true,
    "summary": "Charming Furnished 1 Bedroom Cottage in Depot Hill – 30-Day Minimum. 116 Cliff Ave. #4, Capitola, CA 95010 Map",
    "first_seen": "2026-06-03"
@@ -851,8 +851,8 @@
    "pm": "C&C PM",
    "phone": "",
    "url": "https://ccpmgmt.appfolio.com/listings/detail/3af1d18a-2ed0-4b3a-be64-72fa1213c9d0",
-   "lat": 37.048903,
-   "lon": -122.011827,
+   "lat": 37.053403,
+   "lon": -122.01096,
    "approx": true,
    "summary": "Beautiful 3 bedroom 3 bath Home in Scotts Valley!. 374 Hansen Ter, Scotts Valley, CA 95066 Map",
    "first_seen": "2026-06-03"
@@ -885,12 +885,12 @@
    "baths": 1.0,
    "sqft": "1,000",
    "rent": "$2,900",
-   "avail": "6/8/26",
+   "avail": "NOW",
    "pm": "Anderson Christie",
    "phone": "",
    "url": "https://andersonchristierealestate.appfolio.com/listings/detail/c4c536c5-3f49-4ba3-a33b-6ecca1ad76e6",
-   "lat": 37.054945,
-   "lon": -122.017026,
+   "lat": 37.048277,
+   "lon": -122.016658,
    "approx": true,
    "summary": "Cozy 3 Bedroom with Private Patio & Storage. 640 Tabor Drive B, Scotts Valley, CA 95066 Map",
    "first_seen": "2026-06-05"
@@ -908,8 +908,8 @@
    "pm": "Anderson Christie",
    "phone": "",
    "url": "https://andersonchristierealestate.appfolio.com/listings/detail/5bd58921-25bb-4568-ac64-a9e9dc0b37be",
-   "lat": 37.050704,
-   "lon": -122.01099,
+   "lat": 37.047063,
+   "lon": -122.012173,
    "approx": true,
    "summary": "3br / 2.5ba Scotts Valley Gem. 379 Hansen Terrace, Scotts Valley, CA 95066 Map",
    "first_seen": "2026-06-03"
@@ -965,8 +965,8 @@
    "pm": "Bailey PM",
    "phone": "831-685-8588",
    "url": "https://baileypm.appfolio.com/listings/detail/f63910b4-3289-45e8-9e81-ff694d17c039",
-   "lat": 36.911417,
-   "lon": -121.756422,
+   "lat": 36.913538,
+   "lon": -121.757369,
    "approx": true,
    "summary": "Peaceful Country Living. 640 Peaceful Valley, Watsonsville, CA 95076 Map",
    "first_seen": "2026-06-03"
