@@ -1,6 +1,6 @@
 {
- "generated": "2026-06-17 17:13 UTC",
- "count": 55,
+ "generated": "2026-06-18 17:20 UTC",
+ "count": 52,
  "listings": [
   {
    "id": "1dc2ebfcba",
@@ -30,7 +30,7 @@
    "baths": 2.0,
    "sqft": "1,517",
    "rent": "$5,200",
-   "avail": "6/18/26",
+   "avail": "NOW",
    "pm": "Anderson Christie",
    "phone": "",
    "url": "https://andersonchristierealestate.appfolio.com/listings/detail/e5a82808-bed7-4ade-a2f3-df063e340e0c",
@@ -39,25 +39,6 @@
    "approx": false,
    "summary": "3 bed 2 bath house in the Prospect Heights Neighborhood. 860 Prospect Heights, Santa Cruz, CA 95065 Map",
    "first_seen": "2026-06-16"
-  },
-  {
-   "id": "c38f44600e",
-   "addr": "135B May Ave, Santa Cruz, CA 95062-2302",
-   "city": "Santa Cruz",
-   "type": "House",
-   "beds": 3,
-   "baths": 2.0,
-   "sqft": "1,150",
-   "rent": "$4,950",
-   "avail": "7/1/26",
-   "pm": "Anderson Christie",
-   "phone": "",
-   "url": "https://andersonchristierealestate.appfolio.com/listings/detail/e27feadd-f84a-4e8d-bf18-cd83e7178569",
-   "lat": 36.975737,
-   "lon": -122.018361,
-   "approx": false,
-   "summary": "3br - 1150ft2 - 3 Bedroom Home- In the ❤heart of SC- 10min to Campus! (santa cruz). 135B May Ave, Santa Cruz, CA 95062-2302 Map",
-   "first_seen": "2026-06-03"
   },
   {
    "id": "0161abdc60",
@@ -167,8 +148,8 @@
    "pm": "PMI Santa Cruz",
    "phone": "831-471-7878",
    "url": "https://www.pmisantacruz.com/santa-cruz-homes-for-rent/117/505-walnut-ave-unit-b-santa-cruz-ca-95060-3635",
-   "lat": 36.977114,
-   "lon": -122.032661,
+   "lat": 36.973657,
+   "lon": -122.034331,
    "approx": true,
    "summary": "Duplex. 505 Walnut Ave, Unit B, Santa Cruz,  95060",
    "first_seen": "2026-06-12"
@@ -181,7 +162,7 @@
    "beds": 3,
    "baths": 2.0,
    "sqft": "1,649",
-   "rent": "$4,500",
+   "rent": "$3,995",
    "avail": "NOW",
    "pm": "Bailey PM",
    "phone": "831-685-8588",
@@ -364,6 +345,25 @@
    "first_seen": "2026-06-09"
   },
   {
+   "id": "e8ae196d00",
+   "addr": "218 Alhambra Avenue - B, Santa Cruz, CA 95062",
+   "city": "Santa Cruz",
+   "type": "Apartment",
+   "beds": 2,
+   "baths": 1.0,
+   "sqft": "",
+   "rent": "$2,900",
+   "avail": "NOW",
+   "pm": "Kendall & Potter",
+   "phone": "",
+   "url": "https://kendallpotter.appfolio.com/listings/detail/1f09922c-1504-4163-8450-ff5b0defa489",
+   "lat": 36.96603,
+   "lon": -122.010455,
+   "approx": false,
+   "summary": "Beautifully Updated 2 Bedroom Apartment Near Santa Cruz Beach with Garage Parking. 218 Alhambra Avenue - B, Santa Cruz, CA 95062 Map",
+   "first_seen": "2026-06-18"
+  },
+  {
    "id": "4953cfff22",
    "addr": "251 High Street - Unit D, Santa Cruz, CA 95060",
    "city": "Santa Cruz",
@@ -383,8 +383,8 @@
    "first_seen": "2026-06-03"
   },
   {
-   "id": "c5b5fa1d32",
-   "addr": "113 Jacobs Lane, Santa Cruz, California, 95062",
+   "id": "91fe1da0c0",
+   "addr": "113 Jacobs Lane, Santa Cruz, CA",
    "city": "Santa Cruz",
    "type": "Verify type",
    "beds": 3,
@@ -395,15 +395,15 @@
    "pm": "Utopia Management",
    "phone": "(831) 580-1111",
    "url": "https://utopiamanagement.com/rental-list/property-at-113-jacobs-lane",
-   "lat": 36.977929,
-   "lon": -122.034054,
+   "lat": 36.974127,
+   "lon": -122.028856,
    "approx": true,
-   "summary": "113 Jacobs Lane, Santa Cruz, California, 95062",
-   "first_seen": "2026-06-05"
+   "summary": "113 Jacobs Lane, Santa Cruz, CA",
+   "first_seen": "2026-06-18"
   },
   {
-   "id": "9257cabc9c",
-   "addr": "448 May Avenue - Unit 4, Santa Cruz, California, 95062",
+   "id": "342699f448",
+   "addr": "448 May Avenue – Unit 4, Santa Cruz, CA",
    "city": "Santa Cruz",
    "type": "Verify type",
    "beds": 3,
@@ -414,11 +414,11 @@
    "pm": "Utopia Management",
    "phone": "(831) 580-1111",
    "url": "https://utopiamanagement.com/rental-list/property-at-448-may-avenue-unit-4",
-   "lat": 36.981076,
-   "lon": -122.020398,
-   "approx": false,
-   "summary": "448 May Avenue - Unit 4, Santa Cruz, California, 95062",
-   "first_seen": "2026-06-15"
+   "lat": 36.972254,
+   "lon": -122.030955,
+   "approx": true,
+   "summary": "448 May Avenue – Unit 4, Santa Cruz, CA",
+   "first_seen": "2026-06-18"
   },
   {
    "id": "653b41861b",
@@ -433,8 +433,8 @@
    "pm": "Bailey PM",
    "phone": "831-685-8588",
    "url": "https://baileypm.appfolio.com/listings/detail/7ce3481f-7b5b-494e-bb05-8ac1a783c7bb",
-   "lat": 36.975954,
-   "lon": -122.028898,
+   "lat": 36.97423,
+   "lon": -122.028606,
    "approx": true,
    "summary": "Live Oak. 1786 Reinelt St, Santa Cruz, CA 95062 Map",
    "first_seen": "2026-06-03"
@@ -447,13 +447,13 @@
    "beds": 2,
    "baths": 2.0,
    "sqft": "1,091",
-   "rent": "$4,700",
+   "rent": "$4,490",
    "avail": "NOW",
    "pm": "Kendall & Potter",
    "phone": "",
    "url": "https://kendallpotter.appfolio.com/listings/detail/2e598132-74fd-44a2-a889-5171d36c497a",
-   "lat": 36.972295,
-   "lon": -122.034088,
+   "lat": 36.973619,
+   "lon": -122.032044,
    "approx": true,
    "summary": "Easy Living - Furnished 2BR-2BA at the Harbor and Twin Lakes Beach. 200 5th Ave, Unit 4, Santa Cruz, CA 95062 Map",
    "first_seen": "2026-06-06"
@@ -490,8 +490,8 @@
    "pm": "Anderson Christie",
    "phone": "",
    "url": "https://andersonchristierealestate.appfolio.com/listings/detail/d190149c-dcf6-472a-92f4-a4d993cec4e7",
-   "lat": 36.974679,
-   "lon": -122.029139,
+   "lat": 36.970823,
+   "lon": -122.028888,
    "approx": true,
    "summary": "Prime Central Location / Available NOW!!!. 318 Soquel Avenue Unit B2 L/O, Santa Cruz, CA 95060 Map",
    "first_seen": "2026-06-15"
@@ -554,8 +554,8 @@
    "first_seen": "2026-06-03"
   },
   {
-   "id": "9f36b069e7",
-   "addr": "727 Frederick Street, Santa Cruz, California, 95062",
+   "id": "a5bd1e3d13",
+   "addr": "727 Frederick Street, Santa Cruz, CA",
    "city": "Santa Cruz",
    "type": "Verify type",
    "beds": 2,
@@ -569,8 +569,8 @@
    "lat": 36.98054,
    "lon": -122.004648,
    "approx": false,
-   "summary": "727 Frederick Street, Santa Cruz, California, 95062",
-   "first_seen": "2026-06-04"
+   "summary": "727 Frederick Street, Santa Cruz, CA",
+   "first_seen": "2026-06-18"
   },
   {
    "id": "53f2bc6454",
@@ -585,15 +585,15 @@
    "pm": "PMI Santa Cruz",
    "phone": "831-471-7878",
    "url": "https://www.pmisantacruz.com/santa-cruz-homes-for-rent/137/522-barson-st-unit-d-santa-cruz-ca-95060-4656",
-   "lat": 36.973211,
-   "lon": -122.028503,
+   "lat": 36.972761,
+   "lon": -122.031899,
    "approx": true,
    "summary": "Multiplex. 522 Barson St Unit D, Santa Cruz,  95060",
    "first_seen": "2026-06-14"
   },
   {
-   "id": "36ce05b570",
-   "addr": "203 Jessie Street, Santa Cruz, California, 95060",
+   "id": "34ac7a3579",
+   "addr": "203 Jessie Street, Santa Cruz, CA",
    "city": "Santa Cruz",
    "type": "Verify type",
    "beds": 1,
@@ -607,8 +607,8 @@
    "lat": 36.969326,
    "lon": -122.015019,
    "approx": false,
-   "summary": "203 Jessie Street, Santa Cruz, California, 95060",
-   "first_seen": "2026-06-03"
+   "summary": "203 Jessie Street, Santa Cruz, CA",
+   "first_seen": "2026-06-18"
   },
   {
    "id": "cb80f68b9e",
@@ -687,46 +687,8 @@
    "first_seen": "2026-06-03"
   },
   {
-   "id": "1572f8a684",
-   "addr": "506 Seacliff Dr, Aptos, CA 95003",
-   "city": "Aptos",
-   "type": "House",
-   "beds": 2,
-   "baths": 2.0,
-   "sqft": "",
-   "rent": "$5,350",
-   "avail": "",
-   "pm": "Streamline PM",
-   "phone": "831-535-3533",
-   "url": "https://streamline831.com/rental-listings/",
-   "lat": 36.975572,
-   "lon": -121.917646,
-   "approx": false,
-   "summary": "506 Seacliff Dr, Aptos, CA 95003 Price: $5,350/mo Beds: 2 Bedroom Baths: 2 Bathroom Area: 1,577 sqft Lease Type: 12-month lease Address: 506 Seacliff Dr, Aptos, CA 95003 Parking: Attached garage parki",
-   "first_seen": "2026-06-06"
-  },
-  {
-   "id": "0f3549f2ca",
-   "addr": "112 Vineyard Ct, Aptos, CA 95003",
-   "city": "Aptos",
-   "type": "Townhome",
-   "beds": 3,
-   "baths": 3.0,
-   "sqft": "",
-   "rent": "$4,700",
-   "avail": "",
-   "pm": "Streamline PM",
-   "phone": "831-535-3533",
-   "url": "https://streamline831.com/rental-listings/",
-   "lat": 36.952121,
-   "lon": -121.872884,
-   "approx": false,
-   "summary": "112 Vineyard Ct, Aptos, CA 95003 Price: $4,700/mo Beds: 3 Bedroom Baths: 3 Bathrooms Area: 1,800 sqft Lease Type: 1-year lease Address: 112 Vineyard Ct, Aptos, CA 95003 Parking: Attached garage parkin",
-   "first_seen": "2026-06-06"
-  },
-  {
-   "id": "664c27b3e1",
-   "addr": "2607 Willowbrook Lane #56, Aptos, California, 95003",
+   "id": "bdfc2f8f52",
+   "addr": "2607 Willowbrook Lane #56, Aptos, CA",
    "city": "Aptos",
    "type": "Condo",
    "beds": 2,
@@ -737,11 +699,11 @@
    "pm": "Utopia Management",
    "phone": "(831) 580-1111",
    "url": "https://utopiamanagement.com/rental-list/property-at-2607-willowbrook-lane-56",
-   "lat": 36.984643,
-   "lon": -121.933998,
-   "approx": false,
-   "summary": "2607 Willowbrook Lane #56, Aptos, California, 95003",
-   "first_seen": "2026-06-03"
+   "lat": 36.974566,
+   "lon": -121.901144,
+   "approx": true,
+   "summary": "2607 Willowbrook Lane #56, Aptos, CA",
+   "first_seen": "2026-06-18"
   },
   {
    "id": "022a6e3cf1",
@@ -801,6 +763,25 @@
    "first_seen": "2026-06-03"
   },
   {
+   "id": "68c603d1ee",
+   "addr": "62 Seacliff Drive, Aptos, CA 95003",
+   "city": "Aptos",
+   "type": "Verify type",
+   "beds": 2,
+   "baths": 1.0,
+   "sqft": "",
+   "rent": "$2,900",
+   "avail": "NOW",
+   "pm": "Kendall & Potter",
+   "phone": "",
+   "url": "https://kendallpotter.appfolio.com/listings/detail/1834c892-7d13-48ad-8621-3f287afbf3a6",
+   "lat": 36.98107,
+   "lon": -121.897868,
+   "approx": true,
+   "summary": "Bright Upstairs 2BR with Private Deck in Seacliff Gardens. 62 Seacliff Drive, Aptos, CA 95003 Map",
+   "first_seen": "2026-06-18"
+  },
+  {
    "id": "117bff84cc",
    "addr": "217 Sunset Terrace, Scotts Valley, CA 95066",
    "city": "Scotts Valley",
@@ -832,8 +813,8 @@
    "pm": "C&C PM",
    "phone": "",
    "url": "https://ccpmgmt.appfolio.com/listings/detail/3af1d18a-2ed0-4b3a-be64-72fa1213c9d0",
-   "lat": 37.048716,
-   "lon": -122.013688,
+   "lat": 37.049734,
+   "lon": -122.012525,
    "approx": true,
    "summary": "Beautiful 3 bedroom 3 bath Home in Scotts Valley!. 374 Hansen Ter, Scotts Valley, CA 95066 Map",
    "first_seen": "2026-06-03"
@@ -870,8 +851,8 @@
    "pm": "Anderson Christie",
    "phone": "",
    "url": "https://andersonchristierealestate.appfolio.com/listings/detail/c4c536c5-3f49-4ba3-a33b-6ecca1ad76e6",
-   "lat": 37.048615,
-   "lon": -122.017343,
+   "lat": 37.053534,
+   "lon": -122.014274,
    "approx": true,
    "summary": "Cozy 3 Bedroom with Private Patio & Storage. 640 Tabor Drive B, Scotts Valley, CA 95066 Map",
    "first_seen": "2026-06-05"
@@ -889,8 +870,8 @@
    "pm": "Anderson Christie",
    "phone": "",
    "url": "https://andersonchristierealestate.appfolio.com/listings/detail/5bd58921-25bb-4568-ac64-a9e9dc0b37be",
-   "lat": 37.049463,
-   "lon": -122.017647,
+   "lat": 37.048352,
+   "lon": -122.013005,
    "approx": true,
    "summary": "3br / 2.5ba Scotts Valley Gem. 379 Hansen Terrace, Scotts Valley, CA 95066 Map",
    "first_seen": "2026-06-03"
@@ -965,8 +946,8 @@
    "pm": "Bailey PM",
    "phone": "831-685-8588",
    "url": "https://baileypm.appfolio.com/listings/detail/f63910b4-3289-45e8-9e81-ff694d17c039",
-   "lat": 36.913916,
-   "lon": -121.753725,
+   "lat": 36.911263,
+   "lon": -121.760333,
    "approx": true,
    "summary": "Peaceful Country Living. 640 Peaceful Valley, Watsonsville, CA 95076 Map",
    "first_seen": "2026-06-03"
@@ -984,8 +965,8 @@
    "pm": "PMI Santa Cruz",
    "phone": "831-471-7878",
    "url": "https://www.pmisantacruz.com/santa-cruz-homes-for-rent/179/12895-highway-9-unit-c-boulder-creek-ca-95006",
-   "lat": 37.125692,
-   "lon": -122.123248,
+   "lat": 37.12927,
+   "lon": -122.11982,
    "approx": true,
    "summary": "Single Family Home. 12895 Highway 9, Unit C, Boulder Creek,  95006",
    "first_seen": "2026-06-10"
@@ -1008,44 +989,6 @@
    "approx": false,
    "summary": "Charming 1BD Duplex with Forest Views & Outdoor Space. 13127 Hazel Ave, Boulder Creek, CA 95006-9245 Map",
    "first_seen": "2026-06-03"
-  },
-  {
-   "id": "c081af7d31",
-   "addr": "205 Apple Knoll , Boulder Creek, CA 95006",
-   "city": "Boulder Creek",
-   "type": "Verify type",
-   "beds": 3,
-   "baths": 2.0,
-   "sqft": "1,263",
-   "rent": "$3,400",
-   "avail": "6/21/26",
-   "pm": "Anderson Christie",
-   "phone": "",
-   "url": "https://andersonchristierealestate.appfolio.com/listings/detail/39f70373-5791-4767-ad7b-88385f02f73b",
-   "lat": 37.141523,
-   "lon": -122.13018,
-   "approx": false,
-   "summary": "Sunny and Charming Boulder Creek Retreat - Modern Living on a Shared Property. 205 Apple Knoll , Boulder Creek, CA 95006 Map",
-   "first_seen": "2026-06-03"
-  },
-  {
-   "id": "2750ccb1c4",
-   "addr": "1155 Fanning Grade, Ben Lomond, CA 95005",
-   "city": "Ben Lomond",
-   "type": "House",
-   "beds": 2,
-   "baths": 1.0,
-   "sqft": "",
-   "rent": "$3,380",
-   "avail": "",
-   "pm": "Streamline PM",
-   "phone": "831-535-3533",
-   "url": "https://streamline831.com/rental-listings/",
-   "lat": 37.088984,
-   "lon": -122.114671,
-   "approx": false,
-   "summary": "1155 Fanning Grade, Ben Lomond, CA 95005 Price: $3,380/mo Beds: 2 Beds Baths: 1 Bathroom Area: 1,000 Lease Type: 1yr lease Address: 1155 Fanning Grade, Ben Lomond, CA 95005 Parking: Off street parking",
-   "first_seen": "2026-06-06"
   }
  ]
 }
