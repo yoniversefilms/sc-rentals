@@ -1,6 +1,6 @@
 {
- "generated": "2026-06-28 15:22 UTC",
- "count": 52,
+ "generated": "2026-06-29 16:56 UTC",
+ "count": 50,
  "listings": [
   {
    "id": "9cdc666841",
@@ -115,25 +115,6 @@
    "approx": false,
    "summary": "Charming Single-Level Vacation Home with Private Driveway. 329 Dufour Street - Primary, Santa Cruz, CA 95060 Map",
    "first_seen": "2026-06-03"
-  },
-  {
-   "id": "b755e3ce57",
-   "addr": "505 Walnut Ave, Unit B, Santa Cruz,  95060",
-   "city": "Santa Cruz",
-   "type": "Duplex",
-   "beds": 1,
-   "baths": 1.0,
-   "sqft": "",
-   "rent": "$2,200",
-   "avail": "07-15-2026",
-   "pm": "PMI Santa Cruz",
-   "phone": "831-471-7878",
-   "url": "https://www.pmisantacruz.com/santa-cruz-homes-for-rent/117/505-walnut-ave-unit-b-santa-cruz-ca-95060-3635",
-   "lat": 36.972642,
-   "lon": -122.02693,
-   "approx": true,
-   "summary": "Duplex. 505 Walnut Ave, Unit B, Santa Cruz,  95060",
-   "first_seen": "2026-06-12"
   },
   {
    "id": "a5258e7b2f",
@@ -357,8 +338,8 @@
    "pm": "Utopia Management",
    "phone": "(831) 580-1111",
    "url": "https://utopiamanagement.com/rental-list/property-at-448-may-avenue-unit-4",
-   "lat": 36.973892,
-   "lon": -122.028603,
+   "lat": 36.973839,
+   "lon": -122.028754,
    "approx": true,
    "summary": "448 May Avenue – Unit 4, Santa Cruz, CA",
    "first_seen": "2026-06-18"
@@ -376,8 +357,8 @@
    "pm": "Bailey PM",
    "phone": "831-685-8588",
    "url": "https://baileypm.appfolio.com/listings/detail/86bc11b3-d899-4b37-ba5d-30b9e52b5b93",
-   "lat": 36.970782,
-   "lon": -122.033616,
+   "lat": 36.974023,
+   "lon": -122.031907,
    "approx": true,
    "summary": "Westside near UCSC. 41 Grandview, unit 102, Santa Cruz, CA 95060 Map",
    "first_seen": "2026-06-26"
@@ -395,8 +376,8 @@
    "pm": "Bailey PM",
    "phone": "831-685-8588",
    "url": "https://baileypm.appfolio.com/listings/detail/7ce3481f-7b5b-494e-bb05-8ac1a783c7bb",
-   "lat": 36.977576,
-   "lon": -122.02982,
+   "lat": 36.975044,
+   "lon": -122.030448,
    "approx": true,
    "summary": "Live Oak. 1786 Reinelt St, Santa Cruz, CA 95062 Map",
    "first_seen": "2026-06-03"
@@ -414,8 +395,8 @@
    "pm": "Kendall & Potter",
    "phone": "",
    "url": "https://kendallpotter.appfolio.com/listings/detail/2e598132-74fd-44a2-a889-5171d36c497a",
-   "lat": 36.976766,
-   "lon": -122.027173,
+   "lat": 36.970497,
+   "lon": -122.027983,
    "approx": true,
    "summary": "Easy Living - Furnished 2BR-2BA at the Harbor and Twin Lakes Beach. 200 5th Ave, Unit 4, Santa Cruz, CA 95062 Map",
    "first_seen": "2026-06-06"
@@ -438,25 +419,6 @@
    "approx": false,
    "summary": "Completely Remodeled Seabright Stunner 2BR/2BA. 1411 Seabright Avenue - A, Santa Cruz, CA 95062 Map",
    "first_seen": "2026-06-03"
-  },
-  {
-   "id": "53e96f27c6",
-   "addr": "318 Soquel Avenue Unit B2 L/O, Santa Cruz, CA 95060",
-   "city": "Santa Cruz",
-   "type": "Verify type",
-   "beds": 2,
-   "baths": 2.0,
-   "sqft": "1,180",
-   "rent": "$4,000",
-   "avail": "7/1/26",
-   "pm": "Anderson Christie",
-   "phone": "",
-   "url": "https://andersonchristierealestate.appfolio.com/listings/detail/d190149c-dcf6-472a-92f4-a4d993cec4e7",
-   "lat": 36.971625,
-   "lon": -122.029996,
-   "approx": true,
-   "summary": "Prime Central Location / Available NOW!!!. 318 Soquel Avenue Unit B2 L/O, Santa Cruz, CA 95060 Map",
-   "first_seen": "2026-06-15"
   },
   {
    "id": "b223d905b4",
@@ -547,8 +509,8 @@
    "pm": "PMI Santa Cruz",
    "phone": "831-471-7878",
    "url": "https://www.pmisantacruz.com/santa-cruz-homes-for-rent/137/522-barson-st-unit-d-santa-cruz-ca-95060-4656",
-   "lat": 36.973798,
-   "lon": -122.02819,
+   "lat": 36.972846,
+   "lon": -122.029724,
    "approx": true,
    "summary": "Multiplex. 522 Barson St Unit D, Santa Cruz,  95060",
    "first_seen": "2026-06-14"
@@ -661,8 +623,8 @@
    "pm": "Utopia Management",
    "phone": "(831) 580-1111",
    "url": "https://utopiamanagement.com/rental-list/property-at-2607-willowbrook-lane-56",
-   "lat": 36.975068,
-   "lon": -121.896057,
+   "lat": 36.976368,
+   "lon": -121.900932,
    "approx": true,
    "summary": "2607 Willowbrook Lane #56, Aptos, CA",
    "first_seen": "2026-06-18"
@@ -718,8 +680,8 @@
    "pm": "Bailey PM",
    "phone": "831-685-8588",
    "url": "https://baileypm.appfolio.com/listings/detail/a337585d-3809-4930-8ca4-be520f54dbc3",
-   "lat": 36.975561,
-   "lon": -121.899289,
+   "lat": 36.978739,
+   "lon": -121.899164,
    "approx": true,
    "summary": "Sunny Redwoods. 1920 Redwood Drive, Aptos, CA 95003 Map",
    "first_seen": "2026-06-27"
@@ -756,8 +718,8 @@
    "pm": "Kendall & Potter",
    "phone": "",
    "url": "https://kendallpotter.appfolio.com/listings/detail/1834c892-7d13-48ad-8621-3f287afbf3a6",
-   "lat": 36.979535,
-   "lon": -121.899238,
+   "lat": 36.975136,
+   "lon": -121.899215,
    "approx": true,
    "summary": "Bright Upstairs 2BR with Private Deck in Seacliff Gardens. 62 Seacliff Drive, Aptos, CA 95003 Map",
    "first_seen": "2026-06-18"
@@ -813,8 +775,8 @@
    "pm": "Anderson Christie",
    "phone": "",
    "url": "https://andersonchristierealestate.appfolio.com/listings/detail/c4c536c5-3f49-4ba3-a33b-6ecca1ad76e6",
-   "lat": 37.048183,
-   "lon": -122.016003,
+   "lat": 37.047335,
+   "lon": -122.017447,
    "approx": true,
    "summary": "Cozy 3 Bedroom with Private Patio & Storage. 640 Tabor Drive B, Scotts Valley, CA 95066 Map",
    "first_seen": "2026-06-05"
@@ -889,8 +851,8 @@
    "pm": "Bailey PM",
    "phone": "831-685-8588",
    "url": "https://baileypm.appfolio.com/listings/detail/f63910b4-3289-45e8-9e81-ff694d17c039",
-   "lat": 36.908532,
-   "lon": -121.755242,
+   "lat": 36.906265,
+   "lon": -121.757258,
    "approx": true,
    "summary": "Peaceful Country Living. 640 Peaceful Valley, Watsonsville, CA 95076 Map",
    "first_seen": "2026-06-03"
@@ -927,8 +889,8 @@
    "pm": "PMI Santa Cruz",
    "phone": "831-471-7878",
    "url": "https://www.pmisantacruz.com/santa-cruz-homes-for-rent/179/12895-highway-9-unit-c-boulder-creek-ca-95006",
-   "lat": 37.126304,
-   "lon": -122.123342,
+   "lat": 37.123076,
+   "lon": -122.12417,
    "approx": true,
    "summary": "Single Family Home. 12895 Highway 9, Unit C, Boulder Creek,  95006",
    "first_seen": "2026-06-10"
@@ -972,8 +934,8 @@
    "first_seen": "2026-06-27"
   },
   {
-   "id": "08cf607b2d",
-   "addr": "10510 Highway 9, Unit A, Ben Lomond,  95005",
+   "id": "c41cd7bab2",
+   "addr": "10510 Highway 9,, Ben Lomond,  95005",
    "city": "Ben Lomond",
    "type": "Verify type",
    "beds": 3,
@@ -983,12 +945,12 @@
    "avail": "07-15-2026",
    "pm": "PMI Santa Cruz",
    "phone": "831-471-7878",
-   "url": "https://www.pmisantacruz.com/santa-cruz-homes-for-rent/237/10510-highway-9,-unit-a-ben-lomond-ca-95005",
-   "lat": 36.970264,
-   "lon": -122.033126,
-   "approx": true,
-   "summary": "Multiplex. 10510 Highway 9, Unit A, Ben Lomond,  95005",
-   "first_seen": "2026-06-26"
+   "url": "https://www.pmisantacruz.com/santa-cruz-homes-for-rent/237/10510-highway-9,-ben-lomond-ca-95005",
+   "lat": 37.089617,
+   "lon": -122.090802,
+   "approx": false,
+   "summary": "Multiplex. 10510 Highway 9,, Ben Lomond,  95005",
+   "first_seen": "2026-06-29"
   }
  ]
 }
