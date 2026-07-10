@@ -1,6 +1,6 @@
 {
- "generated": "2026-07-09 16:31 UTC",
- "count": 56,
+ "generated": "2026-07-10 16:29 UTC",
+ "count": 58,
  "listings": [
   {
    "id": "9cdc666841",
@@ -193,6 +193,25 @@
    "first_seen": "2026-06-17"
   },
   {
+   "id": "26f1aac486",
+   "addr": "755 14th Ave. #307 Santa Cruz, CA 95062",
+   "city": "Santa Cruz",
+   "type": "Condo",
+   "beds": 2,
+   "baths": 1.0,
+   "sqft": "750",
+   "rent": "$2,400",
+   "avail": "",
+   "pm": "Santa Cruz Rentals (Pacific Sun)",
+   "phone": "(831) 471-2424",
+   "url": "https://pacificsun.managebuilding.com/Resident/public/rentals/66153",
+   "lat": 36.966178,
+   "lon": -121.990412,
+   "approx": false,
+   "summary": "755 14th Ave. #307 Santa Cruz, CA 95062 2 Bed | 1 Bath | 750 sqft Ground floor, single-level condo just minutes from the beach in Santa Cruz. Located in the desirable Swan Lake Community, residents en",
+   "first_seen": "2026-07-10"
+  },
+  {
    "id": "ae588e868b",
    "addr": "2030 N Pacific Avenue #338, Santa Cruz, CA 95060",
    "city": "Santa Cruz",
@@ -338,8 +357,8 @@
    "pm": "PMI Santa Cruz",
    "phone": "831-471-7878",
    "url": "https://www.pmisantacruz.com/santa-cruz-homes-for-rent/156/511-walnut-ave-unit-a-santa-cruz-ca-95060-3672",
-   "lat": 36.973764,
-   "lon": -122.032382,
+   "lat": 36.976018,
+   "lon": -122.032458,
    "approx": true,
    "summary": "Apartment. 511 Walnut Ave Unit A, Santa Cruz,  95060",
    "first_seen": "2026-06-30"
@@ -376,8 +395,8 @@
    "pm": "Utopia Management",
    "phone": "(831) 580-1111",
    "url": "https://utopiamanagement.com/rental-list/property-at-448-may-avenue-unit-4",
-   "lat": 36.972944,
-   "lon": -122.034173,
+   "lat": 36.977265,
+   "lon": -122.030733,
    "approx": true,
    "summary": "448 May Avenue – Unit 4, Santa Cruz, CA",
    "first_seen": "2026-06-18"
@@ -402,8 +421,8 @@
    "first_seen": "2026-07-07"
   },
   {
-   "id": "3f07386c62",
-   "addr": "200 5th Ave, Unit 4, Santa Cruz, CA 95062",
+   "id": "d480087810",
+   "addr": "200 5th Ave #4, Santa Cruz, CA 95062",
    "city": "Santa Cruz",
    "type": "Verify type",
    "beds": 2,
@@ -414,11 +433,11 @@
    "pm": "Kendall & Potter",
    "phone": "",
    "url": "https://kendallpotter.appfolio.com/listings/detail/2e598132-74fd-44a2-a889-5171d36c497a",
-   "lat": 36.976037,
-   "lon": -122.030637,
-   "approx": true,
-   "summary": "At the Harbor - Furnished 2BR-2BA - Twin Lakes Beach. 200 5th Ave, Unit 4, Santa Cruz, CA 95062 Map",
-   "first_seen": "2026-06-06"
+   "lat": 36.964344,
+   "lon": -122.000024,
+   "approx": false,
+   "summary": "At the Harbor - Furnished 2BR-2BA - Twin Lakes Beach. 200 5th Ave #4, Santa Cruz, CA 95062 Map",
+   "first_seen": "2026-07-10"
   },
   {
    "id": "df62dc5e86",
@@ -509,8 +528,8 @@
    "pm": "Utopia Management",
    "phone": "(831) 580-1111",
    "url": "https://utopiamanagement.com/rental-list/property-at-716-darwin-street-unit-304",
-   "lat": 36.970272,
-   "lon": -122.029113,
+   "lat": 36.970606,
+   "lon": -122.032169,
    "approx": true,
    "summary": "716 Darwin Street – Unit 304, Santa Cruz, CA",
    "first_seen": "2026-07-08"
@@ -547,8 +566,8 @@
    "pm": "Anderson Christie",
    "phone": "",
    "url": "https://andersonchristierealestate.appfolio.com/listings/detail/bed199f3-9f56-4e13-8b3d-f7781fba7e10",
-   "lat": 36.976052,
-   "lon": -122.027256,
+   "lat": 36.975958,
+   "lon": -122.028702,
    "approx": true,
    "summary": "Charming 1BR End Unit / Walk to the Beach. 321 2nd Street - Unit 11, Santa Cruz, CA 95060 Map",
    "first_seen": "2026-07-01"
@@ -604,8 +623,8 @@
    "pm": "C&C PM",
    "phone": "",
    "url": "https://ccpmgmt.appfolio.com/listings/detail/5a901532-ffef-431a-9ffd-fd7779f74761",
-   "lat": 36.972827,
-   "lon": -121.949745,
+   "lat": 36.977463,
+   "lon": -121.956041,
    "approx": true,
    "summary": "Beautiful Condo Available in Capitola Shores!. 1365 42nd Ave Unit 4 , Capitola, CA 95010 Map",
    "first_seen": "2026-07-02"
@@ -637,7 +656,7 @@
    "beds": 3,
    "baths": 2.0,
    "sqft": "1,600",
-   "rent": "$4,250",
+   "rent": "$4,150",
    "avail": "NOW",
    "pm": "Bailey PM",
    "phone": "831-685-8588",
@@ -725,6 +744,25 @@
    "first_seen": "2026-07-02"
   },
   {
+   "id": "bdfc2f8f52",
+   "addr": "2607 Willowbrook Lane #56, Aptos, CA",
+   "city": "Aptos",
+   "type": "Condo",
+   "beds": 2,
+   "baths": 1.0,
+   "sqft": "",
+   "rent": "$3,750",
+   "avail": "",
+   "pm": "Utopia Management",
+   "phone": "(831) 580-1111",
+   "url": "https://utopiamanagement.com/rental-list/property-at-2607-willowbrook-lane-56",
+   "lat": 36.974778,
+   "lon": -121.897492,
+   "approx": true,
+   "summary": "2607 Willowbrook Lane #56, Aptos, CA",
+   "first_seen": "2026-07-10"
+  },
+  {
    "id": "022a6e3cf1",
    "addr": "205 Aptos Beach Drive, Aptos, CA 95003",
    "city": "Aptos",
@@ -756,8 +794,8 @@
    "pm": "Utopia Management",
    "phone": "(831) 580-1111",
    "url": "https://utopiamanagement.com/rental-list/property-at-212-treasure-island-drive",
-   "lat": 36.976748,
-   "lon": -121.899362,
+   "lat": 36.980729,
+   "lon": -121.902259,
    "approx": true,
    "summary": "212 Treasure Island Drive, Aptos, CA",
    "first_seen": "2026-07-07"
@@ -775,8 +813,8 @@
    "pm": "Bailey PM",
    "phone": "831-685-8588",
    "url": "https://baileypm.appfolio.com/listings/detail/a337585d-3809-4930-8ca4-be520f54dbc3",
-   "lat": 36.977674,
-   "lon": -121.901046,
+   "lat": 36.980203,
+   "lon": -121.901992,
    "approx": true,
    "summary": "Sunny Redwoods. 1920 Redwood Drive, Aptos, CA 95003 Map",
    "first_seen": "2026-06-27"
@@ -922,13 +960,13 @@
    "beds": 3,
    "baths": 2.0,
    "sqft": "1,350",
-   "rent": "$4,750",
+   "rent": "$4,650",
    "avail": "NOW",
    "pm": "Bailey PM",
    "phone": "831-685-8588",
    "url": "https://baileypm.appfolio.com/listings/detail/f63910b4-3289-45e8-9e81-ff694d17c039",
-   "lat": 36.910064,
-   "lon": -121.753617,
+   "lat": 36.906525,
+   "lon": -121.759214,
    "approx": true,
    "summary": "Peaceful Country Living. 640 Peaceful Valley, Watsonsville, CA 95076 Map",
    "first_seen": "2026-06-03"
@@ -991,8 +1029,8 @@
    "first_seen": "2026-07-09"
   },
   {
-   "id": "fe688413d7",
-   "addr": "12895 Highway 9, Unit C, Boulder Creek,  95006",
+   "id": "71a8588b28",
+   "addr": "12895 Highway 9, Boulder Creek,  95006",
    "city": "Boulder Creek",
    "type": "House",
    "beds": 2,
@@ -1002,12 +1040,12 @@
    "avail": "Immediately",
    "pm": "PMI Santa Cruz",
    "phone": "831-471-7878",
-   "url": "https://www.pmisantacruz.com/santa-cruz-homes-for-rent/179/12895-highway-9-unit-c-boulder-creek-ca-95006",
-   "lat": 37.127591,
-   "lon": -122.120976,
+   "url": "https://www.pmisantacruz.com/santa-cruz-homes-for-rent/179/12895-highway-9-boulder-creek-ca-95006",
+   "lat": 37.12797,
+   "lon": -122.122982,
    "approx": true,
-   "summary": "Single Family Home. 12895 Highway 9, Unit C, Boulder Creek,  95006",
-   "first_seen": "2026-06-10"
+   "summary": "Single Family Home. 12895 Highway 9, Boulder Creek,  95006",
+   "first_seen": "2026-07-10"
   },
   {
    "id": "e983622f2a",
