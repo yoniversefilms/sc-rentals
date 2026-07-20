@@ -1,5 +1,5 @@
 {
- "generated": "2026-07-19 15:03 UTC",
+ "generated": "2026-07-20 15:56 UTC",
  "count": 64,
  "listings": [
   {
@@ -433,8 +433,8 @@
    "pm": "PMI Santa Cruz",
    "phone": "831-471-7878",
    "url": "https://www.pmisantacruz.com/santa-cruz-homes-for-rent/156/511-walnut-ave-unit-a-santa-cruz-ca-95060-3672",
-   "lat": 36.974633,
-   "lon": -122.031779,
+   "lat": 36.973512,
+   "lon": -122.034244,
    "approx": true,
    "summary": "Apartment. 511 Walnut Ave Unit A, Santa Cruz,  95060",
    "first_seen": "2026-06-30"
@@ -471,8 +471,8 @@
    "pm": "Utopia Management",
    "phone": "(831) 580-1111",
    "url": "https://utopiamanagement.com/rental-list/property-at-448-may-avenue-unit-4",
-   "lat": 36.971917,
-   "lon": -122.029121,
+   "lat": 36.977521,
+   "lon": -122.032307,
    "approx": true,
    "summary": "448 May Avenue – Unit 4, Santa Cruz, CA",
    "first_seen": "2026-06-18"
@@ -623,8 +623,8 @@
    "pm": "Utopia Management",
    "phone": "(831) 580-1111",
    "url": "https://utopiamanagement.com/rental-list/property-at-528-dufour-st-unit-a",
-   "lat": 36.975005,
-   "lon": -122.031258,
+   "lat": 36.975182,
+   "lon": -122.027013,
    "approx": true,
    "summary": "528 Dufour St Unit A, Santa Cruz, CA",
    "first_seen": "2026-07-17"
@@ -642,8 +642,8 @@
    "pm": "Utopia Management",
    "phone": "(831) 580-1111",
    "url": "https://utopiamanagement.com/rental-list/property-at-716-darwin-street-unit-304",
-   "lat": 36.975983,
-   "lon": -122.032369,
+   "lat": 36.971685,
+   "lon": -122.027525,
    "approx": true,
    "summary": "716 Darwin Street – Unit 304, Santa Cruz, CA",
    "first_seen": "2026-07-08"
@@ -680,8 +680,8 @@
    "pm": "Anderson Christie",
    "phone": "",
    "url": "https://andersonchristierealestate.appfolio.com/listings/detail/bed199f3-9f56-4e13-8b3d-f7781fba7e10",
-   "lat": 36.977736,
-   "lon": -122.032662,
+   "lat": 36.971244,
+   "lon": -122.030601,
    "approx": true,
    "summary": "Charming 1BR End Unit / Walk to the Beach. 321 2nd Street - Unit 11, Santa Cruz, CA 95060 Map",
    "first_seen": "2026-07-01"
@@ -733,12 +733,12 @@
    "baths": 1.0,
    "sqft": "925",
    "rent": "$3,100",
-   "avail": "7/20/26",
+   "avail": "NOW",
    "pm": "C&C PM",
    "phone": "",
    "url": "https://ccpmgmt.appfolio.com/listings/detail/5a901532-ffef-431a-9ffd-fd7779f74761",
-   "lat": 36.971232,
-   "lon": -121.953483,
+   "lat": 36.973983,
+   "lon": -121.955203,
    "approx": true,
    "summary": "Beautiful Condo Available in Capitola Shores!. 1365 42nd Ave Unit 4 , Capitola, CA 95010 Map",
    "first_seen": "2026-07-02"
@@ -813,8 +813,8 @@
    "pm": "Kendall & Potter",
    "phone": "",
    "url": "https://kendallpotter.appfolio.com/listings/detail/d72ab7e7-70d1-40f4-aae6-42b679a831b1",
-   "lat": 36.974413,
-   "lon": -121.895587,
+   "lat": 36.973402,
+   "lon": -121.895468,
    "approx": true,
    "summary": "Spacious and Bright 3BR 2BA Seacliff Home - Close to the Beach!. 507 Court Way, Aptos, CA 95003 Map",
    "first_seen": "2026-07-16"
@@ -889,8 +889,8 @@
    "pm": "Utopia Management",
    "phone": "(831) 580-1111",
    "url": "https://utopiamanagement.com/rental-list/property-at-2607-willowbrook-lane-56",
-   "lat": 36.973236,
-   "lon": -121.902898,
+   "lat": 36.974947,
+   "lon": -121.898558,
    "approx": true,
    "summary": "2607 Willowbrook Lane #56, Aptos, CA",
    "first_seen": "2026-07-10"
@@ -908,8 +908,8 @@
    "pm": "Utopia Management",
    "phone": "(831) 580-1111",
    "url": "https://utopiamanagement.com/rental-list/property-at-212-treasure-island-drive",
-   "lat": 36.976229,
-   "lon": -121.901936,
+   "lat": 36.975387,
+   "lon": -121.901999,
    "approx": true,
    "summary": "212 Treasure Island Drive, Aptos, CA",
    "first_seen": "2026-07-07"
@@ -965,8 +965,8 @@
    "pm": "Kendall & Potter",
    "phone": "",
    "url": "https://kendallpotter.appfolio.com/listings/detail/35aa1595-d3d6-400c-96c0-54574e14ef76",
-   "lat": 37.051339,
-   "lon": -122.013949,
+   "lat": 37.047438,
+   "lon": -122.015118,
    "approx": true,
    "summary": "Spacious Ground-Floor 3BD/2BA Condo in Prime Scotts Valley Location. 268 Bluebonnet Ln, Unit 311, Scotts Valley, CA 95066 Map",
    "first_seen": "2026-07-15"
@@ -1060,8 +1060,8 @@
    "pm": "Bailey PM",
    "phone": "831-685-8588",
    "url": "https://baileypm.appfolio.com/listings/detail/f63910b4-3289-45e8-9e81-ff694d17c039",
-   "lat": 36.906329,
-   "lon": -121.756815,
+   "lat": 36.90746,
+   "lon": -121.754261,
    "approx": true,
    "summary": "Peaceful Country Living. 640 Peaceful Valley, Watsonsville, CA 95076 Map",
    "first_seen": "2026-06-03"
@@ -1136,8 +1136,8 @@
    "pm": "PMI Santa Cruz",
    "phone": "831-471-7878",
    "url": "https://www.pmisantacruz.com/santa-cruz-homes-for-rent/179/12895-highway-9-boulder-creek-ca-95006",
-   "lat": 37.129098,
-   "lon": -122.122499,
+   "lat": 37.127922,
+   "lon": -122.120686,
    "approx": true,
    "summary": "Single Family Home. 12895 Highway 9, Boulder Creek,  95006",
    "first_seen": "2026-07-10"
