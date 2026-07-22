@@ -528,5 +528,25 @@
   36.958331,
   -121.980341,
   false
+ ],
+ "156 everson drive, santa cruz, ca": [
+  36.965501,
+  -122.028808,
+  false
+ ],
+ "215 blackpoint lane, santa cruz, ca": [
+  36.96234,
+  -121.9907,
+  false
+ ],
+ "304 main street, santa cruz, ca": [
+  36.965111,
+  -122.022831,
+  false
+ ],
+ "313 village circle, santa cruz, ca": [
+  36.976614,
+  -122.049188,
+  false
  ]
 }
