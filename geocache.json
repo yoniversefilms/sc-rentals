@@ -588,5 +588,30 @@
   36.972331,
   -122.050815,
   false
+ ],
+ "1355 42nd ave , capitola, ca 95010": [
+  36.970557,
+  -121.962199,
+  false
+ ],
+ "1 berkeley court, santa cruz, ca 95062": [
+  36.983049,
+  -122.014621,
+  false
+ ],
+ "611 soquel ave - unit 1 , santa cruz, ca 95062": [
+  36.976565,
+  -122.016729,
+  false
+ ],
+ "114-116 maple st. - 116 maple st #2, santa cruz, ca 95060": [
+  36.969787,
+  -122.029727,
+  false
+ ],
+ "2895 capitola rd - 17, santa cruz, ca 95062": [
+  36.973831,
+  -121.973821,
+  false
  ]
 }
