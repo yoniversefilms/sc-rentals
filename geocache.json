@@ -628,5 +628,30 @@
   36.982982,
   -121.939495,
   false
+ ],
+ "180 dakota avenue #p, santa cruz, ca 95060": [
+  36.976354,
+  -122.02049,
+  false
+ ],
+ "435 ocean view ave. - unit d, santa cruz, ca 95062": [
+  36.97363,
+  -122.015595,
+  false
+ ],
+ "251 high street - unit h, santa cruz, ca 95060": [
+  36.977928,
+  -122.032754,
+  false
+ ],
+ "21224 saratoga hills road, saratoga, ca 95070": [
+  37.266019,
+  -122.042563,
+  false
+ ],
+ "318 laurel street, santa cruz, ca": [
+  36.969093,
+  -122.026549,
+  false
  ]
 }
