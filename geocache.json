@@ -663,5 +663,30 @@
   36.990638,
   -121.971444,
   false
+ ],
+ "122 rincon #j, santa cruz, ca 95060": [
+  37.031773,
+  -122.066075,
+  false
+ ],
+ "122 rincon #f, santa cruz, ca 95060": [
+  37.031773,
+  -122.066075,
+  false
+ ],
+ "870 park #202, capitola, ca 95010": [
+  36.978825,
+  -121.939877,
+  false
+ ],
+ "126 pine st, santa cruz, ca 95062": [
+  36.971159,
+  -122.009355,
+  false
+ ],
+ "224 laurel street, # a204, santa cruz, ca": [
+  36.969208,
+  -122.025834,
+  false
  ]
 }
