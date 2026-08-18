@@ -693,5 +693,30 @@
   36.972298,
   -121.962213,
   false
+ ],
+ "912 soquel ave., santa cruz, ca 95062": [
+  36.978012,
+  -122.013792,
+  false
+ ],
+ "825 balboa ave # 307, capitola, ca 95010": [
+  36.97817,
+  -121.94177,
+  false
+ ],
+ "137 clay st - 6, santa cruz, ca 95060": [
+  36.971904,
+  -122.019403,
+  false
+ ],
+ "137 clay st - 5, santa cruz, ca 95060": [
+  36.971904,
+  -122.019403,
+  false
+ ],
+ "208 myrtle street santa cruz, ca 95060": [
+  36.968803,
+  -122.030355,
+  false
  ]
 }
