@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-29 19:15 UTC",
+ "generated": "2026-09-30 19:04 UTC",
  "count": 52,
  "listings": [
   {
@@ -67,7 +67,7 @@
    "beds": 2,
    "baths": 1.0,
    "sqft": "710",
-   "rent": "$3,000",
+   "rent": "$2,700",
    "avail": "NOW",
    "pm": "Anderson Christie",
    "phone": "",
@@ -91,8 +91,8 @@
    "pm": "PMI Santa Cruz",
    "phone": "831-471-7878",
    "url": "https://www.pmisantacruz.com/santa-cruz-homes-for-rent/192/125-dake-avenue-unit-a-santa-cruz-ca-95062",
-   "lat": 36.970684,
-   "lon": -122.032871,
+   "lat": 36.970921,
+   "lon": -122.027133,
    "approx": true,
    "summary": "Single Family Home. 125 Dake Avenue, Unit A, Santa Cruz,  95062",
    "first_seen": "2026-09-02"
@@ -212,6 +212,25 @@
    "first_seen": "2026-09-04"
   },
   {
+   "id": "20368be844",
+   "addr": "208 First St. #3 Santa Cruz, CA 95060",
+   "city": "Santa Cruz",
+   "type": "Condo",
+   "beds": 1,
+   "baths": 1.0,
+   "sqft": "632",
+   "rent": "$3,999",
+   "avail": "",
+   "pm": "Santa Cruz Rentals (Pacific Sun)",
+   "phone": "(831) 471-2424",
+   "url": "https://pacificsun.managebuilding.com/Resident/public/rentals/54865",
+   "lat": 36.972913,
+   "lon": -122.028491,
+   "approx": true,
+   "summary": "208 First St. #3 Santa Cruz, CA 95060 1 Bed | 1 Bath | 632 sqft Charming Beach apartment with front patio in a smaller complex. Single level Large Studio, shared laundry, hardwood floors, gas stove, w",
+   "first_seen": "2026-09-30"
+  },
+  {
    "id": "d5ed7256bb",
    "addr": "292 S Pippin Ln. #B Santa Cruz, CA 95065",
    "city": "Santa Cruz",
@@ -262,8 +281,8 @@
    "pm": "PMI Santa Cruz",
    "phone": "831-471-7878",
    "url": "https://www.pmisantacruz.com/santa-cruz-homes-for-rent/156/511-walnut-ave-unit-a-santa-cruz-ca-95060-3672",
-   "lat": 36.97789,
-   "lon": -122.032217,
+   "lat": 36.977884,
+   "lon": -122.033351,
    "approx": true,
    "summary": "Apartment. 511 Walnut Ave Unit A, Santa Cruz,  95060",
    "first_seen": "2026-08-07"
@@ -288,8 +307,8 @@
    "first_seen": "2026-08-18"
   },
   {
-   "id": "245c1e81be",
-   "addr": "1 Berkeley Court, Santa Cruz, CA 95062",
+   "id": "f0fd05ca3c",
+   "addr": "1 Berkeley Ct, Santa Cruz, CA 95062",
    "city": "Santa Cruz",
    "type": "Verify type",
    "beds": 3,
@@ -303,8 +322,8 @@
    "lat": 36.983049,
    "lon": -122.014621,
    "approx": false,
-   "summary": "Location, Location !!. 1 Berkeley Court, Santa Cruz, CA 95062 Map",
-   "first_seen": "2026-09-23"
+   "summary": "Location, Location !!. 1 Berkeley Ct, Santa Cruz, CA 95062 Map",
+   "first_seen": "2026-09-30"
   },
   {
    "id": "27d8b600e0",
@@ -414,8 +433,8 @@
    "pm": "Utopia Management",
    "phone": "8315801111",
    "url": "https://utopiamanagement.com/rental-list/property-at-1140-east-cliff-drive-06",
-   "lat": 36.970259,
-   "lon": -122.033192,
+   "lat": 36.970278,
+   "lon": -122.028362,
    "approx": true,
    "summary": "1140 East Cliff Drive – 06, Santa Cruz, CA",
    "first_seen": "2026-09-05"
@@ -433,8 +452,8 @@
    "pm": "Utopia Management",
    "phone": "8315801111",
    "url": "https://utopiamanagement.com/rental-list/property-at-318-laurel-street",
-   "lat": 36.976546,
-   "lon": -122.033772,
+   "lat": 36.972897,
+   "lon": -122.030895,
    "approx": true,
    "summary": "318 Laurel Street – 318-1, Santa Cruz, CA",
    "first_seen": "2026-08-07"
@@ -490,8 +509,8 @@
    "pm": "PURE PM SV",
    "phone": "",
    "url": "https://purepmcasv.appfolio.com/listings/detail/dd2484b5-c8a7-489b-8670-5b0cf0be8e32",
-   "lat": 36.970806,
-   "lon": -122.034531,
+   "lat": 36.970594,
+   "lon": -122.028668,
    "approx": true,
    "summary": "Quaint 1Br/1Ba Near Downtown Santa Cruz!. 221 Broadway , Unit C, Santa Cruz, CA 95060 Map",
    "first_seen": "2026-09-24"
@@ -509,8 +528,8 @@
    "pm": "Utopia Management",
    "phone": "8315801111",
    "url": "https://utopiamanagement.com/rental-list/property-at-231-blackburn-street",
-   "lat": 36.974586,
-   "lon": -122.028614,
+   "lat": 36.976565,
+   "lon": -122.029944,
    "approx": true,
    "summary": "231 Blackburn Street – Unit 2, Santa Cruz, CA",
    "first_seen": "2026-09-03"
@@ -661,8 +680,8 @@
    "pm": "Blue Sky PM",
    "phone": "",
    "url": "https://blueskysantacruz.appfolio.com/listings/detail/b5dbaf84-ea94-4c98-9884-ffd81d310f8d",
-   "lat": 36.972461,
-   "lon": -121.951105,
+   "lat": 36.977699,
+   "lon": -121.956324,
    "approx": true,
    "summary": "Walk to Capitola Esplanade and Beach!. 4450 Diamond St Unit #1, Capitola, CA 95010 Map",
    "first_seen": "2026-09-04"
@@ -680,15 +699,15 @@
    "pm": "Utopia Management",
    "phone": "8315801111",
    "url": "https://utopiamanagement.com/rental-list/property-at-204-hollister-ave-204-hollister-a",
-   "lat": 36.972385,
-   "lon": -121.955811,
+   "lat": 36.976057,
+   "lon": -121.951464,
    "approx": true,
    "summary": "204 Hollister Ave.  – 204 Hollister A, Capitola, CA",
    "first_seen": "2026-08-15"
   },
   {
-   "id": "656235a162",
-   "addr": "271 Bowen Avenue, Aptos, CA 95003",
+   "id": "981a5d83e6",
+   "addr": "271 Bowen Ave, Aptos, CA 95003",
    "city": "Aptos",
    "type": "House",
    "beds": 3,
@@ -699,11 +718,11 @@
    "pm": "Bailey PM",
    "phone": "831-685-8588",
    "url": "https://baileypm.appfolio.com/listings/detail/b7e644e2-1944-4344-a9a0-4feeb6e1238e",
-   "lat": 36.975851,
-   "lon": -121.896366,
+   "lat": 36.97466,
+   "lon": -121.899074,
    "approx": true,
-   "summary": "Ranch Style Home. 271 Bowen Avenue, Aptos, CA 95003 Map",
-   "first_seen": "2026-09-04"
+   "summary": "Ranch Style Home. 271 Bowen Ave, Aptos, CA 95003 Map",
+   "first_seen": "2026-09-30"
   },
   {
    "id": "e620ca950c",
@@ -737,30 +756,11 @@
    "pm": "Anderson Christie",
    "phone": "",
    "url": "https://andersonchristierealestate.appfolio.com/listings/detail/f5c7a384-c2c4-480d-8a2a-f2b2812c5acd",
-   "lat": 36.97377,
-   "lon": -121.903049,
+   "lat": 36.977685,
+   "lon": -121.900633,
    "approx": true,
    "summary": "Private Corner-Lot Home in Aptos, Steps from Nature & Minutes to Everything. 7146 Danko Drive  - 7146 Danko Drive , Aptos, CA 95003 Map",
    "first_seen": "2026-08-07"
-  },
-  {
-   "id": "fdaae100c3",
-   "addr": "611 Clubhouse Drive , Aptos, CA 95003",
-   "city": "Aptos",
-   "type": "House",
-   "beds": 2,
-   "baths": 2.0,
-   "sqft": "",
-   "rent": "$3,400",
-   "avail": "NOW",
-   "pm": "Bailey PM",
-   "phone": "831-685-8588",
-   "url": "https://baileypm.appfolio.com/listings/detail/471c1ab5-9059-4a75-90ab-79611ca6fce5",
-   "lat": 36.979615,
-   "lon": -121.903002,
-   "approx": true,
-   "summary": "2 Bedroom/ 2 Bathroom in Rio Del Mar. 611 Clubhouse Drive , Aptos, CA 95003 Map",
-   "first_seen": "2026-09-22"
   },
   {
    "id": "ef3e616d6d",
@@ -775,8 +775,8 @@
    "pm": "Kendall & Potter",
    "phone": "",
    "url": "https://kendallpotter.appfolio.com/listings/detail/10645aa8-5fc0-49b6-9fca-f9dda0d77cc1",
-   "lat": 36.976292,
-   "lon": -121.896357,
+   "lat": 36.981174,
+   "lon": -121.898288,
    "approx": true,
    "summary": "Spectacular Furnished Ocean View Townhouse - 3BR/2.5BA. 1316 Via Tornasol , Aptos, CA 95003 Map",
    "first_seen": "2026-07-31"
@@ -794,8 +794,8 @@
    "pm": "Bailey PM",
    "phone": "831-685-8588",
    "url": "https://baileypm.appfolio.com/listings/detail/9d788672-ad47-4b31-bd7f-83fda1160346",
-   "lat": 36.978101,
-   "lon": -121.898222,
+   "lat": 36.975768,
+   "lon": -121.895809,
    "approx": true,
    "summary": "2bd/2ba condo in Aptos. 2623 Willowbrook Lane #111, Aptos, CA 95003 Map",
    "first_seen": "2026-08-21"
@@ -813,30 +813,11 @@
    "pm": "Andren Homes",
    "phone": "",
    "url": "https://andrenhomes.appfolio.com/listings/detail/869d8d7b-46b9-4fb1-9881-38fbfe0ce491",
-   "lat": 36.975047,
-   "lon": -121.899603,
+   "lat": 36.977108,
+   "lon": -121.897834,
    "approx": true,
    "summary": "Spacious 2BR/2BA Apt with Fireplace & Carport Parking. 150 Sea Ridge Court, Unit 2 , Aptos, CA 95003 Map",
    "first_seen": "2026-08-11"
-  },
-  {
-   "id": "3fced912d8",
-   "addr": "221 El Camino Road - B, Scotts Valley, CA 95066",
-   "city": "Scotts Valley",
-   "type": "Apartment",
-   "beds": 2,
-   "baths": 1.0,
-   "sqft": "1,100",
-   "rent": "$2,795",
-   "avail": "NOW",
-   "pm": "Kendall & Potter",
-   "phone": "",
-   "url": "https://kendallpotter.appfolio.com/listings/detail/f60c7261-7d9e-40d6-8f37-9e5b1be9e5ad",
-   "lat": 37.060773,
-   "lon": -121.996005,
-   "approx": false,
-   "summary": "Scotts Valley 2 Bed/1 Bath Apartment. 221 El Camino Road - B, Scotts Valley, CA 95066 Map",
-   "first_seen": "2026-09-03"
   },
   {
    "id": "a48105a30a",
@@ -927,8 +908,8 @@
    "pm": "C&C PM",
    "phone": "",
    "url": "https://ccpmgmt.appfolio.com/listings/detail/ef7f9021-df48-4eff-929b-f17f10d64822",
-   "lat": 36.910629,
-   "lon": -121.755985,
+   "lat": 36.911452,
+   "lon": -121.758243,
    "approx": true,
    "summary": "$500 OFF FIRST & SECOND MONTH'S RENT! Now Available: Spacious 2Bed/1Bath Apt In Watsonville!!. 130 Miles Ln Apt D, Watsonville, CA 95076 Map",
    "first_seen": "2026-09-01"
@@ -984,11 +965,30 @@
    "pm": "PMI Santa Cruz",
    "phone": "831-471-7878",
    "url": "https://www.pmisantacruz.com/santa-cruz-homes-for-rent/179/12895-highway-9-boulder-creek-ca-95006",
-   "lat": 37.124992,
-   "lon": -122.12279,
+   "lat": 37.126974,
+   "lon": -122.123676,
    "approx": true,
    "summary": "Single Family Home. 12895 Highway 9, Boulder Creek,  95006",
    "first_seen": "2026-09-01"
+  },
+  {
+   "id": "afe01af756",
+   "addr": "302 Sund Avenue - Studio, Ben Lomond, CA 95005",
+   "city": "Ben Lomond",
+   "type": "House",
+   "beds": 1,
+   "baths": 1.0,
+   "sqft": "",
+   "rent": "$2,300",
+   "avail": "NOW",
+   "pm": "Anderson Christie",
+   "phone": "",
+   "url": "https://andersonchristierealestate.appfolio.com/listings/detail/39208add-01dd-416c-abc6-d4f5f2619b7b",
+   "lat": 37.0879,
+   "lon": -122.081937,
+   "approx": false,
+   "summary": "Charming Detached Studio Cottage. 302 Sund Avenue - Studio, Ben Lomond, CA 95005 Map",
+   "first_seen": "2026-09-30"
   }
  ]
 }
