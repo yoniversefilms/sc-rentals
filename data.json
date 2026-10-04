@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-03 17:53 UTC",
+ "generated": "2026-10-04 18:05 UTC",
  "count": 51,
  "listings": [
   {
@@ -72,8 +72,8 @@
    "pm": "PMI Santa Cruz",
    "phone": "831-471-7878",
    "url": "https://www.pmisantacruz.com/santa-cruz-homes-for-rent/192/125-dake-avenue-unit-a-santa-cruz-ca-95062",
-   "lat": 36.977426,
-   "lon": -122.03279,
+   "lat": 36.97636,
+   "lon": -122.033702,
    "approx": true,
    "summary": "Single Family Home. 125 Dake Avenue, Unit A, Santa Cruz,  95062",
    "first_seen": "2026-09-02"
@@ -186,8 +186,8 @@
    "pm": "Santa Cruz Rentals (Pacific Sun)",
    "phone": "(831) 471-2424",
    "url": "https://pacificsun.managebuilding.com/Resident/public/rentals/54865",
-   "lat": 36.974569,
-   "lon": -122.030155,
+   "lat": 36.97037,
+   "lon": -122.031965,
    "approx": true,
    "summary": "208 First St. #3 Santa Cruz, CA 95060 1 Bed | 1 Bath | 632 sqft Charming Beach apartment with front patio in a smaller complex. Single level Large Studio, shared laundry, hardwood floors, gas stove, w",
    "first_seen": "2026-09-30"
@@ -376,8 +376,8 @@
    "pm": "Utopia Management",
    "phone": "8315801111",
    "url": "https://utopiamanagement.com/rental-list/property-at-1140-east-cliff-drive-06",
-   "lat": 36.972528,
-   "lon": -122.032298,
+   "lat": 36.974459,
+   "lon": -122.027321,
    "approx": true,
    "summary": "1140 East Cliff Drive – 06, Santa Cruz, CA",
    "first_seen": "2026-09-05"
@@ -395,8 +395,8 @@
    "pm": "Utopia Management",
    "phone": "8315801111",
    "url": "https://utopiamanagement.com/rental-list/property-at-318-laurel-street",
-   "lat": 36.970825,
-   "lon": -122.030991,
+   "lat": 36.976487,
+   "lon": -122.032834,
    "approx": true,
    "summary": "318 Laurel Street – 318-1, Santa Cruz, CA",
    "first_seen": "2026-08-07"
@@ -490,8 +490,8 @@
    "pm": "PURE PM SV",
    "phone": "",
    "url": "https://purepmcasv.appfolio.com/listings/detail/dd2484b5-c8a7-489b-8670-5b0cf0be8e32",
-   "lat": 36.978089,
-   "lon": -122.032809,
+   "lat": 36.971807,
+   "lon": -122.0301,
    "approx": true,
    "summary": "Quaint 1Br/1Ba Near Downtown Santa Cruz!. 221 Broadway , Unit C, Santa Cruz, CA 95060 Map",
    "first_seen": "2026-09-24"
@@ -509,8 +509,8 @@
    "pm": "Utopia Management",
    "phone": "8315801111",
    "url": "https://utopiamanagement.com/rental-list/property-at-231-blackburn-street",
-   "lat": 36.976298,
-   "lon": -122.030396,
+   "lat": 36.97149,
+   "lon": -122.030001,
    "approx": true,
    "summary": "231 Blackburn Street – Unit 2, Santa Cruz, CA",
    "first_seen": "2026-09-03"
@@ -680,8 +680,8 @@
    "pm": "Blue Sky PM",
    "phone": "",
    "url": "https://blueskysantacruz.appfolio.com/listings/detail/b5dbaf84-ea94-4c98-9884-ffd81d310f8d",
-   "lat": 36.979092,
-   "lon": -121.953097,
+   "lat": 36.971348,
+   "lon": -121.955351,
    "approx": true,
    "summary": "Walk to Capitola Esplanade and Beach!. 4450 Diamond St Unit #1, Capitola, CA 95010 Map",
    "first_seen": "2026-09-04"
@@ -699,8 +699,8 @@
    "pm": "Utopia Management",
    "phone": "8315801111",
    "url": "https://utopiamanagement.com/rental-list/property-at-204-hollister-ave-204-hollister-a",
-   "lat": 36.977702,
-   "lon": -121.95346,
+   "lat": 36.977686,
+   "lon": -121.956186,
    "approx": true,
    "summary": "204 Hollister Ave.  – 204 Hollister A, Capitola, CA",
    "first_seen": "2026-08-15"
@@ -718,8 +718,8 @@
    "pm": "Bailey PM",
    "phone": "831-685-8588",
    "url": "https://baileypm.appfolio.com/listings/detail/b7e644e2-1944-4344-a9a0-4feeb6e1238e",
-   "lat": 36.9773,
-   "lon": -121.895938,
+   "lat": 36.973368,
+   "lon": -121.899431,
    "approx": true,
    "summary": "Ranch Style Home. 271 Bowen Ave, Aptos, CA 95003 Map",
    "first_seen": "2026-09-30"
@@ -756,8 +756,8 @@
    "pm": "Anderson Christie",
    "phone": "",
    "url": "https://andersonchristierealestate.appfolio.com/listings/detail/f5c7a384-c2c4-480d-8a2a-f2b2812c5acd",
-   "lat": 36.979179,
-   "lon": -121.898104,
+   "lat": 36.976315,
+   "lon": -121.900681,
    "approx": true,
    "summary": "Private Corner-Lot Home in Aptos, Steps from Nature & Minutes to Everything. 7146 Danko Drive  - 7146 Danko Drive , Aptos, CA 95003 Map",
    "first_seen": "2026-08-07"
@@ -775,8 +775,8 @@
    "pm": "Kendall & Potter",
    "phone": "",
    "url": "https://kendallpotter.appfolio.com/listings/detail/10645aa8-5fc0-49b6-9fca-f9dda0d77cc1",
-   "lat": 36.975018,
-   "lon": -121.902176,
+   "lat": 36.980643,
+   "lon": -121.901965,
    "approx": true,
    "summary": "Spectacular Furnished Ocean View Townhouse - 3BR/2.5BA. 1316 Via Tornasol , Aptos, CA 95003 Map",
    "first_seen": "2026-07-31"
@@ -908,8 +908,8 @@
    "pm": "C&C PM",
    "phone": "",
    "url": "https://ccpmgmt.appfolio.com/listings/detail/ef7f9021-df48-4eff-929b-f17f10d64822",
-   "lat": 36.912582,
-   "lon": -121.755624,
+   "lat": 36.91044,
+   "lon": -121.759851,
    "approx": true,
    "summary": "$500 OFF FIRST & SECOND MONTH'S RENT! Now Available: Spacious 2Bed/1Bath Apt In Watsonville!!. 130 Miles Ln Apt D, Watsonville, CA 95076 Map",
    "first_seen": "2026-09-01"
@@ -927,8 +927,8 @@
    "pm": "PMI Santa Cruz",
    "phone": "831-471-7878",
    "url": "https://www.pmisantacruz.com/santa-cruz-homes-for-rent/208/10680-vera-ave-felton-ca-95018",
-   "lat": 37.048773,
-   "lon": -122.073976,
+   "lat": 37.051175,
+   "lon": -122.073213,
    "approx": true,
    "summary": "Single Family Home. 10680 Vera Ave, Felton,  95018",
    "first_seen": "2026-10-02"
