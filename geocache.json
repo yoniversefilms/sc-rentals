@@ -953,5 +953,40 @@
   36.973105,
   -122.025696,
   false
+ ],
+ "114-116 maple st. - 114 maple st #2, santa cruz, ca 95060": [
+  36.969787,
+  -122.029727,
+  false
+ ],
+ "121 grant st. #2 santa cruz ca 95060": [
+  36.985789,
+  -122.022564,
+  false
+ ],
+ "234 felix st. #4 santa cruz ca 95060": [
+  36.967306,
+  -122.032203,
+  false
+ ],
+ "1725 47th ave. #3 capitola ca 95010": [
+  36.974122,
+  -121.958341,
+  false
+ ],
+ "4475 diamond st. #4 capitola ca 95010": [
+  36.972608,
+  -121.96032,
+  false
+ ],
+ "2240 capitola rd. #c santa cruz ca 95062": [
+  36.975466,
+  -121.979956,
+  false
+ ],
+ "1896 46th ave. #4 capitola ca 95010": [
+  36.976993,
+  -121.95903,
+  false
  ]
 }
