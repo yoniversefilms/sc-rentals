@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-18 21:46 UTC",
+ "generated": "2026-11-19 22:04 UTC",
  "count": 51,
  "listings": [
   {
@@ -186,8 +186,8 @@
    "pm": "Anderson Christie",
    "phone": "",
    "url": "https://andersonchristierealestate.appfolio.com/listings/detail/fec16c33-7dae-4a0d-b33e-6d3130b2cbca",
-   "lat": 36.974782,
-   "lon": -122.02993,
+   "lat": 36.972614,
+   "lon": -122.028575,
    "approx": true,
    "summary": "2 Bedroom Apartment in the ❤ Westside Santa Cruz. 234 High Street, unit 1, Santa Cruz, CA 95060 Map",
    "first_seen": "2026-10-29"
@@ -231,8 +231,8 @@
    "first_seen": "2026-10-28"
   },
   {
-   "id": "c30703dc11",
-   "addr": "425-427 Pennsylvania Ave. - #425, Santa Cruz, CA 95060",
+   "id": "6539e72e06",
+   "addr": "425-427 Pennsylvania Ave. - #425, Santa Cruz, CA 95062",
    "city": "Santa Cruz",
    "type": "Apartment",
    "beds": 1,
@@ -246,8 +246,8 @@
    "lat": 36.976807,
    "lon": -122.01239,
    "approx": false,
-   "summary": "Charming 1 Bedroom Apartment in Midtown Santa Cruz!. 425-427 Pennsylvania Ave. - #425, Santa Cruz, CA 95060 Map",
-   "first_seen": "2026-11-10"
+   "summary": "Charming 1 Bedroom Apartment in Midtown Santa Cruz!. 425-427 Pennsylvania Ave. - #425, Santa Cruz, CA 95062 Map",
+   "first_seen": "2026-11-19"
   },
   {
    "id": "9705cb1882",
@@ -262,8 +262,8 @@
    "pm": "Santa Cruz Property Mgmt Co",
    "phone": "831.462.6424",
    "url": "https://santacruzproperty.com/rental.cfm?id=5227",
-   "lat": 36.977303,
-   "lon": -122.027276,
+   "lat": 36.977911,
+   "lon": -122.02878,
    "approx": true,
    "summary": "***$1,000 MOVE IN BONUS*** Santa Cruz Beach Hill; nice downstairs unit; quiet complex; close to downtown, bus line, UCSC and beach; modern upgrades throughout including stainless appliances and lamina",
    "first_seen": "2026-11-10"
@@ -364,6 +364,25 @@
    "first_seen": "2026-10-01"
   },
   {
+   "id": "b223d905b4",
+   "addr": "138 Peach Terrace, Santa Cruz, CA 95060-3251",
+   "city": "Santa Cruz",
+   "type": "Verify type",
+   "beds": 2,
+   "baths": 1.5,
+   "sqft": "1,054",
+   "rent": "$3,800",
+   "avail": "",
+   "pm": "Anderson Christie",
+   "phone": "",
+   "url": "https://andersonchristierealestate.appfolio.com/listings/detail/c3cd224c-f521-4abb-9e6d-d070bdf7cf51",
+   "lat": 36.973978,
+   "lon": -122.051758,
+   "approx": false,
+   "summary": "2 bed 1.5 bath upper westside, close to UCSC. 138 Peach Terrace, Santa Cruz, CA 95060-3251 Map",
+   "first_seen": "2026-11-19"
+  },
+  {
    "id": "b5debecf3c",
    "addr": "910 Soquel Avenue, Santa Cruz, CA 95062",
    "city": "Santa Cruz",
@@ -414,8 +433,8 @@
    "pm": "Utopia Management",
    "phone": "8315801111",
    "url": "https://utopiamanagement.com/rental-list/property-at-318-laurel-street",
-   "lat": 36.976157,
-   "lon": -122.027648,
+   "lat": 36.970848,
+   "lon": -122.030527,
    "approx": true,
    "summary": "318 Laurel Street – 318-1, Santa Cruz, CA",
    "first_seen": "2026-08-07"
@@ -429,7 +448,7 @@
    "baths": 1.0,
    "sqft": "",
    "rent": "$2450",
-   "avail": "Now",
+   "avail": "11/21/2026",
    "pm": "Santa Cruz Property Mgmt Co",
    "phone": "831.462.6424",
    "url": "https://santacruzproperty.com/rental.cfm?id=5285",
@@ -471,30 +490,11 @@
    "pm": "Anderson Christie",
    "phone": "",
    "url": "https://andersonchristierealestate.appfolio.com/listings/detail/5b708467-8237-45df-8920-0f029f920575",
-   "lat": 36.974814,
-   "lon": -122.033902,
+   "lat": 36.973463,
+   "lon": -122.029303,
    "approx": true,
    "summary": "1 bedroom. 1 bath, utilities included. 150 Canfield Ave, unit 8, Santa Cruz, CA 95060 Map",
    "first_seen": "2026-10-07"
-  },
-  {
-   "id": "e12f9b7f48",
-   "addr": "114-116 Maple St. - 114 Maple St #2, Santa Cruz, CA 95060",
-   "city": "Santa Cruz",
-   "type": "Verify type",
-   "beds": 1,
-   "baths": 1.0,
-   "sqft": "650",
-   "rent": "$2,650",
-   "avail": "NOW",
-   "pm": "C&C PM",
-   "phone": "",
-   "url": "https://ccpmgmt.appfolio.com/listings/detail/ec61c4da-90e6-4eb0-84ff-24305b472a2e",
-   "lat": 36.969787,
-   "lon": -122.029727,
-   "approx": false,
-   "summary": "Updated One Bedroom near Downtown Santa Cruz!. 114-116 Maple St. - 114 Maple St #2, Santa Cruz, CA 95060 Map",
-   "first_seen": "2026-10-21"
   },
   {
    "id": "3d44e1c4a0",
@@ -566,8 +566,8 @@
    "pm": "PURE PM SV",
    "phone": "",
    "url": "https://purepmcasv.appfolio.com/listings/detail/dd2484b5-c8a7-489b-8670-5b0cf0be8e32",
-   "lat": 36.97652,
-   "lon": -122.028995,
+   "lat": 36.977757,
+   "lon": -122.03182,
    "approx": true,
    "summary": "Quaint 1Br/1Ba Near Downtown Santa Cruz!. 221 Broadway , Unit C, Santa Cruz, CA 95060 Map",
    "first_seen": "2026-09-24"
@@ -607,7 +607,7 @@
    "lat": 36.970879,
    "lon": -121.959424,
    "approx": false,
-   "summary": "Charming Capitola 2 bedroom upstairs unit; desirable Jewel Box neighborhood; walk to shopping, Capitola Village and Jade Street park; newly refurbished; spacious rooms; large sunny deck; fresh paint; ",
+   "summary": "Charming Capitola 2 bedroom upstairs unit; desirable Jewel Box neighborhood; walk to shopping, Capitola Village and Jade Street park; spacious rooms; large sunny deck; fresh paint; new carpet througho",
    "first_seen": "2026-11-16"
   },
   {
@@ -623,8 +623,8 @@
    "pm": "Utopia Management",
    "phone": "8315801111",
    "url": "https://utopiamanagement.com/rental-list/property-at-204-hollister-ave-204-hollister-b",
-   "lat": 36.972218,
-   "lon": -121.956629,
+   "lat": 36.974575,
+   "lon": -121.953939,
    "approx": true,
    "summary": "206 Hollister Ave.  – 206 Hollister B, Capitola, CA",
    "first_seen": "2026-11-18"
@@ -642,8 +642,8 @@
    "pm": "C&C PM",
    "phone": "",
    "url": "https://ccpmgmt.appfolio.com/listings/detail/01d805c2-d2b3-4b82-80b5-134447e91978",
-   "lat": 36.988019,
-   "lon": -121.95625,
+   "lat": 36.989734,
+   "lon": -121.956599,
    "approx": true,
    "summary": "Cozy 2 Bedroom 1 Bathroom Home Plus Cottage in Soquel!. 4875 Rivervale Dr, Soquel, CA 95073 Map",
    "first_seen": "2026-11-06"
@@ -680,8 +680,8 @@
    "pm": "Bailey PM",
    "phone": "831-685-8588",
    "url": "https://baileypm.appfolio.com/listings/detail/b7e644e2-1944-4344-a9a0-4feeb6e1238e",
-   "lat": 36.973895,
-   "lon": -121.902344,
+   "lat": 36.980623,
+   "lon": -121.899087,
    "approx": true,
    "summary": "Ranch Style Home. 271 Bowen Ave, Aptos, CA 95003 Map",
    "first_seen": "2026-09-30"
@@ -718,8 +718,8 @@
    "pm": "Kendall & Potter",
    "phone": "",
    "url": "https://kendallpotter.appfolio.com/listings/detail/10645aa8-5fc0-49b6-9fca-f9dda0d77cc1",
-   "lat": 36.97523,
-   "lon": -121.898977,
+   "lat": 36.977629,
+   "lon": -121.899509,
    "approx": true,
    "summary": "Spectacular Furnished Ocean View Townhouse - 3BR/2.5BA. 1316 Via Tornasol , Aptos, CA 95003 Map",
    "first_seen": "2026-07-31"
@@ -733,12 +733,12 @@
    "baths": 1.0,
    "sqft": "",
    "rent": "$2,950",
-   "avail": "11/19/26",
+   "avail": "NOW",
    "pm": "Kendall & Potter",
    "phone": "",
    "url": "https://kendallpotter.appfolio.com/listings/detail/fcb679f2-407a-4839-bf7e-0b59dab2f507",
-   "lat": 36.977731,
-   "lon": -121.898127,
+   "lat": 36.977968,
+   "lon": -121.896748,
    "approx": true,
    "summary": "2BD/1BA Seacliff Condo!. 372 Searidge Road - 5, Aptos, CA 95003 Map",
    "first_seen": "2026-11-11"
@@ -794,8 +794,8 @@
    "pm": "Bailey PM",
    "phone": "831-685-8588",
    "url": "https://baileypm.appfolio.com/listings/detail/b4682944-670e-4594-9a45-00471676793f",
-   "lat": 36.978664,
-   "lon": -121.896618,
+   "lat": 36.974269,
+   "lon": -121.898376,
    "approx": true,
    "summary": "Aptos. 142 Bar Harbor Court, Aptos, CA 95003 Map",
    "first_seen": "2026-11-04"
@@ -832,8 +832,8 @@
    "pm": "PURE PM SV",
    "phone": "",
    "url": "https://purepmcasv.appfolio.com/listings/detail/88d10fb9-09d1-44b4-8079-0d3a680df45a",
-   "lat": 36.908331,
-   "lon": -121.754431,
+   "lat": 36.907592,
+   "lon": -121.759941,
    "approx": true,
    "summary": "2 Bedrooms and 1.5 Bathrooms duplex unit in the Watsonville area. 122 Buzzard Lagoon Rd, Watsonville, CA 95076 Map",
    "first_seen": "2026-11-13"
@@ -889,8 +889,8 @@
    "pm": "C&C PM",
    "phone": "",
    "url": "https://ccpmgmt.appfolio.com/listings/detail/ef7f9021-df48-4eff-929b-f17f10d64822",
-   "lat": 36.913962,
-   "lon": -121.758724,
+   "lat": 36.913677,
+   "lon": -121.757914,
    "approx": true,
    "summary": "NEW PRICE IMPROVEMENT AND $250 OFF FIRST & SECOND MONTH'S RENT! Now Available: Spacious 2Bed/1Bath Apt In Watsonville!!. 130 Miles Ln Apt D, Watsonville, CA 95076 Map",
    "first_seen": "2026-09-01"
@@ -927,8 +927,8 @@
    "pm": "PMI Santa Cruz",
    "phone": "831-471-7878",
    "url": "https://www.pmisantacruz.com/santa-cruz-homes-for-rent/87/533-primavera-rd-boulder-creek-ca-95006-9634",
-   "lat": 37.124893,
-   "lon": -122.119599,
+   "lat": 37.127106,
+   "lon": -122.124017,
    "approx": true,
    "summary": "Single Family Home. 533 Primavera Rd, Boulder Creek,  95006",
    "first_seen": "2026-10-13"
@@ -965,8 +965,8 @@
    "pm": "Bailey PM",
    "phone": "831-685-8588",
    "url": "https://baileypm.appfolio.com/listings/detail/0a32f1b1-bed1-4d41-ae36-c6d931a5e973",
-   "lat": 36.976182,
-   "lon": -122.027443,
+   "lat": 36.971307,
+   "lon": -122.030627,
    "approx": true,
    "summary": "1-Bed Cabin in Historic Brookdale. 11570 Highway 9 - Unit 14, Brookdale, CA 95007 Map",
    "first_seen": "2026-10-09"
